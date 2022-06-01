@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class AllNode : RuleNode
+public sealed class AllNode : RuleNode
 {
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
     {
