@@ -1,0 +1,16 @@
+<sequence values="BRWGNAEP">
+  <one in="BBBBBB/BBBBBB/BBBBBB/BBBBBB/BBBBBB/BBBBBB" out="******/*NNNN*/*N**N*/*N**N*/*NNNN*/******" steps="1"/>
+  <one in="BBB/BBB" out="WWW/WWW" steps="2"/>
+  <one in="B" out="R" steps="2"/>
+  <all>
+    <rule in="RB" out="BR"/>
+    <rule in="RW" out="BE"/>
+    <rule in="E" out="G"/>
+    <rule in="P" out="R"/>
+    <rule in="GB" out="BG"/>
+    <rule in="GN" out="PA"/>
+
+    <field for="R" to="W" on="B" recompute="True"/>
+    <field for="G" to="N" on="B" recompute="True"/>
+  </all>
+</sequence>

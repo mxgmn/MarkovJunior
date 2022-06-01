@@ -1,0 +1,22 @@
+<sequence values="EFDA">
+  <prl in="***/*E*/***" out="***/*F*/***"/>
+  <prl in="F" out="E" p="0.5" steps="1"/>
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="F" out="E" sum="5..8" values="E"/>
+    <rule in="E" out="F" sum="5..8" values="F"/>
+  </convolution>
+  <all>
+    <rule in="EF" out="*A"/>
+    <rule in="E*/*F" out="**/*A"/>
+  </all>
+  <all>
+    <rule in="AE" out="*D"/>
+    <rule in="A*/*E" out="**/*D"/>
+  </all>
+  <prl>
+    <rule in="E" out="F"/>
+    <rule in="A" out="D"/>
+  </prl>
+  <prl in="F" out="A"/>
+  <all in="AD/DA" out="D*/**"/>
+</sequence>

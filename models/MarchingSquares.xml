@@ -1,0 +1,11 @@
+<sequence values="BW">
+  <prl in="B" out="W" p="0.5" steps="1"/>
+  <map scale="3 3 1" values="DA">
+    <rule in="BB/BB" out="DDD/DDD/DDD"/>
+    <rule in="BB/BW" out="DDD/DDD/DDA"/>
+    <rule in="BB/WW" out="DDD/DDD/AAA"/>
+    <rule in="BW/WB" out="DDA/DDD/ADD"/>
+    <rule in="BW/WW" out="DDA/DDA/AAA"/>
+    <rule in="WW/WW" out="AAA/AAA/AAA"/>
+  </map>
+</sequence>

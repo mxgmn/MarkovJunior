@@ -1,0 +1,10 @@
+<sequence values="BD" symmetry="(xy)">
+  <all in="B" out="D"/>
+  <wfc values="BCA" tileset="Partition">
+    <rule in="D" out="Nothing|I|T"/>
+    <sequence>
+      <all in="AC" out="*A"/>
+      <all in="C" out="B"/>
+    </sequence>
+  </wfc>
+</sequence>

@@ -1,0 +1,12 @@
+<sequence values="BRWDI">
+  <one file="Sokoban1" legend="BDWIR" symmetry="()"/>
+  <one search="True">
+    <rule in="RB" out="BR"/>
+    <rule in="RWB" out="BRW"/>
+
+    <observe value="I" from="B" to="W"/>
+    <observe value="B" to="BR"/>
+    <observe value="W" to="BR"/>
+    <observe value="R" to="BR"/>
+  </one>
+</sequence>

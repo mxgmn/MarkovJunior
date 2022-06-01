@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sequence values="BtTRL" origin="Center" symmetry="(xy)" folder="CarmaTower">
+  <one in="B t" out="t B" />
+  <one in="BB/Bt" out="tt/tt" steps="1" symmetry="()" />
+  <all steps="2">
+    <rule in="tB" out="*t" />
+    <rule in="t*/*B" out="**/*t" />
+  </all>
+  <prl in="t B" out="* t" steps="2" />
+  <prl in="t B" out="* T" steps="1" />
+  <prl in="T B" out="* T" />
+  <union symbol="r" values="RTB" color="45283c" /> z
+
+  <!--one file="block_2_5x4"/>
+    <one file="block_1_2x2"/--><!--one file="block_2_4x3"/>
+    <one file="block_1_3x2"/--><!--one file="block_2_6x4"/>
+    <one file="block_1_2x2"/--><one>
+    <rule file="block_2_4x3" legend="rB*LTR" />
+    <rule file="block_1_5x3" legend="rB*LTR" />
+  </one><all symmetry="(xyz)">
+    <rule in="BRB" out="*B*" />
+    <rule in="RB/B* B*/**" out="B*/** **/**" />
+  </all><prl in="R" out="T" /><all comment="add on sides">
+    <rule in="LT/BB" out="**/L*" />
+    <rule in="BL/LL" out="L*/**" />
+  </all><prl in="t" out="B" /><all in="B T" out="* B" steps="2" /><all>
+    <rule in="BB LT" out="R* **" />
+    <rule in="RB LL" out="*R **" />
+  </all><prl in="B R" out="R *" steps="1" /><prl in="R" out="L" /><union symbol="^" values="BL" /><one steps="4">
+    <rule in="^^^^/^^^^/^^^^ ^^^^/^^^^/^^^^ TTTT/TTTT/TTTT" out="LLLL/LLLL/LLLL LLLL/LLLL/LLLL ****/****/****" />
+    <rule in="^^^^/^^^^/^^^^ ^^^^/^^^^/^^^^ ^^^^/^^^^/^^^^ TTTT/TTTT/TTTT" out="LLLL/LLLL/LLLL LLLL/LLLL/LLLL LLLL/LLLL/LLLL ****/****/****" />
+    <rule in="^^^^/^^^^/^^^^ ^^^^/^^^^/^^^^ ^^^^/^^^^/^^^^ ^^^^/^^^^/^^^^ TTTT/TTTT/TTTT" out="LLLL/LLLL/LLLL LLLL/LLLL/LLLL LLLL/LLLL/LLLL LLLL/LLLL/LLLL ****/****/****" />
+    <rule in="^^^/^^^ ^^^/^^^ ^^^/^^^ TTT/TTT" out="LLL/LLL LLL/LLL LLL/LLL ***/***" />
+  </one><prl in="L" out="T" /><prl in="B" out="L" /><prl in="T" out="B" />
+  <map scale="4 4 4" values="BLaDwWgKhORGUuoTtVQMpHlY" outputValues="BaLDWYl" transparent="OoH" folder="CarmaTower">
+    <rule in="L" out="LLLLL/LLLLL/LLLLL/LLLLL/LLLLL LLLLL/LLLLL/LLLLL/LLLLL/LLLLL LLLLL/LLLLL/LLLLL/LLLLL/LLLLL LLLLL/LLLLL/LLLLL/LLLLL/LLLLL LLLLL/LLLLL/LLLLL/LLLLL/LLLLL" comment="EEEEE" /><prl steps="1">
+      <rule in="B" out="L" />
+      <rule in="L" out="B" />
+    </prl><sequence symmetry="(xyz)" comment="scaffolding">
+      <all in="LB/BB BB/BB" out="**/** **/*O" />
+      <all in="OBBBB/***** *****/****L" out="****O/***** *****/*****" />
+      <union symbol="+" values="BO" comment="black or scaffold" />
+    </sequence><all in="BBB/+++ LLL/BBB *L*/BBB" out="***/*** ***/*** *W*/***" comment="setting up panels" /><all>
+      <rule in="LWWL" out="*LL*" />
+      <rule in="LWWWL" out="*LLL*" />
+    </all><markov>
+      <one in="aWWW" out="***a" />
+      <one>
+        <rule in="BLWWW" out="****a" />
+        <rule in="BLWWW" out="****R" />
+      </one>
+    </markov><all>
+      <rule in="aL/BB" out="L*/**" />
+      <rule in="aWL/BBB" out="LL*/***" />
+    </all><one in="aWWaWWa" out="***L***" /><all comment="fill down">
+      <rule in="W* L* L+" out="** W* **" />
+      <rule in="a* L* L+" out="** a* **" />
+    </all><all comment="mark uneven panels">
+      <rule in="WaW L*W" out="RRR **R" />
+      <rule in="WW LW" out="RR *R" />
+      <rule in="WWW" out="RRR" />
+      <rule in="LT/LB" out="*R/**" />
+    </all><all symmetry="(xyz)">
+      <rule in="RW" out="*R" />
+      <rule in="Ra" out="*R" />
+    </all><all comment="delete too short panels">
+      <rule in="L a a a a a a a" out="* t t t t t t t" />
+      <rule in="t a" out="* t" />
+      <rule in="tW" out="*T" />
+      <rule in="TW" out="*T" />
+    </all><prl>
+      <rule in="W" out="R" />
+      <rule in="a" out="R" />
+      <rule in="R" out="L" />
+    </prl><all in="BBB/+++ LLL/BBB *L*/BBB" out="***/*** ***/*** *H*/***" comment="special windows" /><union symbol="2" values="HW" /><all>
+      <rule in="H L L L L L L" out="H H H W W W W" />
+      <rule in="W+ LB LB" out="** ** H*" />
+    </all><all>
+      <rule in="L 2 L" out="* R *" />
+      <rule in="L2L" out="*R*" />
+      <rule in="2T" out="R*" />
+      <rule in="22/BL" out="RR/**" />
+      <rule in="2L/BL" out="R*/**" />
+    </all><all in="R2" out="*R" symmetry="(xyz)" /><all comment="mark long enough windows">
+      <rule in="LHHHHHH LHHHHHH LHHHHHH" out="*VVVVVV *VVVVVV *VVVVVV" />
+      <rule in="VH" out="*V" />
+      <rule in="V W W W W" out="* Q Q Q Q" />
+      <rule in="Q W" out="* Q" />
+    </all><prl>
+      <rule in="H" out="L" />
+      <rule in="W" out="L" />
+      <rule in="R" out="L" />
+    </prl><prl comment="delete solo windows">
+      <rule in="Q" out="W" />
+      <rule in="V" out="H" />
+    </prl><prl in="W * H" out="Q * V" /><all symmetry="(xyz)">
+      <rule in="QW" out="*Q" />
+      <rule in="QH" out="*V" />
+      <rule in="VH" out="*V" />
+      <rule in="VW" out="*Q" />
+    </all><prl>
+      <rule in="W" out="L" />
+      <rule in="H" out="L" />
+    </prl><all symmetry="(xyz)" comment="fine scaffold">
+      <rule in="OBB/*L*" out="**H/***" />
+      <rule in="HBB/*L*" out="**H/***" />
+    </all><union symbol="-" values="OH" color="fec601" /> H
+    <union symbol="=" values="OHoB" /><all>
+      <rule in="T-" out="*B" />
+      <rule in="T*/*-" out="**/*B" />
+      <rule in="t-" out="*B" />
+      <rule in="V-" out="*B" />
+      <rule in="LQ/B-" out="**/*B" />
+      <rule in="Q- L* V*" out="*B ** **" />
+      <rule in="VL/B-" out="**/*B" />
+      <rule in="QL/B-" out="**/*B" />
+    </all><all in="-B-/*L*" out="*o*/***" symmetry="(xyz)" /><all in="BQ oL" out="H* **" /><markov symmetry="(xyz)" comment="connect special windows">
+      <all in="WQ" out="*W" />
+      <one in="GQ" out="*W" />
+      <path from="Q" to="WG" on="HOo" color="G" inertia="True" />
+      <one in="Q" out="W" />
+    </markov><prl in="W" out="Q" /><prl>
+      <rule in="oQ" out="B*" />
+      <rule in="OQ" out="B*" />
+      <rule in="HQ" out="B*" />
+    </prl><convolution neighborhood="VonNeumann" comment="mark edges">
+      <rule in="L" out="p" sum="2..3" values="Bo" />
+    </convolution><union symbol="5" values="LURG" /><union symbol="6" values="LD" color="222034" /> b
+    <all symmetry="(xyz)">
+      <rule in="QL/==" out="*D/**" />
+      <rule in="DL/==" out="*D/**" />
+    </all><all>
+      <rule in="LL/LL/Qp" out="*D/*D/**" />
+      <rule in="LL/LL/Vp" out="*D/*D/**" />
+    </all><markov symmetry="(xyz)" comment="marking small or large faces">
+      <one in="RL/==" out="*R/**" steps="200" />
+      <all in="RL/==" out="UU/**" />
+      <all>
+        <rule in="UR/==" out="UU/**" />
+        <rule in="UL/==" out="UU/**" />
+      </all>
+      <one in="L5/=5" out="R*/**" />
+    </markov><one in="R" out="K" steps="12" /><all in="KR" out="*K" symmetry="(xyz)" /><prl>
+      <rule in="U" out="L" />
+      <rule in="R" out="L" />
+      <rule in="p" out="L" />
+    </prl><markov comment="surface prefab placement">
+      <all in="hLL/=== hLL/=== hLL/===" out="*h*/*B* *h*/*B* *h*/*B*" />
+      <all in="UW" out="*U" symmetry="(xyz)" />
+      <one in="GW" out="*U" symmetry="(xyz)" />
+      <path from="W" to="GQU" on="HOo" color="G" inertia="True" />
+      <one>
+        <rule file="side_13x5" legend="*o6-W" />
+        <rule file="side_5x13" legend="*o6-W" />
+        <rule file="side_7x11" legend="*o6-W" />
+        <rule file="side_11x7" legend="*o6-W" />
+        <altrule file="side_15x5" />
+        <altrule file="side_5x15" />
+        <altrule file="side_7x13" />
+        <altrule file="side_13x7" />
+        <altrule file="side_17x5" />
+        <altrule file="side_5x17" />
+        <altrule file="side_7x11" />
+        <altrule file="side_11x7" />
+        <rule file="roof_7x11" legend="6*o-W" />
+        <rule file="window_3" legend="OoH*BLh" />
+        <rule file="window_3" legend="OoH*BLh" />
+      </one>
+    </markov><markov comment="intermediate prefab placement">
+      <all in="UW" out="*U" symmetry="(xyz)" />
+      <one in="GW" out="*U" symmetry="(xyz)" />
+      <path from="W" to="GQU" on="HOo" color="G" inertia="True" />
+      <one>
+        <rule file="roof_7x7" legend="6*o-W" />
+        <rule file="roof_5x9" legend="6*o-W" />
+      </one>
+    </markov><markov comment="secondary prefab placement">
+      <all in="UW" out="*U" symmetry="(xyz)" />
+      <one in="GW" out="*U" symmetry="(xyz)" />
+      <path from="W" to="GQU" on="HOo" color="G" inertia="True" />
+      <one>
+        <rule file="side_3x5" legend="*o6-W" />
+        <rule file="side_5x3" legend="*o6-W" />
+        <altrule file="side_3x7" />
+        <altrule file="side_7x3" />
+        <rule file="side_3x5_fake" legend="*oM6-K" />
+        <rule file="side_5x3_fake" legend="*oM6-K" />
+        <rule file="roof_3x5" legend="6*-oW" />
+        <rule file="window_2" legend="OoH*BLh" />
+        <rule file="window_2" legend="OoH*BLh" />
+        <rule file="window_2" legend="OoH*BLh" />
+        <rule file="window_2" legend="OoH*BLh" />
+        <rule file="holes_4" legend="*oL-Bh" />
+        <rule file="small_windows_3" legend="*oL-Bh" />
+      </one>
+    </markov><all in="BoB UUU" out="*** *u*" symmetry="(xyz)" /><markov symmetry="(xyz)" comment="draw secondary tubes">
+      <one>
+        <rule in="WUu" out="**W" />
+        <rule in="WUU UUU UUu" out="*** *** **W" />
+      </one>
+      <path from="u" to="W" on="OHo" color="G" inertia="True" longest="True" />
+      <one in="W" out="R" />
+      <one in="u" out="W" />
+    </markov><prl in="R" out="U" /><prl in="M" out="o" /><all file="small_windows_2" legend="o*L-Bh" /><all file="holes_2" legend="o*L-Bh" /><markov>
+      <one in="hLL/=== hLL/=== hLL/===" out="*h*/*B* *h*/*B* *h*/*B*" />
+      <one file="window_1" legend="OoH*BLh" />
+    </markov><all in="LLLLL LhhhL LhhhL LhhhL LLLLL" out="***** **L** *LLL* **L** *****" /><one file="small_windows_2" legend="o*L-Bh" /><one>
+      <rule file="holes_h_4" legend="*oL-Bh" />
+      <rule file="holes_v_3" legend="*oL-Bh" />
+    </one><prl comment="delete fine scaffold">
+      <rule in="H" out="B" />
+      <rule in="o" out="B" />
+      <rule in="O" out="B" />
+      <rule in="D" out="L" />
+      <rule in="K" out="L" />
+    </prl><prl in="L B B" out="R * *" /><prl in="L B" out="* g" /><prl in="R" out="L" /><all in="LLL/BBB LhL/BBB LLL/BBB BBB/BBB" out="***/*** *L*/*** ***/*** ***/***" /><all comment="propagate holes">
+      <rule in="LLLLL/BBBBB LhLLL/BBBBB LLLLL/BBBBB" out="*****/***** ***h*/***** *****/*****" />
+      <rule in="LLL/BBB LLL/BBB LLL/BBB LhL/BBB LLL/BBB" out="***/*** *h*/*** ***/*** ***/*** ***/***" />
+    </all><all in="BB BL" out="a* **" comment="top edges" /><all in="aB/Ba BL/BB" out="**/a* **/**" /><all in="hhh/BaB" out="RRR/***" /><all>
+      <rule in="hh/Ba" out="RR/**" />
+      <rule in="h R" out="R *" />
+    </all><prl in="R" out="L" /><all in="LhL LhL LhL" out="*L* *L* *L*" /><one in="Lhhhhh Lhhhhh Lhhhhh" out="***L** ***L** ***L**" /><all in="hhhLh/BBBBB" out="***u*/*****" /><prl in="u" out="h" /><one in="LLLL LhhL LhhL LhhL LLLL" out="**** *LL* *LL* *LL* ****" steps="7" comment="remove some windows" /><one in="LLL LhL LLL" out="*** *L* ***" steps="3" /><one in="LLL LhL LhL LLL" out="*** *L* *L* ***" steps="2" /><altone in="LLLL LhhL LhhL LhhL LLLL" out="**** *LL* *LL* *LL* ****" steps="22" comment="remove some windows" /><altone in="LLL LhL LLL" out="*** *L* ***" steps="10" /><altone in="LLL LhL LhL LLL" out="*** *L* *L* ***" steps="4" /><all steps="1" comment="shorten panels">
+      <rule in="L T" out="* L" />
+      <rule in="L t" out="* L" />
+      <rule in="T L" out="L *" />
+      <rule in="t L" out="L *" />
+    </all><all steps="1">
+      <rule in="L t" out="* T" />
+      <rule in="t L" out="T *" />
+    </all><markov>
+      <all in="DU" out="*D" />
+      <one in="UU/UU" out="DD/DD" />
+    </markov><convolution neighborhood="VonNeumann" steps="1" comment="mark radiator edges">
+      <rule in="U" out="R" sum="2..3" values="U" />
+    </convolution><markov symmetry="(xyz)">
+      <all>
+        <rule in="uU UU" out="** *u" />
+        <rule in="BU UU" out="** *B" />
+        <rule in="uUU" out="**u" />
+        <rule in="BUU" out="**B" />
+      </all>
+      <one>
+        <rule in="RR RU" out="** *u" />
+        <rule in="RR RU" out="** *B" />
+      </one>
+    </markov><prl in="R" out="U" /><all steps="1">
+      <rule in="LTB" out="*LT" />
+      <rule in="LtB" out="*Lt" />
+    </all><union symbol="0" values="LH" /><all in="0hB 0hB 0hB" out="HB* HB* Haa" comment="deepen windows" /><all in="0hB 0hB" out="HB* Haa" /><all in="0hB" out="HB*" /><all comment="deepen special windows">
+      <rule in="QGB" out="*B*" />
+      <rule in="LQB" out="B**" />
+      <rule in="LVB" out="B**" />
+    </all><union symbol="#" values="Lh" /><all in="#BV" out="h*B" /><all in="BV/VL" out="*B/B*" /><all>
+      <rule in="Lh/LB" out="*R/**" />
+      <rule in="Bh/BB" out="*R/**" />
+    </all><one in="Rhhhhh Rhhhhh Rhhhhh" out="***R** ***R** ***R**" /><one comment="merge some special windows">
+      <rule in="hRh hRh hRh" out="*h* *h* *h*" />
+      <rule in="hRh hRh hRh" out="*M* *M* *M*" />
+      <rule in="hRh hRh hRh" out="*M* *M* *M*" />
+    </one><all in="0hB" out="HB*" comment="secondary deepening" /><prl>
+      <rule in="R" out="L" />
+      <rule in="M" out="L" />
+    </prl><all in="BBBB/BBBB/BBBB BaBB/BGGG/BaBB BBLL/BGLL/BBLL" out="****/GGG*/**** ****/Ga**/**** ****/G***/****" comment="resolve some conflicts between tubes and borders" /><prl comment="color bottoms">
+      <rule in="L B B B B" out="g * * * *" />
+      <rule in="L G B B B" out="g * * * *" />
+    </prl><all in="LgL" out="*L*" /><all in="BQ*/BLQ/BBB BQ*/BLQ/BBB BQ*/BLQ/BBB BQ*/BLQ/BBB" out="***/***/*** ***/***/*** ***/L**/LL* ***/***/***" /><union symbol="_" values="Tt" /><markov comment="put panel holders">
+      <one>
+        <rule in="__/OB" out="**/*O" />
+        <rule in="TB/OB" out="*O/*O" />
+        <rule in="OT/OB" out="**/*O" />
+      </one>
+      <one>
+        <rule in="BBB/BBB BBT/BBB BBT/BBB BBT/BBB" out="***/*** ***/*** *O*/*OO ***/***" />
+        <rule in="BBB/BBB BBT/BBB BBT/BBB BBT/BBB" out="***/*** ***/*** ***/*** *O*/*OO" />
+        <rule in="BBT/BBB BBT/BBB BBT/BBB BBB/BBB" out="***/*** *O*/*OO ***/*** ***/***" />
+        <rule in="BBT/BBB BBT/BBB BBT/BBB BBB/BBB" out="*O*/*OO ***/*** ***/*** ***/***" />
+      </one>
+    </markov><one steps="1">
+      <rule file="cut_1" legend="BTt*" />
+      <rule file="cut_2" legend="BTt*" />
+    </one><markov>
+      <one>
+        <rule in="__/OB" out="**/*O" />
+        <rule in="TB/OB" out="*O/*O" />
+      </one>
+      <one>
+        <rule in="BBB/BBB BBT/BBB BBT/BBB BBT/BBB" out="***/*** ***/*** *O*/*OO ***/***" />
+        <rule in="BBB/BBB BBT/BBB BBT/BBB BBT/BBB" out="***/*** ***/*** ***/*** *O*/*OO" />
+        <rule in="BBT/BBB BBT/BBB BBT/BBB BBB/BBB" out="***/*** *O*/*OO ***/*** ***/***" />
+        <rule in="BBT/BBB BBT/BBB BBT/BBB BBB/BBB" out="*O*/*OO ***/*** ***/*** ***/***" />
+      </one>
+    </markov><all in="OT/OB" out="**/*O" /><all in="TtT/OOO" out="***/BBB" /><one steps="2">
+      <rule file="bracing_v_3" legend="*LG" />
+      <rule file="bracing_h_3" legend="*GL" />
+    </one><one steps="3">
+      <rule file="bracing_v_2" legend="*LG" />
+      <rule file="bracing_h_2" legend="*GL" />
+    </one><one steps="16">
+      <rule file="bracing_v_1" legend="*LG" />
+      <rule file="bracing_h_1" legend="*GL" />
+      <rule in="*LLL/BBGL/BBBL/BBB* *LLL/BBGL/BBBL/BBB* *LLL/BBGL/BBBL/BBB*" out="****/****/****/**** ****/*L**/**L*/**** ****/****/****/****" />
+    </one><all>
+      <rule file="roof_thing_7x11" legend="DL*a" />
+      <rule file="roof_thing_2" legend="DLRao*" />
+    </all><all>
+      <rule file="roof_thing_1" legend="DLRao*" />
+      <rule file="roof_thing_5x9" legend="DL*a" />
+    </all><prl in="o *" out="B B" /><all in="GRL" out="*G*" /><all in="BL/GR" out="**/*G" /><prl in="R" out="B" /><prl>
+      <rule in="G" out="D" />
+      <rule in="Q" out="W" />
+      <rule in="T" out="W" />
+      <rule in="t" out="a" />
+      <rule in="O" out="L" />
+      <rule in="U" out="a" />
+      <rule in="u" out="D" />
+      <rule in="g" out="l" />
+      <rule in="H" out="Y" />
+    </prl>
+  </map>
+</sequence>
+<!--
+TODO: a more modular example in this style.
+-->

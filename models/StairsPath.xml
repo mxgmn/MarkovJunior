@@ -1,0 +1,30 @@
+<sequence values="BDROAGE" origin="Center" symmetry="(xy)">
+  <all in="D**B" out="***D" symmetry="(xyz)"/>
+  <one in="DBBDBBD" out="B**GEBB" steps="1" comment="finish"/>
+  <one in="DBBDBBD" out="RO*****" steps="1" comment="start"/>
+  <prl in="D" out="B"/>
+  <one>
+    <rule in="ROBBB" out="DAARO" comment="forward"/>
+    <rule in="ROBB/*BBB/***B/***B" out="DAAR/*BBO/****/****" comment="Turn"/>
+    <rule in="ROBBB BBBBB BBBBB BBBBB" out="DAADB BBBAB BBBAB DBBRO" comment="stairs down"/>
+    <rule in="BBBBB BBBBB BBBBB ROBBB" out="DBBRO BBBAB BBBAB DAADB" comment="stairs up"/>
+
+    <observe value="G" from="B" to="R"/>
+    <observe value="E" from="B" to="O"/>
+    <observe value="R" to="D"/>
+    <observe value="O" to="A"/>
+    <observe value="B" to="BDA"/>
+  </one>
+  <one in="ROBB" out="DAAD"/>
+  <map scale="5/3 5/3 5/3" values="BWAR" folder="Stairs">
+    <rule in="BBB/BBB/BBB BBB/ADA/BBB BBB/BBB/BBB" fout="Line" legend="BAW"/>
+    <rule in="BBB/BBB/BBB BBB/BDA/BAB BBB/BBB/BBB" fout="Turn" legend="BAW"/>
+    <rule in="BBB/BBB/BBB BBB/ADB/BBB BBB/BAB/BBB" fout="Down" legend="BAW"/>
+    <rule in="BBB/BAB/BBB BBB/BDA/BBB BBB/BBB/BBB" fout="Up" legend="BAW"/>
+    <rule in="BBB/BBB/BBB BBB/ADB/BBB BBB/BBB/BBB" fout="End" legend="BAWR"/>
+  </map>
+</sequence>
+
+<!--
+Connects 2 given points with the shortest path with stairs.
+-->

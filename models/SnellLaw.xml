@@ -1,0 +1,23 @@
+<sequence values="BUGIAWSR" origin="Center">
+  <all in="UB" out="*U" symmetry="(x)"/>
+  <prl in="U*" out="G*" symmetry="()"/>
+  <prl in="*G" out="*I" symmetry="()"/>
+  <all symmetry="(x)">
+    <rule in="U/B" out="B/U"/>
+    <rule in="B/G" out="G/B"/>
+    <rule in="IB" out="*I"/>
+  </all>
+  <all in="I/B" out="*/I" symmetry="()"/>
+  <one>
+    <rule in="U**/**I" out="A**/**S"/>
+    <rule in="S" out="U"/>
+    <rule in="U**/**B" out="A**/**R"/>
+    <rule in="R**/**B" out="W**/**R"/>
+
+    <observe value="G" from="B" to="R"/>
+    <observe value="U" to="A"/>
+    <observe value="B" to="BW"/>
+    <observe value="I" to="IA"/>
+  </one>
+  <one in="R" out="W"/>
+</sequence>

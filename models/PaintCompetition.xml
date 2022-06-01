@@ -1,0 +1,20 @@
+<sequence values="UYSN">
+  <all>
+    <rule in="U" out="S"/>
+    <rule in="U" out="N"/>
+  </all>
+  <one in="S" out="U" steps="5"/>
+  <one in="N" out="Y" steps="5"/>
+  <all>
+    <rule in="US" out="SU"/>
+    <rule in="UN" out="SU"/>
+    <rule in="YS" out="NY"/>
+    <rule in="YN" out="NY"/>
+    <field for="Y" to="S" on="N" recompute="True"/>
+    <field for="U" to="N" on="S" recompute="True"/>
+  </all>
+</sequence>
+
+<!--
+Yellow creatures try to paint everything into yellow, blue try to paint everything into blue.
+-->

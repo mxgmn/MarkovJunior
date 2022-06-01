@@ -1,0 +1,167 @@
+<models>
+  <model name="Apartemazements" size="8" d="3" amount="4"/>
+  <model name="Apartemazements" size="8" d="3" iso="True" pixelsize="6" gui="150"/>
+  <model name="CarmaTower" length="12" width="12" height="18"/>
+  <model name="CarmaTower" length="12" width="12" height="18" iso="True" amount="1"/>
+  <model name="ModernHouse" length="9" width="9" height="4" amount="4"/>
+  <model name="ModernHouse" length="9" width="9" height="4" iso="True"/>
+  <model name="SeaVilla" length="10" width="10" height="4" amount="4"/>
+  <model name="SeaVilla" length="10" width="10" height="4" iso="True"/>
+  
+  <model name="Backtracker" size="89"/>
+  <model name="BacktrackerCycle" size="59"/>
+  <model name="Basic" size="60" steps="1000"/>
+  <model name="BasicBrickWall" size="30"/>
+  <model name="BasicDijkstraDungeon" size="60"/>
+  <model name="BasicDijkstraFill" size="60"/>
+  <model name="BasicDungeonGrowth" size="59"/>
+  <model name="BasicPartitioning" size="60" steps="1000"/>
+  <model name="BernoulliPercolation" size="359"/>
+  <model name="BiasedGrowth" size="120" steps="1000"/>
+  <model name="BiasedGrowthContraction" size="120" steps="5000"/>
+  <model name="BiasedMazeGrowth" size="117" steps="400"/>
+  <model name="BiasedVoronoi" size="80" steps="1000"/>
+  <model name="BishopParity" size="60"/>
+  <model name="BlueNoise" size="80" steps="500"/>
+  <model name="Cave" size="60"/>
+  <model name="CaveContour" size="80"/>
+  <model name="CentralCrawlers" size="60" steps="300"/>
+  <model name="CentralSAW" size="59"/>
+  <model name="ChainDungeon" size="60"/>
+  <model name="ChainDungeonMaze" size="60"/>
+  <model name="ChainMaze" size="60"/>
+  <model name="Circuit" size="59" steps="1200"/>
+  <model name="ClosedSurface" size="12" d="3"/>
+  <model name="ColoredKnots" size="12" d="3"/>
+  <model name="CompleteSAW" size="19"/>
+  <model name="CompleteSAWSmart" size="23"/>
+  <model name="ConnectedCaves" size="60"/>
+  <model name="ConstrainedCaves" size="60"/>
+  <model name="Counting" size="8" d="3"/>
+  <model name="Coupling" size="80"/>
+  <model name="CrawlersChase" size="60" steps="200"/>
+  <model name="CrossCountry" size="80"/>
+  <model name="Cycles" size="59"/>
+  <model name="DenseSAW" size="59" amount="4"/>
+  <model name="DiagonalPath" size="80"/>
+  <model name="Digger" size="359" steps="50000"/>
+  <model name="DijkstraDungeon" size="40" amount="4"/>
+  <model name="DualRetraction" size="59"/>
+  <model name="DualRetraction3D" size="27" d="3"/>
+  <model name="DungeonGrowth" size="79" amount="4"/>
+  <model name="Dwarves" size="20" steps="85"/>
+  <model name="Escher" size="8" d="3"/>
+  <model name="EscherSurface" size="8" d="3"/>
+  <model name="EuclideanPath" size="80"/>
+  <model name="FindLongCycle" size="27" pixelsize="10"/>
+  <model name="FireNoise" size="300"/>
+  <model name="Flowers" size="60"/>
+  <model name="ForestFire" size="600" steps="80" pixelsize="1"/>
+  <model name="ForestFireCA" size="600" steps="80" pixelsize="1"/>
+  <model name="GameOfLife" size="120" steps="100"/>
+  <model name="Growth" size="359" steps="40000"/>
+  <model name="Growth" size="29" d="3" steps="3000"/>
+  <model name="GrowthCompetition" size="80" steps="30000"/>
+  <model name="GrowthContraction" size="79" steps="10000"/>
+  <model name="GrowthWalk" size="79" steps="5000"/>
+  <model name="GrowTo" size="120" steps="2000"/>
+  <model name="HamiltonianPath" size="39" steps="150000"/>
+  <model name="HamiltonianPaths" size="39" steps="1000"/>
+  <model name="Hills" length="40" width="40" height="12" d="3"/>
+  <model name="IrregularMazeGrowth" size="79"/>
+  <model name="IrregularSAW" size="79"/>
+  <model name="Keys" size="33"/>
+  <model name="Keys" size="23" d="3"/>
+  <model name="KnightPatrol" size="60" steps="200"/>
+  <model name="Knots2D" size="12"/>
+  <model name="Knots3D" size="8" d="3"/>
+  <model name="Laplace" size="60" steps="1000"/>
+  <model name="LoopGrowth" size="37"/>
+  <model name="MarchingSquares" size="20"/>
+  <model name="MazeBacktracker" size="359" steps="20000"/>
+  <model name="MazeBacktracker" size="967" pixelsize="1" steps="200000"/>
+  <model name="MazeGrowth" size="359"/>
+  <model name="MazeGrowth" size="27" d="3"/>
+  <model name="MazeMap" size="30"/>
+  <model name="MazeTrail" size="59" steps="1000"/>
+  <model name="MazeTrail" size="27" d="3" steps="1000"/>
+  <model name="NestedGrowth" size="80" steps="100"/>
+  <model name="NoDeadEnds" size="39"/>
+  <model name="NoDeadEnds" size="19" d="3"/>
+  <model name="Noise" size="80"/>
+  <model name="Noise" size="24" d="3"/>
+  <model name="NystromDungeon" size="39" amount="4" pixelsize="8" gui="150"/>
+  <model name="OddScale" size="8"/>
+  <model name="OddScale3D" size="8" d="3"/>
+  <model name="OpenCave" size="80"/>
+  <model name="OpenCave3D" size="40" d="3"/>
+  <model name="OrganicMechanic" size="30" steps="200"/>
+  <model name="OrientedEscher" size="6" d="3"/>
+  <model name="PaintCompetition" size="48" steps="400"/>
+  <model name="ParallelGrowth" size="29" d="3" steps="24"/>
+  <model name="ParallelMazeGrowth" size="179"/>
+  <model name="Partitioning" length="11" width="11" height="3"/>
+  <model name="Percolation" size="360"/>
+  <model name="PeriodicEscher" size="8" d="3"/>
+  <model name="PillarsOfEternity" size="9" d="3"/>
+  <model name="Push" size="40" steps="8000"/>
+  <model name="PutColoredLs" size="30"/>
+  <model name="PutLs" size="50"/>
+  <model name="RegularPath" size="79"/>
+  <model name="RegularSAW" size="39"/>
+  <model name="RegularSAW" size="19" d="3"/>
+  <model name="RegularSAWRestart" size="39"/>
+  <model name="RegularSAWRestart" size="19" d="3"/>
+  <model name="River" size="80" amount="4"/>
+  <model name="River" size="20" d="3" amount="1"/>
+  <model name="SAWRestart" size="79" steps="2000"/>
+  <model name="SelectLargeCaves" size="60"/>
+  <model name="SelectLongKnots" size="10" d="3"/>
+  <model name="SelfAvoidingWalk" size="39"/>
+  <model name="Sewers" size="40"/>
+  <model name="SmarterDigger" size="40" steps="800"/>
+  <model name="SmartSAW" size="19"/>
+  <model name="SmoothTrail" size="59"/>
+  <model name="SnellLaw" size="80"/>
+  <model name="SoftPath" size="180"/>
+  <model name="SoftPath" size="80" d="3"/>
+  <model name="StairsPath" size="33" d="3"/>
+  <model name="StochasticVoronoi" size="200"/>
+  <model name="StochasticVoronoi" size="50" d="3" steps="-1"/>
+  <model name="StormySnellLaw" size="120"/>
+  <model name="StrangeNoise" size="60" steps="500"/>  
+  <model name="StrangeDungeon" size="59"/>
+  <model name="StrangeDungeon" size="29" d="3"/>
+  <model name="StrangeGrowth" size="59" steps="700"/>
+  <model name="SubmergedKnots" size="12" d="3"/>
+  <model name="Surface" size="10" d="3"/>
+  <model name="Tetris" size="30" steps="1500"/>
+  <model name="TileDungeon" size="12" amount="4"/>
+  <model name="Trail" size="59" steps="3000"/>
+  <model name="Voronoi" size="240"/>
+  <model name="Voronoi" size="60" d="3"/>
+  <model name="WaveBrickWall" size="50"/>
+  <model name="WaveDungeon" size="50"/>
+  <model name="WaveFlowers" size="60"/>
+  <model name="WolfBasedApproach" size="70" steps="300"/>
+  
+  gifs
+  <!--<model name="Wilson" size="59" steps="1000" gui="150" gif="True"/>-->
+  <!--<model name="BasicSnake" size="23" steps="100" gif="True"/>-->
+  <!--<model name="Chase" size="60" steps="200" gif="True"/>-->
+
+  <!--<model name="MultiSokoban9" size="9" amount="1" pixelsize="20" gif="True"/>-->
+  <!--<model name="MultiSokoban8" size="8" amount="1" pixelsize="20" gif="True"/>-->
+  <!--<model name="SokobanLevel1" length="14" width="9" amount="1" pixelsize="21" gif="True"/>-->
+  <!--<model name="SokobanLevel2" length="5" width="4" amount="1" pixelsize="21" gif="True"/>-->
+  <!--<model name="SequentialSokoban" size="20" gif="True"/>-->
+
+  benchmarks
+  <!--<model name="MazeGrowth" size="967" amount="20" pixelsize="1" steps="200000"/> 1.7-->
+  <!--<model name="ParallelMazeGrowth" size="967" amount="20" pixelsize="1"/> 2.0-->
+  <!--<model name="MazeBacktracker" size="967" amount="20" pixelsize="1" steps="200000"/> 2.3-->
+</models>
+
+<!--
+
+-->

@@ -1,0 +1,11 @@
+<sequence values="NWSB" origin="Center">
+  <prl in="N/*" out="S/*" symmetry="()"/>
+  <prl in="*/S" out="*/B" symmetry="()"/>
+  <one in="B/W" out="W/B" symmetry="()" steps="20"/>
+  <one temperature="35.0">
+    <rule in="WB" out="WW"/>
+    <rule in="BWW" out="BBW"/>
+    <field for="W" to="N" on="BW" recompute="False"/>
+    <field for="B" to="S" on="BW" recompute="False"/>
+  </one>
+</sequence>

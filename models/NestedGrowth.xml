@@ -1,0 +1,18 @@
+<all values="BWAD" origin="Center">
+  <rule in="WB" out="WW"/>
+  <rule in="WD" out="WW"/>
+  <rule in="AW" out="AA"/>
+  <rule in="DA" out="DD"/>
+  <rule in="*WWW*/WWWWW/WWWWW/WWWWW/*WWW*" out="*WWW*/WWWWW/WWAWW/WWWWW/*WWW*"/>
+  <rule in="*WWW*/WWWWW/WWWWW/WWWWW/*WWW*" out="*WWW*/WWWWW/WWWWW/WWWWW/*WWW*"/>
+
+  <rule in="*AAA*/AAAAA/AAAAA/AAAAA/*AAA*" out="*AAA*/AAAAA/AADAA/AAAAA/*AAA*"/>
+  <rule in="*AAA*/AAAAA/AAAAA/AAAAA/*AAA*" out="*AAA*/AAAAA/AAAAA/AAAAA/*AAA*"/>
+
+  <rule in="*DDD*/DDDDD/DDDDD/DDDDD/*DDD*" out="*DDD*/DDDDD/DDWDD/DDDDD/*DDD*"/>
+  <rule in="*DDD*/DDDDD/DDDDD/DDDDD/*DDD*" out="*DDD*/DDDDD/DDDDD/DDDDD/*DDD*"/>
+</all>
+
+<!--
+From Imagegram: https://zaratustra.itch.io/imagegram
+-->

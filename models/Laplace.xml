@@ -1,0 +1,4 @@
+<one values="BW" origin="Center" temperature="12.0">
+  <rule in="B" out="W"/>
+  <field for="W" to="W" on="B" recompute="False"/>
+</one>

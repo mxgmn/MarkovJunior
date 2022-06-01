@@ -1,0 +1,16 @@
+<sequence values="BRGWA" origin="Center">
+  <union symbol="?" values="WA"/>
+  <markov>
+    <one in="RBB" out="GGR"/>
+    <one in="RGG" out="WAR"/>
+  </markov>
+  <one in="R" out="W"/>
+  <one in="WBW" out="WAW" steps="1"/>
+  <all in="BBB/B?B" out="***/*B*" d="2"/>
+  <!--<all in="BBB/BBB/BBB BBB/B?B/BBB" out="***/***/*** ***/*B*/***" d="3"/>-->
+  <all in="A" out="W"/>
+</sequence>
+
+<!--
+Generates a random cycle.
+-->

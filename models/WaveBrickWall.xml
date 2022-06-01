@@ -1,0 +1,5 @@
+<sequence values="B" symmetry="()">
+  <wfc sample="BrickWall" values="bNn" n="3" periodic="True" shannon="True">
+    <rule in="B" out="b|N|n"/>
+  </wfc>
+</sequence>

@@ -1,0 +1,510 @@
+﻿<sequence values="BD" symmetry="(xy)">
+  <prl in="B" out="D" />
+  <wfc tileset="Partition" values="BVL vSaOon" overlap="-3">
+    <rule in="D" out="Nothing|I|T" />
+    <prl>
+      <rule in="LBBBL" out="*LSL*" />
+      <rule in="V***/****/****/***B" out="****/****/****/***O" />
+    </prl>
+    <prl in="*****/*****/**V**/*****/*****" out="*****/*****/**v**/*****/*****" />
+    <prl in="V*****v" out="******n" />
+    <prl in="nBBBBBn" out="*aaaaa*" />
+    <prl>
+      <rule in="a**O**S" out="***o***" />
+      <rule in="V***/****/****/***O" out="****/****/****/***o" />
+    </prl>
+    <prl in="anBBBBBV*" out="**aaaaa*a" />
+    <prl>
+      <rule in="a" out="L" />
+      <rule in="n" out="V" />
+      <rule in="v" out="V" />
+      <rule in="VLLLLLV" out="***S***" />
+      <rule in="VBBBBBV" out="***S***" />
+    </prl>
+    <map scale="1/3 1/3 1/3" values="BVSsto yORr CcaGP">
+      <rule in="***/***/*** ***/*O*/*** ***/***/***" out="t" />
+      <rule in="***/***/*** ***/*o*/*** ***/***/***" out="o" />
+      <rule in="***/***/*** BBB/LSL/BBB ***/***/***" out="S" />
+      <rule in="***/***/*** BBB/BSB/BBB ***/***/***" out="s" />
+      <rule in="***/***/*** ***/*V*/*** ***/***/***" out="V" />
+      <prl>
+        <rule in="* t" out="* y" />
+        <rule in="***/*S*/***" out="***/*C*/***" />
+        <rule in="***/*s*/***" out="***/*c*/***" />
+      </prl>
+      <union symbol="." values="yr" />
+      <markov>
+        <all>
+          <rule in="R*y" out="**r" />
+          <rule in="r*y" out="**r" />
+        </all>
+        <one in="******* .*.*.*. .*y*.*." out="******* ******* **R****" /> - можно и ослабить это условие, но давайте пока так
+      </markov>
+      <prl>
+        <rule in="r *" out="y *" />
+        <rule in="* c" out="* P" />
+        <rule in="* C" out="* G" />
+      </prl>
+      <prl in="P *" out="a *" />
+      <wfc tileset="PartitionedEdges" values="BOaFXowSLsV JKkARrWhNYnxevDUZdQu" transparent="x">
+        <rule in="t" out="Empty" />
+        <rule in="o" out="o" />
+        <rule in="r" out="Empty|Line|Turn|X|ContactUp" />
+        <rule in="y" out="Empty|Line|Turn|X|ContactDown|ContactUp|Bridge" />
+        <rule in="R" out="ContactUp" />
+        <rule in="S" out="01" />
+        <rule in="s" out="00" />
+        <rule in="c" out="00|10" />
+        <rule in="a" out="00|10|Down|Up0" />
+        <rule in="P" out="00|10|Up0" />
+        <rule in="C" out="01|11" />
+        <rule in="G" out="01|11" /> Up1
+
+        <rule in="V" out="Nothing|I|T|Cross" /><prl>
+          <rule in="w" out="B" />
+          <rule in="F" out="B" />
+          <rule in="s" out="S" />
+          <rule in="B" out="J" />
+        </prl><prl>
+          <rule in="S**O a***" out="***K ****" comment="mark nodes above stairs" />
+          <rule in="a*** S**O" out="**** ***K" comment="mark nodes below stairs" />
+          <rule in="J *" out="B *" />
+        </prl><prl in="OBB*BBO" out="*aa*aa*" comment="fill the grid" /><prl in="Xaa*aaO" out="****A**" comment="mark nodes near stairs as gates" /><prl comment="cancel multi gates">
+          <rule in="AaOaA" out="wwOww" />
+          <rule in="AaO/**a/**A" out="wwO/**w/**w" />
+        </prl><markov>
+          <one>
+            <rule in="WR" out="*F" />
+            <rule in="WA" out="*N" />
+          </one>
+          <path from="A" to="R" on="aOS" color="W" longest="True" inertia="True" />
+          <one in="A" out="R" />
+        </markov><path from="R" to="W" on="aOS" color="h" inertia="True" comment="some gates could have been blocked, so connect them to the main path" /><prl>
+          <rule in="hR" out="*W" />
+          <rule in="aaXaa" out="WW*WW" />
+          <rule in="a a" out="W W" />
+          <rule in="h" out="W" />
+          <rule in="F" out="W" />
+          <rule in="N" out="W" />
+          <rule in="w" out="W" />
+          <rule in="WO" out="*Y" />
+          <rule in="WS" out="*s" />
+        </prl><all comment="repair markers on the path">
+          <rule in="sWWW" out="***Y" />
+          <rule in="YWWW" out="***s" />
+        </all><one in="s J" out="x *" steps="1" /><markov comment="connect components">
+          <one>
+            <rule in="xWW*WWs" out="******x" />
+            <rule in="x W W s" out="* * * x" />
+            <rule in="s W W x" out="x * * *" />
+            <rule in="xWWY" out="***n" />
+            <rule in="sWWn" out="x***" />
+          </one>
+          <one>
+            <rule in="nFFFFFF" out="******n" />
+            <rule in="nFFFFFY" out="******n" />
+          </one>
+          <path from="n" to="Y" on="aOSs" color="F" inertia="True" />
+        </markov><prl>
+          <rule in="a" out="B" />
+          <rule in="nFFFFFn" out="*WWxWW*" />
+          <rule in="x" out="S" />
+        </prl><prl in="LS" out="*s" /><union symbol="@" values="nOKX" /><one in="B n J" out="Y * *" steps="1" /><markov comment="propagate insides">
+          <all>
+            <rule in="Y*****B ***S**@" out="******Y *******" />
+            <rule in="*******/Y*****B ******W/***s**@" out="*******/******Y *******/*******" />
+            <rule in="Y******/*******/*******/*******/*******/*******/******B ***s***/*******/*******/s******/*******/*******/******n" out="*******/*******/*******/*******/*******/*******/******Y *******/*******/*******/*******/*******/*******/*******" />
+          </all>
+          <all>
+            <rule in="Y*****B" out="******R" />
+            <rule in="R*****B" out="******R" />
+          </all>
+          <one in="B*****B/*******/*******/*******/*******/*******/B*****B @W****@/*******/*******/*******/*******/*******/@*****@ *******/*******/*******/*******/*******/*******/******* Y*****Y/*******/*******/*******/*******/*******/Y*****Y" out="Y*****Y/*******/*******/*******/*******/*******/Y*****Y *******/*******/*******/*******/*******/*******/******* *******/*******/*******/*******/*******/*******/******* *******/*******/*******/*******/*******/*******/*******" />
+          <one in="B* @W ** Y*" out="Y* ** ** **" />
+          <one in="B* @W" out="Y* **" />
+          <one in="B*****B/*******/*******/*******/*******/*******/B*****B @*****@/*******/*******/*******/*******/*******/@*****@ *******/*******/*******/*******/*******/*******/******* Y*****Y/*******/*******/*******/*******/*******/Y*****Y" out="Y*****Y/*******/*******/*******/*******/*******/Y*****Y *******/*******/*******/*******/*******/*******/******* *******/*******/*******/*******/*******/*******/******* *******/*******/*******/*******/*******/*******/*******" />
+          <one in="B @ * Y" out="Y * * *" />
+        </markov><prl>
+          <rule in="R" out="B" />
+          <rule in="*****/*****/**Y**/*****/***** BB*BB/BB*BB/*****/BB*BB/BB*BB" out="*****/*****/*****/*****/***** FF*FF/FF*FF/*****/FF*FF/FF*FF" />
+        </prl><prl>
+          <rule in="FLF" out="*B*" />
+          <rule in="FLB" out="we*" />
+          <rule in="eLV" out="*e*" />
+          <rule in="Y O" out="* R" />
+        </prl><prl>
+          <rule in="wBw" out="*w*" />
+          <rule in="wBB/eVB/Bew" out="*ww/**w/***" />
+          <rule in="F" out="B" />
+          <rule in="Y" out="B" />
+          <rule in="s" out="S" />
+          <rule in="L J" out="B *" />
+          <rule in="o" out="O" />
+        </prl><prl>
+          <rule in="*****/*****/**S**/*****/*****" out="*****/*****/**s**/*****/*****" />
+          <rule in="%B***B% JJJJJJJ" out="*FF*FF* *******" />
+        </prl><prl in="S**O" out="***o" /><markov comment="make an entrance">
+          <all>
+            <rule in="N*****o" out="******N" />
+            <rule in="nUUUUUU" out="*WWSWWn" />
+            <rule in="nUUUUUoBBSB" out="*WWSWWNWW*W" />
+          </all>
+          <path from="o" to="n" on="FsOR" color="U" inertia="True" longest="True" />
+        </markov><prl>
+          <rule in="WN" out="*n" />
+          <rule in="wFw" out="*w*" />
+        </prl><prl>
+          <rule in="F" out="B" />
+          <rule in="N" out="O" />
+          <rule in="s" out="S" />
+        </prl><prl comment="fill contours with floors">
+          <rule in="RBB*BBR" out="*aa*aa*" />
+          <rule in="RBB*BBn" out="*aa*aa*" />
+          <rule in="R" out="Y" />
+        </prl><all in="BBBBBBB/aa*aaYB/BBBBBBB" out="*******/BB*BB**/*******" comment="retract dead ends" /><union symbol="#" values="hU" /><union symbol="$" values="sQ" /><union symbol="%" values="OnR" />
+        === WALLS AND WINDOWS ===
+        на существенные и несущественные стены нужно разделить еще до стягивания
+        принцип такой: если окно проходит по контуру сверху или снизу, то оно существенное, остальные нет
+
+        <prl in="B" out="x" /><prl in="* x" out="* B" /><prl in="S B B S" out="* h h *" /><prl in="888/8S8/888" out="***/*s*/***" /><prl in="1*****1/3**s**3/1*****1" out="*******/***S***/*******" /><prl in="s**2/***1" out="Q***/****" /><all comment="mark boundary walls as windows">
+          <rule in="e* *h *h **" out="** *U *U **" />
+          <rule in="** *h *h e*" out="** *U *U **" />
+          <rule in="U $ h h" out="* * U U" />
+          <rule in="h h $ U" out="U U * *" />
+        </all><markov>
+          <all comment="retract windows">
+            <rule in="#* #* *W" out="r* r* **" comment="retract walls over the main path" />
+            <rule in="U U s J" out="r r * *" />
+            <rule in="x s # #" out="* * r r" />
+            <rule in="U U $ r" out="r r * *" />
+            <rule in="r $ U U" out="* * r r" />
+            <rule in="# r" out="r *" />
+            <rule in="h h s r" out="r r * *" />
+            <rule in="r s h h" out="* * r r" />
+          </all>
+          <one in="***r*** Raa*aaY" out="******* nAA*AAR" comment="move through unobstructed edge" />
+          <one in="***h*** Raa*aaY" out="***r*** nAA*AAR" comment="move through inner wall" />
+          <one in="***r*** Raa*aaR" out="******* nAA*AAn" comment="connect through unobstructed edge" />
+          <one in="***h*** Raa*aaR" out="***r*** nAA*AAn" comment="connect through inner wall" />
+          <one in="***r*** Raa*aan" out="******* nAA*AA*" comment="loop through unobstructed edge" />
+          <one in="***h*** Raa*aan" out="***r*** nAA*AA*" comment="loop through inner wall" />
+          <one in="***r*** naa*aaY" out="******* *AA*AAR" comment="sprout through unobstructed edge" />
+          <one in="***h*** naa*aaY" out="***r*** *AA*AAR" comment="sprout through inner wall" />
+          <one in="***U*** Raa*aaY" out="***r*** nAA*AAR" comment="move through window" />
+          <one in="***U*** Raa*aaR" out="***r*** nAA*AAn" comment="connect through window" />
+          <one in="***U*** Raa*aan" out="***r*** nAA*AA*" comment="loop through window" />
+          <one in="***U*** naa*aaY" out="***r*** *AA*AAR" comment="sprout through window" />
+        </markov><prl>
+          <rule in="x" out="B" />
+          <rule in="r" out="B" />
+          <rule in="R" out="n" />
+          <rule in="s" out="S" />
+          <rule in="Q" out="S" />
+          <rule in="* * Y" out="* * O" />
+        </prl><prl in="***B*** naa*aan" out="******* *AA*AA*" comment="make all dirs open in open areas" /><prl in="n" out="Y" /><prl in="WY" out="*n" />
+
+        как раньше, нужно удалить окна, примыкающие к контурам снаружи
+        альтернатива: окна как разграничители внешности и внутренности (когда-то хотел сделать внутренность как пересечение платформ!)
+        кстати, можно усилить условие перехода вверх на этаж, чтобы платформы пересекались по большим кускам
+        <union symbol="1" values="WaA" /><union symbol="2" values="nXY" /><union symbol="3" values="nY" /><union symbol="4" values="WA" /><union symbol="5" values="Bk" /><union symbol="6" values="BUR" /><union symbol="8" values="BL" /><union symbol="?" values="Qu" /><union symbol="," values="e" /> Be e
+        <union symbol="^" values="Vu" /><union symbol="." values="BJX" />
+
+        === COLUMNS ===
+        <all comment="mark insides of the bottom floor">
+          <rule in="wB JJ" out="*F **" />
+          <rule in="FB" out="*F" />
+          <rule in="F*B" out="**F" />
+          <rule in="*44*44*/4*****4/4*****4/***V***/4*****4/4*****4/*44*44*" out="*******/*******/*******/***x***/*******/*******/*******" />
+        </all><prl comment="mark vertices that can be a base of a column">
+          <rule in="2*****2/*******/*******/***V***/*******/*******/2*****2" out="*******/*******/*******/***v***/*******/*******/*******" />
+          <rule in="2*****2/*******/***w***/**eVe**" out="*******/*******/*******/***v***" />
+          <rule in="2***/****/**we/**eV" out="****/****/****/***v" />
+          <rule in="2*****2/*******/****w**/**eV***/***e***/*******/******2" out="*******/*******/*******/***v***/*******/*******/*******" />
+          <rule in="VF JJ" out="v* **" />
+          <rule in="V*/*w JJ/JJ" out="v*/** **/**" />
+        </prl><all comment="drop columns">
+          <rule in="v B B" out="* D D" />
+          <rule in="D V B B" out="* * D D" />
+          <rule in="x B B" out="* D D" />
+        </all><all comment="retract columns">
+          <rule in="D D V ." out="r r * *" />
+          <rule in="D D V r" out="r r * *" />
+          <rule in="D D x" out="r r *" />
+        </all><prl in="O*****O/*BBBBB*/*BBBBB*/*BB*BB*/*BBBBB*/*BBBBB*/O*****O JJJJJJJ/JJJJJJJ/JJJJJJJ/JJJJJJJ/JJJJJJJ/JJJJJJJ/JJJJJJJ" out="*******/*RRRRR*/*RRRRR*/*RR*RR*/*RRRRR*/*RRRRR*/******* *******/*******/*******/*******/*******/*******/*******" comment="mark grass nodes" /><prl in="R*/*O JJ/JJ" out="**/** **/*X" /><prl>
+          <rule in="r" out="B" />
+          <rule in="F" out="B" />
+          <rule in="v" out="V" />
+          <rule in="x" out="V" />
+          <rule in="R" out="B" />
+        </prl><prl in="V*** B**h B**h" out="**** ***B ***B" comment="erase walls not bounded by columns" /><prl comment="expand walls and windows">
+          <rule in="V*****V **BhB** **BhB**" out="******* **h*h** **h*h**" />
+          <rule in="V*****V **BUB** **BUB**" out="******* **U*U** **U*U**" />
+        </prl>
+
+        === OVERHANGS ===
+        <prl in="*****/*****/**L**/*****/*****" out="*****/*****/**Q**/*****/*****" /><prl in="L" out="B" /><prl in="Q" out="L" /><prl>
+          <rule in="***/UUU/*** BBB/***/BBB ***/UUU/***" out="***/***/*** rrr/***/rrr ***/***/***" />
+          <rule in="L*e/BBB" out="***/rrr" />
+          <rule in="*e*/e*L/*LB" out="***/***/**r" />
+          <rule in="n*/*B" out="**/*r" />
+          <rule in="X*/*B" out="**/*r" />
+          <rule in="LBBBBBL" out="*rrrrr*" comment="erase thin rectangles" />
+        </prl><all in="rB" out="*r" /><prl in="eB/*L" out="*F/**" /><all in="FB" out="*F" /><prl>
+          <rule in="rLr" out="*B*" />
+          <rule in="rLB" out="*B*" />
+          <rule in="BLB" out="*B*" />
+        </prl><all>
+          <rule in="r" out="B" />
+          <rule in="LFFFFF/*LL*LL/LFFFFF" out="******/*FF*FF/******" />
+          <rule in="FFFFFFF/F*LL*LL/FFFFFFF" out="*******/**FF*FF/*******" />
+        </all><markov comment="select a disjoint subset of rectangles">
+          <all>
+            <rule in="NF" out="*N" />
+            <rule in="LN/V*" out="**/Q*" />
+            <rule in="NNN/NVN/NNN" out="***/*Q*/***" />
+          </all>
+          <all>
+            <rule in="RF" out="*R" />
+            <rule in="Q B B" out="* Z Z" />
+            <rule in="B B Q" out="Z Z *" />
+            <rule in="Z * B B" out="* * Z Z" />
+            <rule in="B B * Z" out="Z Z * *" />
+            <rule in="Z*/** **/*F" out="**/** **/*R" />
+            <rule in="**/*F Z*/**" out="**/*R **/**" />
+          </all>
+          <one in="LF/VL" out="*N/Q*" />
+        </markov><prl>
+          <rule in="RLB" out="*B*" />
+          <rule in="RLR" out="*B*" />
+          <rule in="F" out="B" />
+        </prl><prl>
+          <rule in="R" out="B" />
+          <rule in="Z" out="B" />
+          <rule in="Q" out="V" />
+          <rule in="N" out="B" />
+          <rule in="o" out="B" />
+          <rule in="K" out="B" />
+        </prl>
+
+        === MERGING ===
+        <prl in="UUU*B" out="kkk**" comment="mark all composite windows" /><prl comment="merge elementary windows vertically">
+          <rule in="***/UUU/*** BBB/BSB/BBB ***/UUU/***" out="***/***/*** ***/Q*Q/*** ***/***/***" />
+          <rule in="UUU eSe UUU" out="*** u*u ***" />
+        </prl><all comment="detect and propagate horizontal mismatches">
+          5=Bk, ?=Qq
+          <rule in="U***5 ?**** U***U" out="Z**** ***** Z***Z" /><rule in="U***U ?**** U***5" out="Z***Z ***** Z****" /><rule in="U Z" out="Z *" /><rule in="Z U" out="* Z" /><rule in="U * Z" out="Z * *" /><rule in="Z * U" out="* * Z" /><rule in="U***U/***** *****/**e** U***U/*****" out="Z***Z/***** *****/***** Z***Z/*****" comment="ban merges that cross contours" /><rule in="5***U ee*ee" out="****Z *****" comment="ban merges that create broken contours" /><rule in="U***U *w*ee" out="Z***Z *****" comment="ban merges that create broken contours" /><rule in="U***U/*****/**U**" out="Z***Z/*****/**Z**" comment="ban merges near triple points" /><rule in="h***U/*****/**U**" out="****Z/*****/**Z**" comment="ban merges near triple points" /><rule in="**5**/*****/5*D*U/*****/**5**" out="*****/*****/****Z/*****/*****" comment="ban merges near endpoints" />
+        </all><prl in="U*D*U" out="F*x*F" comment="merge windows horizontally" /><all comment="mark windows for stylization">
+          <rule in="*ee*ee*ee*ee* D*****x*****x D*****x*****x *ee*ee*ee*ee*" out="************* ******o*****o ******o*****o *************" />
+          <rule in="*ee*ee*ee*ee* o*****x*****x o*****x*****x *ee*ee*ee*ee*" out="************* ******o*****o ******o*****o *************" />
+        </all><all comment="burn odd style windows">
+          <rule in="o*****x*****D o*****x*****D" out="R************ R************" />
+          <rule in="o*****x*****o o*****x*****o" out="R***********R R***********R" />
+          <rule in="R*****o R*****o" out="******R ******R" />
+        </all><prl>
+          <rule in="R" out="x" />
+          <rule in="o**U**D" out="******K" />
+        </prl><all>
+          <rule in="**U/***/U*D ***/***/?** **5/***/U*D" out="**Z/***/Z** ***/***/*** ***/***/Z**" />
+          <rule in="**5/***/U*D ***/***/?** **U/***/U*D" out="***/***/Z** ***/***/*** **Z/***/Z**" />
+          <rule in="U Z" out="Z *" />
+          <rule in="Z U" out="* Z" />
+          <rule in="U * Z" out="Z * *" />
+          <rule in="Z * U" out="* * Z" />
+          <rule in="5*D*U ee**? 5*D*U" out="****Z ***** ****Z" comment="ban corner merges near hanging contours" />
+        </all><prl in="**U**/*****/U*D*B/*****/**B**" out="**F**/*****/F*x**/*****/*****" /><prl>
+          <rule in="Z" out="U" />
+          <rule in="UUU u*u UUU" out="*** e*e ***" />
+        </prl><prl in="x V x" out="* u *" /><prl comment="merge remaining elementary windows horizontally">
+          <rule in=",***, U*D*U U*D*U B***B" out="***** N*x*N N*x*N *****" />
+          <rule in=",***, U*D*U U*D*U e***e" out="***** N*x*N N*x*N *****" />
+          <rule in="**,**/*****/****,/*****/***** **U**/*****/B*D*U/*****/**B** **U**/*****/B*D*U/*****/**B** **B**/*****/****B/*****/*****" out="*****/*****/*****/*****/***** **N**/*****/**x*N/*****/***** **N**/*****/**x*N/*****/***** *****/*****/*****/*****/*****" />
+          <rule in="**,**/*****/****,/*****/***** **U**/*****/B*D*U/*****/**B** **U**/*****/B*D*U/*****/**B** **e**/*****/****e/*****/*****" out="*****/*****/*****/*****/***** **N**/*****/**x*N/*****/***** **N**/*****/**x*N/*****/***** *****/*****/*****/*****/*****" />
+        </prl><prl>
+          <rule in="F" out="U" />
+          <rule in="N" out="U" />
+          <rule in="K" out="D" />
+        </prl><prl>
+          <rule in="kB*Bk" out="*K*K*" />
+          <rule in="kkB*/***B/***k/***k" out="**K*/***K/****/****" />
+          <rule in="kBD" out="*K*" />
+        </prl><all comment="mark bounded wood">
+          <rule in="Bkkk" out="*RRR" />
+          <rule in="Rk" out="*R" />
+          <rule in="k*B*R" out="R****" />
+          <rule in="R*B/***/B*k" out="***/***/**R" />
+          <rule in="kkk kkk B*B RRR" out="RRR RRR *** ***" />
+          <rule in="RRR B*B kkk kkk" out="*** *** RRR RRR" />
+        </all><prl>
+          <rule in="K" out="B" />
+          <rule in="k*B*k" out="**x**" />
+          <rule in="kk*B/****/***k/***k" out="***x/****/****/****" />
+        </prl><prl in="k" out="U" /><prl in="R" out="k" /><all comment="burn solitary wood">
+          <rule in="**6*****6**/***********/6***kkk***6/***********/**6*****6**" out="***********/***********/****RRR****/***********/***********" />
+          <rule in="kkk kkk B*B RRR" out="RRR RRR *** ***" />
+          <rule in="RRR B*B kkk kkk" out="*** *** RRR RRR" />
+        </all><prl in="R" out="B" /><prl in="D*UUU*D" out="**hhh**" comment="convert solo windows to walls" /><prl in="h Q h" out="* B *" /><all comment="erase overhangs that touch merged windows">
+          <rule in="uLL" out="*RR" />
+          <rule in="R*LL" out="**RR" />
+          <rule in="R**/*LL" out="***/*RR" />
+        </all><prl in="R" out="B" /><prl>
+          <rule in="BBB/BBB/BBB BBB/BVB/BBB .../.../..." out="***/***/*** ***/*B*/*** ***/***/***" />
+          <rule in="BBB/BBB/BBB BBB/BSB/BBB .../.../..." out="***/***/*** ***/*B*/*** ***/***/***" />
+          <rule in="BBB/BBB/BBB BBB/BsB/BBB .../.../..." out="***/***/*** ***/*B*/*** ***/***/***" />
+          <rule in="BBB/BBB/BBB BBB/BOB/BBB BBB/BBB/BBB" out="***/***/*** ***/*B*/*** ***/***/***" />
+          <rule in="BBB/BBB/BBB BBB/BOB/BBB JJJ/JJJ/JJJ" out="***/***/*** ***/*B*/*** ***/***/***" />
+        </prl>
+        <prl>
+          <rule in="J" out="B" />
+          <rule in="WWS** B*W** **W*B **SWW" out="***** F**** ****F *****" />
+        </prl>
+        <map scale="3/3 3/3 6/3" regular="False" values="BlWdUONgJoH faZEhLkFGCc XwMmTyKYR" outputValues="BlWdUONgJoH" transparent="T" folder="ModernHouse">
+          29+1 values
+          <rule in="BBB/BBB/BBB ***/*n*/*** BBB/BBB/BBB" fout="Node" legend="*fO" />
+          <rule in="BBB/BBB/BBB ***/*Y*/*** BBB/BBB/BBB" fout="SecondaryNode" legend="*RlO" />
+          <rule in="BBB/BBB/BBB ***/WXW/*** BBB/BBF/BBB" fout="ContactTop" legend="*aO" />
+          <rule in="BBB/FBB/BBB ***/WXW/*** BBB/BBB/BBB" fout="ContactBottom" legend="*aO" />
+          <rule in="BBB/FBB/BBB ***/WXW/*** BBB/BBF/BBB" fout="Bridge" legend="*aO" />
+          <rule in="***/***/*** ***/*O*/*** ***/*X*/***" fout="Grass" legend="*g" />
+          <rule in="***/***/*** ***/WSW/*** ***/***/***" fout="Dir" legend="*aO" />
+          <rule in="***/***/*** ***/ASA/*** ***/***/***" fout="SecondaryDir" legend="*EO" />
+          <rule in="***/***/*** ***/aSa/*** ***/***/***" fout="TertiaryDir" legend="*L" />
+          <rule in="***/***/*** ***/WS*/*** ***/*W*/***" fout="Down" legend="a*O" />
+          <rule in="***/*W*/*** ***/*SW/*** ***/***/***" fout="Up" legend="*aO" />
+          <rule in="***/***/*** weB/wSB/weB ***/***/***" fout="Edge" legend="*dW" />
+          <rule in="***/***/*** ***/*S*/*** *U*/*U*/*U*" fout="WindowTop" legend="*U" />
+          <rule in="*U*/*U*/*U* ***/*S*/*** ***/***/***" fout="WindowBottom" legend="*U" />
+          <rule in="***/***/*** *?*/*S*/*?* ***/***/***" fout="WindowMid" legend="*U" />
+          <rule in="***/***/*** ***/*S*/*** *h*/*h*/*h*" fout="WallTop" legend="*h" />
+          <rule in="*h*/*h*/*h* ***/*S*/*** ***/***/***" fout="WallBottom" legend="*h" />
+          <rule in="***/***/*** ***/*S*/*** *k*/*k*/*k*" fout="WoodTop" legend="*k" />
+          <rule in="*k*/*k*/*k* ***/*S*/*** ***/***/***" fout="WoodBottom" legend="*k" />
+          <rule in="BBB/BBB/BBB BBB/LSL/BBB BBB/BBB/BBB" fout="FrameDir" legend="*N" />
+          <rule in="***/***/*** weB/eV8/B8B ***/***/***" fout="Out" legend="*dWG" />
+          <rule in="***/***/*** weB/wV8/weB ***/***/***" fout="Wall" legend="*dW" />
+          <rule in="***/***/*** www/wVe/weB ***/***/***" fout="In" legend="*dW" />
+          <rule in="***/***/*** ***/*V*/*** ***/*D*/***" fout="ColumnTop" legend="*Z" />
+          <rule in="***/*D*/*** ***/*V*/*** ***/***/***" fout="ColumnBottom" legend="*Z" />
+          <rule in="***/***/*** ***/*^*/*** ***/*x*/***" fout="GlassColumnTop" legend="*U" /> ^ = Vq
+          <rule in="***/*x*/*** ***/*^*/*** ***/***/***" fout="GlassColumnBottom" legend="*U" />
+          <rule in="***/*x*/*** ***/*u*/*** ***/*x*/***" fout="GlassColumnMid" legend="*U" />
+          <rule in="BBB/BBB/BBB B8B/8VL/B8B BBB/BBB/BBB" fout="FrameVertex" legend="*F" />
+          <rule in="***/***/*** ***/*V*/*** ***/*o*/***" fout="StyleTop" legend="*C" />
+          <rule in="***/*o*/*** ***/*V*/*** ***/***/***" fout="StyleBottom" legend="*C" />
+
+          <one in="R" out="Y" steps="9"/>
+          <!--<prl in="R" out="Y" p="0.5" steps="1"/>-->
+          <prl in="R" out="B"/>
+          
+          <prl steps="1">
+            <rule in="B****/*fff*/*f*f*/*fff*/*****" out="fffff/f***f/f***f/f***f/fffff" />
+            <rule in="B****/*lll*/*l*l*/*lll*/*****" out="lllll/l***l/l***l/l***l/lllll" />
+            <rule in="NBF" out="*N*" />
+          </prl>
+          <prl steps="1">
+            <rule in="BaOaB" out="a***a" />
+            <rule in="WaOaW" out="a***a" />
+            <rule in="BaOaW" out="a***a" />
+            <rule in="daOad" out="a***a" />
+            <rule in="BEOEB" out="E***E" />
+            <rule in="BLLLB" out="L***L" />
+          </prl><prl in="B" out="J" /><prl in="J * *" out="B * *" /><prl>
+            <rule in="Z B Z" out="* Z *" />
+            <rule in="Z B J" out="* Z *" />
+          </prl><all>
+            <rule in="d Z" out="* X" />
+            <rule in="Z d" out="X *" />
+            <rule in="G Z" out="* X" />
+            <rule in="Z G" out="X *" />
+            <rule in="X Z" out="* X" />
+            <rule in="Z X" out="X *" />
+          </all><prl>
+            <rule in="Z*hhh*Z" out="**yyy**" />
+            <rule in="Z*hhh*U" out="**yyy**" />
+            <rule in="U*hhh*U" out="**yyy**" />
+          </prl><prl>
+            <rule in="J J" out="* o" />
+            <rule in="f" out="a" />
+            <rule in="E" out="l" />
+            <rule in="OaaO" out="*OO*" />
+            <rule in="OllO" out="*OO*" />
+            <rule in="Z d Z" out="* Z *" />
+            <rule in="Z d J" out="* Z *" />
+            <rule in="Z G Z" out="* Z *" />
+            <rule in="Z G J" out="* Z *" />
+            <rule in="X d X" out="* X *" />
+            <rule in="X d J" out="* X *" />
+            <rule in="X G X" out="* X *" />
+            <rule in="X G J" out="* X *" />
+            <rule in="hB Ba" out="** h*" />
+            <rule in="hB Bl" out="** h*" />
+          </prl><union symbol="1" values="al" /><union symbol="." values="BJ" /><prl in="ByB/ByB/ByB ByB/ByB/ByB ByB/ByB/ByB ByB/ByB/ByB ByB/ByB/ByB BB1/BB1/BB1 .../.../..." out="*B*/*B*/*B* *B*/*B*/*B* *B*/*B*/*B* *B*/*B*/*B* *B*/*B*/*B* ***/***/*** ***/***/***" comment="erase some inner walls" /><prl>
+            <rule in="yB Ba" out="** y*" />
+            <rule in="yB Bl" out="** y*" />
+          </prl><prl>
+            <rule in="ZB" out="*H" />
+            <rule in="Z*/*B" out="**/*H" />
+            <rule in="XB" out="*w" />
+            <rule in="X*/*B" out="**/*w" />
+            <rule in="lll/lOl/lll" out="***/*l*/***" />
+            <rule in="h B h" out="* h *" />
+            <rule in="y B y" out="* y *" />
+          </prl><prl>
+            <rule in="hB" out="*M" />
+            <rule in="h*/*B" out="**/*M" />
+            <rule in="yB" out="*m" />
+            <rule in="y*/*B" out="**/*m" />
+            <rule in="FN/NB" out="**/*T" />
+          </prl><all in="TB" out="*T" /><markov>
+            <all>
+              <rule in="NTNTTT" out="**N*N*" />
+              <rule in="TTT/TNT" out="*N*/***" />
+            </all>
+            <one in="NTTTTT/NTTTTT/NTTTTT/WWWWWW" out="**N*N*/**N*N*/**N*N*/******" />
+          </markov><prl>
+            <rule in="NFN" out="*N*" />
+            <rule in="T" out="B" />
+          </prl><all in="F B" out="* F" comment="drop wooden columns" /><prl>
+            <rule in="F" out="N" />
+            <rule in="G" out="d" />
+          </prl><prl>
+            <rule in="gBBBBBg" out="**g*g**" comment="finalize grass" />
+            <rule in="UBU" out="*U*" comment="finalize windows" />
+            <rule in="L" out="l" />
+            <rule in="a" out="l" />
+          </prl><prl in="W**/***/**g" out="***/***/**B" comment="erase grass too close to the house" /><prl in="lll/lBl/lll" out="***/*l*/***" /><prl steps="1">
+            <rule in="B g" out="g *" />
+            <rule in="Uw" out="*d" />
+          </prl><prl>
+            <rule in="OOOOOOO/OlllllO/OlllllO/OlllllO/OlllllO/OlllllO/OOOOOOO" out="*******/*OOOOO*/*OOOOO*/*OOOOO*/*OOOOO*/*OOOOO*/*******" />
+            <rule in="U l" out="* d" />
+          </prl><prl in="O*/*l" out="**/*a" /><prl in="k*k*B" out="****K" /><prl>
+            <rule in="K" out="k" />
+            <rule in="k B k" out="* k *" />
+            <rule in="k B J" out="* k *" />
+          </prl><prl>
+            <rule in="CBUUU" out="*CCCC" />
+            <rule in="CBC" out="*C*" />
+          </prl><all>
+            <rule in="*****/WWWWW *CCCC/wBBBB" out="*****/***** ****c/****c" />
+            <rule in="*****/WWWWW cCCCC/cBBBB" out="*****/***** ****c/****c" />
+          </all><all in="cc CB" out="** cc" /><prl in="cBBB/cCCC cBBB/cCCC WWWW/****" out="*ccc/*ccc *ccc/*ccc ****/****" /><prl in="B W" out="W *" steps="1" comment="rise contours" /><prl in="UWB/WWB/BBB" out="*B*/BB*/***" comment="erase contours near windows" /><prl in="UWB" out="*B*" /><prl>
+            <rule in="c" out="W" />
+            <rule in="C" out="U" />
+          </prl><prl>
+            <rule in="w" out="W" /><rule in="M" out="W" /><rule in="m" out="H" /><rule in="a" out="l" /> O
+            <rule in="UUW" out="**d" /><rule in="U U W" out="* * d" /><rule in="W B J" out="* W *" /><rule in="H B J" out="* H *" /><rule in="W B W" out="* W *" /><rule in="W l l W" out="* W W *" /><rule in="hW dB" out="** *W" />
+          </prl><prl>
+            <rule in="k" out="N" />
+            <rule in="h" out="d" />
+            <rule in="X" out="d" />
+            <rule in="y" out="d" />
+            <rule in="Z" out="d" />
+          </prl>
+        </map>
+      </wfc>
+    </map>
+  </wfc>
+</sequence>
+<!--
+Rendered outputs: https://twitter.com/ExUtumno/status/1141354217774428160
+-->

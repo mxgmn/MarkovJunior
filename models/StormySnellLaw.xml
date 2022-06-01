@@ -1,0 +1,30 @@
+<sequence values="WUGIABSR" origin="Center">
+  <all in="UW" out="*U" symmetry="(x)"/>
+  <prl in="U*" out="G*" symmetry="()"/>
+  <prl in="*G" out="*A" symmetry="()"/>
+  <all symmetry="(x)">
+    <rule in="U/W" out="W/U"/>
+    <rule in="W/G" out="G/W"/>
+    <rule in="AW" out="*A"/>
+  </all>
+  <all in="A/W" out="*/A" symmetry="()"/>
+  <one in="W" out="B" steps="8"/>
+  <one in="A" out="I" steps="8"/>
+  <prl in="W" out="A"/>
+  <one>
+    <rule in="BA" out="BB"/>
+    <rule in="IA" out="II"/>
+  </one>
+  <one>
+    <rule in="U**/**I" out="A**/**S"/>
+    <rule in="S" out="U"/>
+    <rule in="U**/**B" out="A**/**R"/>
+    <rule in="R**/**B" out="W**/**R"/>
+
+    <observe value="G" from="B" to="R"/>
+    <observe value="U" to="A"/>
+    <observe value="B" to="BW"/>
+    <observe value="I" to="IA"/>
+  </one>
+  <one in="R" out="W"/>
+</sequence>

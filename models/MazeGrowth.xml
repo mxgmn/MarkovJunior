@@ -1,0 +1,12 @@
+<one values="BWA" in="WBB" out="WAW" origin="Center"/>
+
+<!--
+Compare to an implementation in a conventional language: https://bl.ocks.org/mbostock/70a28267db0354261476
+
+Note that MJ interpreter automatically performs optimizations. It doesn't forget past matches, so it searches only over a small part of the grid each turn.
+-->
+
+<!--<sequence values="BWA" origin="Center">
+  <one in="WBB" out="WAW"/>
+  <all in="A" out="W"/>
+</sequence>-->

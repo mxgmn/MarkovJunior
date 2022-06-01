@@ -1,0 +1,8 @@
+<sequence values="BRW" origin="Random">
+  <one in="RB" out="WW"/>
+  <one in="BBB/BWB" out="*W*/***" steps="5"/>
+  <all>
+    <rule in="WB" out="*W"/>
+    <rule in="BB/WB" out="*W/**"/>
+  </all>
+</sequence>

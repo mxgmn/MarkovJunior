@@ -1,0 +1,4 @@
+<one values="BW" origin="Random" temperature="0.3"> periodic="True"
+  <rule in="B" out="W"/>
+  <field for="W" from="W" on="B" recompute="True"/>
+</one>

@@ -1,0 +1,29 @@
+<sequence values="BADGRIFYUP" origin="Center">
+  <prl in="ABB*" out="*DDA"/>
+  <one in="A" out="G" steps="1"/>
+  <one steps="1">
+    <rule in="A" out="R"/>
+    <field for="R" from="G" on="RDA"/>
+  </one>
+  <one in="RDDA" out="*IYU" steps="1"/>
+  <one temperature="2.0">
+    <rule in="UDDA" out="FIYU"/>
+    <rule in="UDDG" out="FIYG"/>
+    <field for="U" to="G" on="GDAU"/>
+  </one>
+  <markov>
+    <one in="UDDA" out="FIYU"/>
+    <one in="IBB*/FDDA" out="P***/*IYU"/>
+  </markov>
+  <prl>
+    <rule in="Y" out="F"/>
+    <rule in="I" out="F"/>
+    <rule in="D" out="B"/>
+  </prl>
+</sequence>
+
+<!--
+Generates a random puzzle with keys and locks.
+
+Adapted graph grammar from the dissertation "Engineering Emergence. Applied Theory for Game Design" by Joris Dormans.
+-->

@@ -1,0 +1,7 @@
+<sequence values="BW">
+  <all in="B" out="W"/>
+  <all in="***/***/*** ***/*W*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***"/>
+  <wfc values="BFE" tileset="Knots3D" tiles="Knots3D/Tubes">
+    <rule in="W" out="Empty"/>
+  </wfc>
+</sequence>

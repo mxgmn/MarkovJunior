@@ -1,0 +1,14 @@
+<sequence symmetry="()" values="BOEIN">
+  <all>
+    <rule in="B" out="O"/>
+    <rule in="B" out="E"/>
+    <rule in="B" out="I"/>
+    <rule in="B" out="N"/>
+  </all>
+  <map scale="2 2 1" values="DA">
+    <rule in="O" out="DD/DA" comment="1 cell"/>
+    <rule in="E" out="DD/AA" comment="horizontal 2 cells"/>
+    <rule in="I" out="DA/DA" comment="vertical 2 cells"/>
+    <rule in="N" out="DA/AA" comment="3 cells"/>
+  </map>
+</sequence>

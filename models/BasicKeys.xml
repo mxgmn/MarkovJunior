@@ -1,0 +1,33 @@
+<sequence values="BDIRGYNOKPFCU" origin="Center">
+  <all in="DB*" out="*ID" comment="draw a grid"/>
+  <one in="D" out="G" limit="1" comment="put an end"/>
+  <one comment="put a start far from the end">
+    <rule in="D" out="R" limit="1"/>
+    <field for="R" from="G" on="RID"/>
+  </one>
+  <one in="RID" out="*NO" limit="1"/>
+  <one temperature="2.0" comment="draw a non-optimal path from start to end">
+    <rule in="OID" out="YNO"/>
+    <rule in="OIG" out="YNG"/>
+    <field for="O" to="G" on="GIDO"/>
+  </one>
+  <one in="RNY" out="KFR" limit="1"/>
+  <markov>
+    <one in="UID" out="CCU"/>
+    <one in="RID" out="OCU"/>
+    <one>
+      <rule in="RNY" out="FFR"/>
+      <rule in="ONY" out="FPR"/>
+      <rule in="RNG" out="FFG"/>
+      <rule in="ONG" out="FPG"/>
+    </one>
+  </markov>
+  <all in="CID" out="*CC"/>
+  <all in="I" out="B"/>
+</sequence>
+
+<!--
+Generates a random puzzle with keys and locks on the main path. For a variation that can put locks on any paths see Keys.
+
+Used in SeaVilla.
+-->

@@ -1,0 +1,6 @@
+<convolution values="BRGUY" neighborhood="VonNeumann">
+  <rule in="B" out="R" sum="3" values="B"/>
+  <rule in="B" out="G" sum="4" values="B"/>
+  <rule in="B" out="U" sum="5" values="B"/>
+  <rule in="B" out="Y" sum="6" values="B"/>
+</convolution>

@@ -1,0 +1,10 @@
+<sequence values="BEY" periodic="True">
+  <one in="B" out="E" steps="5"/>
+  <one in="B" out="Y" steps="5"/>
+  <one>
+    <rule in="EB" out="EE"/>
+    <rule in="YB" out="YY"/>
+    <rule in="EY" out="EE"/>
+    <rule in="YE" out="YY"/>
+  </one>
+</sequence>

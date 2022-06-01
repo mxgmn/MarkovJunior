@@ -1,0 +1,7 @@
+<sequence values="BW">
+  <all in="***/*B*/***" out="***/*W*/***"/>
+  <markov>
+    <one in="WWW/WBW" out="WBW/WBW"/>
+    <one in="WWW/BBB" out="WBW/BBB"/>
+  </markov>
+</sequence>

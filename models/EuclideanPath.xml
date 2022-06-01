@@ -1,0 +1,22 @@
+<sequence values="BRGWOAD">
+  <one in="BBB/BBB/BBB" out="***/*D*/***" steps="8"/>
+  <one in="D" out="A" steps="1"/>
+  <one in="D" out="R" steps="1"><field for="R" from="A" on="BD"/></one>
+  <one in="D" out="G" steps="1"><field for="G" from="R" on="BD"/></one>
+  <all>
+    <rule in="D" out="B"/>
+    <rule in="A" out="B"/>
+  </all>
+  <one>
+    <rule in="RB" out="WO"/>
+    <rule in="O" out="R"/>
+
+    <rule in="R*/*B" out="W*/*A"/>
+    <rule in="A" out="D"/>
+    <rule in="D" out="R"/>
+
+    <observe value="G" from="B" to="R"/>
+    <observe value="B" to="BW"/>
+    <observe value="R" to="W"/>
+  </one>
+</sequence>

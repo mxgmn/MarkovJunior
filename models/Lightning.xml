@@ -1,0 +1,18 @@
+<sequence values="NBRGUW">
+  <all in="***/*N*/***" out="***/*B*/***"/>
+  <one in="B" out="R" steps="1"/>
+  <markov>
+    <one>
+      <rule in="RU" out="*W"/>
+      <rule in="WU" out="*W"/>
+      <rule in="WG" out="*N"/>
+    </one>
+    <path from="R" to="G" on="B" color="U"/>
+    <all in="W" out="B"/>
+    <one in="N" out="G"/>
+  </markov>
+</sequence>
+
+<!--
+TODO: modify path block so that the direction probabilities are proportional to the corresponding lengths.
+-->

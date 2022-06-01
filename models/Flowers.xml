@@ -1,0 +1,14 @@
+<sequence values="NGUEPY" symmetry="(x)">
+  <all in="N/*/*/*" out="G/*/*/*"/>
+  <all in="G/*/*/*/*" out="U/*/*/*/*"/>
+  <markov>
+    <one>
+      <rule in="UUU/UUU/UPU" out="***/*P*/*E*"/>
+      <rule in="UUU/UUU/UUU/PUU/**U" out="***/*P*/*E*/EE*/***"/>
+      <rule in="UUUUU/UUUUU/UUUUU/UUPUU/U***U" out="*****/*P*P*/*E*E*/*EEE*/*****"/>
+      <rule in="UUU/UPU/UEU/UEU" out="*Y*/YEY/*Y*/***"/>
+    </one>
+    <one in="UUUUU/UUUUU/UUUUU/GGGGG/NNNNN" out="*****/**P**/**E**/**E**/**E**"/>
+  </markov>
+  <all in="***/*P*/***" out="*Y*/YEY/*Y*"/>
+</sequence>

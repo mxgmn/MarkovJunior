@@ -1,0 +1,33 @@
+<sequence values="BWARDEU" origin="Center">
+  <union symbol="?" values="BDE"/>
+  <one in="WBB" out="WAW"/>
+  <markov>
+    <markov>
+      <one in="RAW" out="**R" steps="20"/>
+      <all>
+        <rule in="RAW" out="UAU"/>
+        <rule in="UAW" out="UAU"/>
+        <rule in="UAR" out="UAU"/>
+      </all>
+      <sequence>
+        <one in="WBW" out="RBR" steps="1"/>
+        <all>
+          <rule in="B?B/?W?" out="***/*E*"/>
+          <rule in="???/BAB" out="***/*D*"/>
+        </all>
+      </sequence>
+    </markov>
+    <markov>
+      <all>
+        <rule in="R" out="W"/>
+        <rule in="WDE" out="WAW"/>
+      </all>
+    </markov>
+  </markov>
+  <one in="B?B/?U?" out="***/*R*"/>
+  <one in="RBR" out="UAU"/>
+  <prl>
+    <rule in="U" out="W"/>
+    <rule in="D" out="E"/>
+  </prl>
+</sequence>

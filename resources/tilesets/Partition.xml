@@ -1,0 +1,25 @@
+<tileset>
+  <tiles>
+    <tile name="Nothing" weight="2.0"/>
+    <tile name="I"/>
+    <tile name="T"/>
+  </tiles>
+  <neighbors>
+    <neighbor left="Nothing" right="Nothing"/>
+    <neighbor left="Nothing" right="I"/>
+    <neighbor left="Nothing" right="T"/>
+    <neighbor left="z I" right="z I"/>
+    <neighbor left="z I" right="z T"/>
+    <neighbor left="T" right="z I"/>
+    <neighbor left="z T" right="zzz T"/>
+
+    <neighbor top="Nothing" bottom="Nothing"/>
+    <neighbor top="Nothing" bottom="I"/>
+    <neighbor top="Nothing" bottom="T"/>
+    <neighbor top="I" bottom="Nothing"/>
+    <neighbor top="I" bottom="I"/>
+    <neighbor top="I" bottom="z I"/>
+    <neighbor top="T" bottom="Nothing"/>
+    <neighbor top="T" bottom="T"/>
+  </neighbors>
+</tileset>

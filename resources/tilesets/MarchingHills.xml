@@ -1,0 +1,45 @@
+<tileset>
+  <tiles>
+    <tile name="Empty" weight="2.3"/>
+    <tile name="Stone" weight="1.7"/>
+    <tile name="Wall" weight="1.3"/>
+    <tile name="In"/>
+    <tile name="Out"/>
+  </tiles>
+  <neighbors>
+    <neighbor left="Empty" right="Empty"/>
+    <neighbor left="Empty" right="z Out"/>
+    <neighbor left="Wall" right="Empty"/>
+    <neighbor left="z Wall" right="Out"/>
+    <neighbor left="In" right="Out"/>
+    <neighbor left="z Wall" right="z Wall"/>
+    <neighbor left="In" right="z Wall"/>
+    <neighbor left="zz Wall" right="In"/>
+    <neighbor left="Stone" right="Wall"/>
+    <neighbor left="z In" right="In"/> - new!
+    <neighbor left="zz In" right="In"/>
+    <neighbor left="Stone" right="In"/>
+    <neighbor left="Stone" right="Stone"/>
+
+    <neighbor top="Empty" bottom="Empty"/>
+    <neighbor top="Empty" bottom="Out"/>
+    <neighbor top="Empty" bottom="Wall"/>
+    <neighbor top="Empty" bottom="In"/>
+    <neighbor top="Empty" bottom="Stone"/>
+    <neighbor top="Out" bottom="Out"/>
+    <neighbor top="Out" bottom="Wall"/>
+    <!--<neighbor top="Out" bottom="In"/>-->
+    <neighbor top="z Out" bottom="In"/>
+    <neighbor top="Out" bottom="Stone"/>
+    <neighbor top="Wall" bottom="Wall"/>
+    <neighbor top="Wall" bottom="In"/>
+    <neighbor top="Wall" bottom="Stone"/>
+    <neighbor top="In" bottom="In"/>
+    <neighbor top="In" bottom="Stone"/>
+    <neighbor top="Stone" bottom="Stone"/>
+
+    <neighbor left="zz Wall" right="Wall"/>
+    <neighbor left="zz Wall" right="In"/>
+    <neighbor left="z In" right="In"/>
+  </neighbors>
+</tileset>

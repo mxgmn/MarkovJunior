@@ -1,0 +1,7 @@
+<sequence values="BW">
+  <all in="B" out="W"/>
+  <all in="***/***/*** ***/*W*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***"/>
+  <wfc values="BW" tileset="Surface">
+    <rule in="W" out="Empty"/>
+  </wfc>
+</sequence>

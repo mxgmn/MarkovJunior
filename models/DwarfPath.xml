@@ -1,0 +1,17 @@
+<sequence values="BRWAPGEY">
+  <one in="BBBBBB/BBBBBB/BBBBBB/BBBBBB/BBBBBB/BBBBBB" out="******/*AAAA*/*A**A*/*A**A*/*AAAA*/******" steps="1"/>
+  <one in="BBB/BBB" out="WWW/WWW" steps="2"/>
+  <one in="B" out="R" steps="1"/>
+  <markov>
+    <one>
+      <rule in="GE" out="BG"/>
+      <rule in="GA" out="RY"/>
+    </one>
+    <path from="G" to="A" on="B" color="E" inertia="False"/>
+    <one>
+      <rule in="RP" out="BR"/>
+      <rule in="RW" out="BG"/>
+    </one>
+    <path from="R" to="W" on="B" color="P" inertia="False"/>
+  </markov>
+</sequence>

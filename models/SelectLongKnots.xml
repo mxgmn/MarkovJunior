@@ -1,0 +1,19 @@
+<sequence values="BRW">
+  <prl in="B" out="R"/>
+  <prl in="***/***/*** ***/*R*/*** ***/***/***" out="***/***/*** ***/*W*/*** ***/***/***"/>
+  <wfc values="BWYU" tileset="Knots3D" tiles="Knots3D/3">
+    <rule in="R" out="Empty"/>
+    <rule in="W" out="Line|Turn|Empty"/>
+    <markov>
+      <sequence>
+        <one in="W" out="Y" steps="1"/>
+        <all in="YW" out="YY" steps="60"/>
+        <all>
+          <rule in="YW" out="UU"/>
+          <rule in="UY" out="UU"/>
+          <rule in="UW" out="UU"/>
+        </all>
+      </sequence>
+    </markov>
+  </wfc>
+</sequence>

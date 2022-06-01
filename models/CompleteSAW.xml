@@ -1,0 +1,11 @@
+<sequence values="BRWD" origin="Center">
+  <all>
+    <rule in="R*B" out="**D"/>
+    <rule in="D*B" out="**D"/>
+  </all>
+  <one in="RBB" out="WWR" search="True" limit="1000" depthCoefficient="-1.0">
+    <observe value="D" from="B" to="RW"/>
+    <observe value="R" to="W"/>
+    <observe value="B" to="BW"/>
+  </one>
+</sequence>

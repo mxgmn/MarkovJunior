@@ -1,0 +1,27 @@
+<sequence values="FUOZGWNR">
+  <prl in="***/*F*/***" out="***/*U*/***"/>
+  <prl in="U" out="F" p="0.435" steps="1"/>
+  <convolution neighborhood="Moore">
+    <rule in="U" out="F" sum="5..8" values="F"/>
+    <rule in="F" out="U" sum="6..8" values="U"/>
+  </convolution>
+  <all in="UF/FU" out="UU/FU"/>
+  <one in="F" out="O" steps="1"><field for="O" from="U" on="F"/></one>
+  <one in="FFFFFFF/FFFFFFF/FFFFFFF/FFFFFFF/FFFFFFF/FFFFFFF/FFFFFFF" out="*******/*******/*******/***G***/*******/*******/*******" steps="1"><field for="G" from="O" on="F"/></one>
+  <one>
+    <rule in="OF" out="NO"/>
+    <rule in="OU" out="NZ"/>
+    <rule in="RU" out="WZ"/>
+    <rule in="RF" out="WO"/>
+    <rule in="Z" out="R"/>
+
+    <observe value="G" from="F" to="O"/>
+    <observe value="F" to="FN"/>
+    <observe value="U" to="UW"/>
+    <observe value="O" to="N"/>
+  </one>
+</sequence>
+
+<!--
+Finds the shortest path in the rugged terrain. Moving through lakes is 2 times slower than moving through plains. See also SnellLaw.xml.
+-->

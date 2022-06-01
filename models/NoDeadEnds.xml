@@ -1,0 +1,14 @@
+<markov values="BRWA" origin="Center">
+  <one in="RBB" out="WAR"/>
+  <one in="WBB" out="WAR"/>
+  <all in="RBR" out="WAW"/>
+  <all in="RBW" out="WAW"/>
+</markov>
+
+<!--
+Generates a maze with loops and without dead ends.
+
+Uses RegularSAWRestart model.
+
+Used in ModernHouse in inner wall placement.
+-->

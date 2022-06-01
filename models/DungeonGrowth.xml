@@ -1,0 +1,55 @@
+<sequence values="WRBUPY" origin="Center" folder="DungeonGrowth">
+  <union symbol="?" values="BR"/>
+  <!--<prl in="***/*W*/***" out="***/*B*/***"/>-->
+  <prl in="*****/*****/**W**/*****/*****" out="*****/*****/**B**/*****/*****"/>
+  <one>
+    <rule file="Room1"  legend="*?WRBPU"/>
+    <rule file="Room2"  legend="*?WRBPU"/>
+    <rule file="Room3"  legend="*?WRBPU"/>
+    <rule file="Room4"  legend="*?WRBPU"/>
+    <rule file="Room5"  legend="*?WRBPU"/>
+    <rule file="Room7"  legend="*?WRBPU"/>
+    <rule file="Room13" legend="*?WRBPU"/>
+    <rule file="Room8"  legend="*?WRBPU"/>
+    <rule file="Room9"  legend="*WBPR?U"/>
+    <rule file="Room10" legend="*W?BRPU"/>
+    <rule file="Room11" legend="*?WRBPU"/>
+    <rule file="Room12" legend="*WBP?RU"/>
+    <rule file="Room14" legend="*?WRBPU"/>
+    <rule file="Room15" legend="*WBPRU?"/>
+    <rule file="Room16" legend="*?WRBPU"/>
+    <rule file="Room17" legend="*?WRBPU"/>
+    <rule file="Room18" legend="*?WRBPU"/>
+    <rule file="Room6"  legend="*?WRBPU"/>
+  </one>
+  <one in="WUW/BBB" out="WRW/BBB"/>
+  <all in="U" out="P"/>
+  <markov>
+    <all>
+      <rule in="RY" out="UU"/>
+      <rule in="UR" out="UU"/>
+      <rule in="UY" out="UU"/>
+      <rule in="BU" out="WU"/>
+      <rule in="B*/*U" out="W*/*U"/>
+    </all>
+    <path from="R" to="Y" on="B" color="U" inertia="True" longest="True"/>
+    <one in="Y" out="W"/>
+    <one in="R" out="Y"/>
+  </markov>
+  <all>
+    <rule in="U" out="P"/>
+    <rule in="W" out="B"/>
+  </all>
+  <all in="BBB/BPB" out="***/*B*"/>
+  <all>
+    <rule in="BP" out="WP"/>
+    <rule in="B*/*P" out="W*/*P"/>
+  </all>
+</sequence>
+
+<!--
+Room shapes and placement algorithm are taken from
+https://old.reddit.com/r/proceduralgeneration/comments/3pa8a1/my_take_at_a_roguelike_level_generator_ft/
+
+Note that MJ interpreter automatically performs optimizations 1-3 from the post.
+-->

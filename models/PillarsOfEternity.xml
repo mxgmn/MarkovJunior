@@ -1,0 +1,29 @@
+<sequence values="BRW" symmetry="(xy)">
+  <all in="B" out="W"/>
+  <all in="***/*W*/***" out="***/*B*/***"/>
+  <wfc values="BEAWDRF" outputValues="BWAE" tileset="OrientedStairs" periodic="True">
+    <rule in="W" out="Empty"/>
+    <all>
+      <rule in="R" out="W"/>
+      <rule in="A" out="W"/>
+    </all>
+    <all in="B" out="A"/>
+    <all in="A *" out="B *"/>
+    <all>
+      <rule in="D B" out="D F"/>
+      <rule in="F B" out="F F"/>
+    </all>
+    <all>
+      <rule in="WF" out="*R"/>
+      <rule in="F W" out="R *"/>
+      <rule in="F A" out="R *"/>
+      <rule in="F R" out="R B"/>
+    </all>
+    <all>
+      <rule in="R" out="B"/>
+      <rule in="A" out="B"/>
+      <rule in="F" out="W"/>
+      <rule in="D" out="W"/>
+    </all>
+  </wfc>
+</sequence>

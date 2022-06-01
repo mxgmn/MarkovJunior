@@ -1,0 +1,24 @@
+<sequence values="BGRKYEFUIP" origin="Random">
+  <one in="BB" out="KR" steps="12"/>
+  <all>
+    <rule in="KRB" out="BKR"/>
+    <rule in="KR/*B" out="BK/*R"/>
+
+    <rule in="GB" out="BG"/>
+    <rule in="GI" out="BF"/>
+    <rule in="F" out="Y"/>
+    <rule in="YB" out="BY"/>
+    <rule in="YU/B*" out="KR/E*"/>
+    <rule in="E" out="G"/>
+    <rule in="*B*/BRB/*B*" out="***/*U*/***"/>
+    <rule in="*B*/BKB/*B*" out="***/*I*/***"/>
+
+    <field for="G" on="B" to="I" recompute="True"/>
+    <field for="Y" on="B" to="U" recompute="True"/>
+    <field for="P" on="R" to="R" recompute="True"/>
+  </all>
+</sequence>
+
+<!--
+Standard crawlers wander around and break, but now there is a benevolent mechanic that repairs them.
+-->

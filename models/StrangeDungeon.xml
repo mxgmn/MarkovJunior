@@ -1,0 +1,30 @@
+<sequence values="BWE">
+  <all in="B" out="E"/>
+  <all in="***/*E*/***" out="***/*B*/***" d="2"/>
+  <all in="***/***/*** ***/*E*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***" d="3"/>
+  <one in="B" out="W" steps="100"/>
+  <all>
+    <rule in="BBB/BWB" out="BWB/BWB"/>
+    <rule in="WB/BW" out="WW/BW"/>
+    <rule in="WBW" out="WWW"/>
+  </all>
+  <all in="E" out="B"/>
+  <all in="BBB/BWB" out="***/*B*"/>
+</sequence>
+
+<!--
+<sequence values="BWE">
+  <prl in="B" out="E"/>
+  <prl in="***/*E*/***" out="***/*B*/***" d="2"/>
+  <prl in="***/***/*** ***/*E*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***" d="3"/>
+  <all in="B" out="W" limit="100"/>
+  <all>
+    <rule in="BBB/BWB" out="BWB/BWB"/>
+    <rule in="WB/BW" out="WW/BW"/>
+    <rule in="WBW" out="WWW"/>
+  </all>
+  <prl in="E" out="B"/>
+  <all in="BBB/BWB" out="***/*B*"/>
+</sequence>
+-->
+

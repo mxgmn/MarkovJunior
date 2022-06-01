@@ -1,0 +1,46 @@
+<sequence values="BRW">
+  <all in="B" out="R"/>
+  <all in="***/***/*** ***/*R*/*** ***/***/***" out="***/***/*** ***/*W*/*** ***/***/***"/>
+  <wfc values="BWIPENDAROYGUCKF" tileset="Knots3D" tiles="Knots3D/3">
+    <rule in="R" out="Empty"/>
+    <rule in="W" out="Line|Turn|Empty"/>
+    <markov>
+      <all>
+        <rule in="IW" out="*I"/>
+        <rule in="PW" out="*P"/>
+        <rule in="EW" out="*E"/>
+        <rule in="NW" out="*N"/>
+        <rule in="DW" out="*D"/>
+        <rule in="AW" out="*A"/>
+        <rule in="RW" out="*R"/>
+        <rule in="OW" out="*O"/>
+        <rule in="YW" out="*Y"/>
+        <rule in="GW" out="*G"/>
+        <rule in="UW" out="*U"/>
+        <rule in="CW" out="*C"/>
+        <rule in="KW" out="*K"/>
+        <rule in="FW" out="*F"/>
+      </all>
+      <one>
+        <rule in="W" out="I"/>
+        <rule in="W" out="P"/>
+        <rule in="W" out="E"/>
+        <rule in="W" out="N"/>
+        <rule in="W" out="D"/>
+        <rule in="W" out="A"/>
+        <rule in="W" out="R"/>
+        <rule in="W" out="O"/>
+        <rule in="W" out="Y"/>
+        <rule in="W" out="G"/>
+        <rule in="W" out="U"/>
+        <rule in="W" out="C"/>
+        <rule in="W" out="K"/>
+        <rule in="W" out="F"/>
+      </one>
+    </markov>
+  </wfc>
+</sequence>
+
+<!--
+TODO: To avoid listing rules for all colors, introduce logical expressions like u=(!W)&(!B). Then we can write W=u and maybe even uW=uu.
+-->

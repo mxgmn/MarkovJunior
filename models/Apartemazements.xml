@@ -1,0 +1,70 @@
+<sequence values="BWN" symmetry="(xy)">
+  <prl in="B" out="W"/>
+  <prl in="***/***/*** ***/*W*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***"/>
+  <prl in="B W" out="B N"/>
+  <wfc values="BYDAWP RFUENC" tileset="Paths">
+    <rule in="W" out="Empty"/>
+    <rule in="N" out="Empty|Line|Up|Turn|X"/>
+
+    <prl in="B" out="C" comment="draw earth"/>
+    <prl in="C * *" out="B * *" comment="remove extra earth"/>
+    <prl in="C C" out="E N" comment="draw grass"/>
+    <prl in="C" out="N"/>
+    <prl in="Y" out="C" p="0.25" steps="1"/>
+    <prl in="Y" out="B"/>
+
+    <all comment="draw columns">
+      <rule in="D B" out="* F"/>
+      <rule in="F B" out="* F"/>
+    </all>
+    <all comment="remove extra columns">
+      <rule in="FF EE" out="BB EE"/>
+      <rule in="FF FD EE" out="FF BD EE"/>
+      <rule in="F B" out="B B"/>
+      <rule in="B F" out="B B"/>
+      <rule in="F P" out="B P"/>
+      <rule in="P* *F" out="** *B"/>
+    </all>
+    <all comment="draw corner columns">
+      <rule in="*A*/ADB/*B* ***/*B*/***" out="***/***/*** ***/*F*/***"/>
+      <rule in="F B" out="F F"/>
+    </all>
+    <all comment="place windows">
+      <rule in="FBBBF *AAA*" out="*RRR* *****"/>
+      <rule in="FBBBF *RRR*" out="*RRR* *****"/>
+    </all>
+    <prl comment="find h-uneven windows">
+      <rule in="RFFR RFDA" out="U**U U***"/>
+      <rule in="RFDA RFFR" out="U*** U**U"/>
+    </prl>
+    <all comment="mark h-uneven windows">
+      <rule in="R U" out="U *"/>
+      <rule in="U R" out="* U"/>
+    </all>
+    <prl in="RFFR/BBBB" out="*RR*/****" comment="merge h-even windows"/>
+    <prl in="U" out="R" comment="erase markings"/>
+    <prl comment="find v-uneven windows">
+      <rule in="RR DA FR" out="UU ** *U"/>
+      <rule in="FR DA RR" out="*U ** UU"/>
+    </prl>
+    <all comment="mark v-uneven windows">
+      <rule in="RU" out="U*"/>
+      <rule in="UR" out="*U"/>
+    </all>
+    <prl comment="merge v-even windows">
+      <rule in="RB AB RB" out="RB RB RB"/>
+      <rule in="RB DB RB" out="RB RB RB"/>
+    </prl>
+    <prl comment="forget structure">
+      <rule in="F" out="A"/>
+      <rule in="D" out="A"/>
+      <rule in="P" out="A"/>
+      <rule in="U" out="R"/>
+    </prl>
+    <prl in="AAAAA ARRRA ARRRA ARRRA ARRRA AAAAA" out="AAAAA AAAAA AAAAA AAAAA AAAAA AAAAA"/>
+  </wfc>
+</sequence>
+
+<!--
+Some rendered outputs: https://github.com/mxgmn/Blog/blob/master/Apartemazements.md
+-->

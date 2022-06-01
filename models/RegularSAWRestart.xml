@@ -1,0 +1,4 @@
+<markov values="BRWA" origin="Center">
+  <one in="RBB" out="WAR"/>
+  <one in="WBB" out="WAR"/>
+</markov>

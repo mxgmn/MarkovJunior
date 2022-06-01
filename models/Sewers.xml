@@ -1,0 +1,12 @@
+<sequence values="BC">
+  <all in="***/*B*/***" out="***/*C*/***"/>
+  <wfc sample="Sewers" n="3" values="BnyN">
+    <rule in="B" out="B|y"/>
+    <markov>
+      <one in="Nn" out="*N"/>
+      <path from="N" to="n" on="B" color="N" inertia="True"/>
+      <path from="N" to="n" on="y" color="N" inertia="True"/>
+      <one in="n" out="N"/>
+    </markov>
+  </wfc>
+</sequence>

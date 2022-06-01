@@ -1,0 +1,12 @@
+<sequence values="BRGW" origin="Random">
+  <one in="B" out="G" temperature="4.0" steps="1">
+    <field for="G" from="R" on="B"/>
+  </one>  
+  <one>
+    <rule in="RB" out="WR"/>
+    <rule in="R*/*B" out="W*/*R"/>
+    <observe value="G" from="B" to="R"/>
+    <observe value="R" to="W"/>
+    <observe value="B" to="BW"/>
+  </one>
+</sequence>

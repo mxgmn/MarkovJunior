@@ -1,0 +1,8 @@
+<sequence values="RDAUBW" origin="Center">
+  <prl in="*R" out="*U" symmetry="()"/>
+  <prl in="U*" out="B*" symmetry="()"/>
+  <all in="DB*" out="*AD"/>
+  <prl in="A" out="D" p="0.517" steps="1"/>
+  <prl in="A" out="B"/>
+  <path from="R" to="U" on="D" color="W"/>
+</sequence>

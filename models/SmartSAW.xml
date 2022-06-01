@@ -1,0 +1,36 @@
+<sequence values="BRDYGWEUN" origin="Center">
+  <union symbol="?" values="BD"/>
+  <union symbol="_" values="BN"/>
+  <all>
+    <rule in="RBB" out="**D"/>
+    <rule in="DBB" out="**D"/>
+  </all>
+  <markov>
+    <markov>
+      <markov>
+        <one in="Y_D" out="UEG"/>
+        <one in="YWW" out="DNR"/>
+      </markov>
+      <all in="G_D" out="*EG"/>
+      <markov>
+        <one in="RBD" out="WWY"/>
+        <one in="RWW" out="DNR"/>
+      </markov>
+      <sequence>
+        <one in="**D/**_/WWU" out="***/***/RND"/>
+        <all>
+          <rule in="*_*/_G_" out="***/*D*"/>
+          <rule in="*?*/?E?" out="***/*B*"/>
+          <rule in="*_*/_U_" out="***/*R*"/>
+        </all>
+      </sequence>
+    </markov>
+    <prl in="N" out="B"/>
+  </markov>
+</sequence>
+
+<!--
+I was trying to implement depth-first search with early exit in MJ, and made this.
+
+It goes much further than the naive self-avoiding walk.
+-->

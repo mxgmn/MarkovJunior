@@ -1,0 +1,4 @@
+<sequence values="BR">
+  <one in="B" out="R" steps="24"/>
+  <all in="RB" out="BR"/>
+</sequence>

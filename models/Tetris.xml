@@ -1,0 +1,57 @@
+<sequence values="CIBWRAO" symmetry="(x)">
+  <union symbol="?" values="ICB"/>
+  <all in="*/C" out="*/I"/>
+  <all in="*/*/*/*/I" out="*/*/*/*/W"/>
+  <all in="W/*" out="B/*"/>
+  <markov>
+    <one in="IB" out="*I"/>
+    <one in="AR" out="AA" symmetry="(xy)"/>
+    <one in="R/W" out="A/W"/>
+    <prl>
+      <rule in="R/B" out="*/R"/>
+      <rule in="R/I" out="*/R"/>
+      <rule in="?/R" out="*/B"/>
+    </prl>
+    <one in="A" out="W"/>
+    <one symmetry="(xy)">
+      <rule in="III/III" out="*R*/RRR"/>
+      <rule in="III/III" out="RR*/*RR"/>
+      <rule in="III/III" out="R**/RRR"/>
+      <rule in="III/III" out="RR*/RR*"/>
+    </one>
+  </markov>
+  <all in="WI" out="O*"/>
+  <all symmetry="(xy)">
+    <rule in="O*" out="OO"/>
+    <rule in="OO" out="BB"/>
+  </all>
+</sequence>
+
+<!--<sequence values="CIBWRAO" symmetry="(x)">
+  <union symbol="?" values="ICB"/>
+  <prl in="*/C" out="*/I"/>
+  <prl in="*/*/*/*/I" out="*/*/*/*/W"/>
+  <prl in="W/*" out="B/*"/>
+  <markov>
+    <one in="IB" out="*I"/>
+    <one in="AR" out="AA" symmetry="(xy)"/>
+    <one in="R/W" out="A/W"/>
+    <prl>
+      <rule in="R/B" out="*/R"/>
+      <rule in="R/I" out="*/R"/>
+      <rule in="?/R" out="*/B"/>
+    </prl>
+    <one in="A" out="W"/>
+    <one symmetry="(xy)">
+      <rule in="III/III" out="*R*/RRR"/>
+      <rule in="III/III" out="RR*/*RR"/>
+      <rule in="III/III" out="R**/RRR"/>
+      <rule in="III/III" out="RR*/RR*"/>
+    </one>
+  </markov>
+  <all in="WI" out="O*"/>
+  <all symmetry="(xy)">
+    <rule in="O*" out="OO"/>
+    <rule in="OO" out="BB"/>
+  </all>
+</sequence>-->

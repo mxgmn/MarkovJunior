@@ -1,0 +1,11 @@
+<sequence values="BOS">
+  <one in="B" out="O" steps="1"/>
+  <one in="B" out="S" steps="1"/>
+  <one>
+    <rule in="OB" out="OO"/>
+    <rule in="SB" out="SS"/>
+
+    <field for="S" to="O" on="BS" recompute="True"/>
+    <field for="O" to="S" on="BO" recompute="True"/>
+  </one>
+</sequence>

@@ -1,0 +1,12 @@
+<sequence values="BW">
+  <all in="B" out="W"/>
+  <all in="***/***/*** ***/*W*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***"/>
+  <wfc values="BWU" tileset="Knots3D" tiles="Knots3D/4">
+    <rule in="W" out="Empty"/>
+    <sequence>
+      <all in="B" out="U"/>
+      <all in="U *" out="B *" symmetry="()"/>
+      <one in="UB" out="UU" steps="42000"/>
+    </sequence>
+  </wfc>
+</sequence>

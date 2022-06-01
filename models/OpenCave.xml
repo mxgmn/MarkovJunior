@@ -1,0 +1,8 @@
+<sequence values="DA">
+  <prl in="***/*D*/***" out="***/*A*/***"/>
+  <prl in="A" out="D" p="0.5" steps="1"/>
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="A" out="D" sum="5..8" values="D"/>
+    <rule in="D" out="A" sum="5..8" values="A"/>
+  </convolution>
+</sequence>

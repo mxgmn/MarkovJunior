@@ -1,0 +1,17 @@
+<sequence values="EWB">
+  <all in="E/*" out="W/*" symmetry="(x)"/>
+  <all in="*/W" out="*/B" symmetry="(x)"/>
+  <one>
+    <rule in="EB" out="EE"/>
+    <rule in="WB" out="WW"/>
+  </one>
+</sequence>
+
+<!--<sequence values="EWB">
+  <prl in="E/*" out="W/*" symmetry="(x)"/>
+  <prl in="*/W" out="*/B" symmetry="(x)"/>
+  <one>
+    <rule in="EB" out="EE"/>
+    <rule in="WB" out="WW"/>
+  </one>
+</sequence>-->

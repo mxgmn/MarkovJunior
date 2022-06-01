@@ -1,0 +1,11 @@
+<sequence values="BR">
+  <all in="B" out="R"/>
+  <all in="***/***/*** ***/*R*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***"/>
+  <wfc values="BAYRW" tileset="Escher">
+    <rule in="R" out="Empty"/>
+    <all>
+      <rule in="WBW" out="*W*"/>
+      <rule in="RBR" out="*R*"/>
+    </all>
+  </wfc>
+</sequence>

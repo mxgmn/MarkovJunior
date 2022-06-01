@@ -1,0 +1,141 @@
+<tileset fullSymmetry="True">
+	<tiles>
+		<tile name="Empty"/>
+		<tile name="Line"/>
+		<tile name="Turn"/>
+		<!--tile name="T"/-->
+		<!--tile name="X"/-->
+		<tile name="Stairs"/>
+	</tiles>
+	<neighbors>
+		<neighbor left="Empty" right="Empty"/>
+		<neighbor left="Empty" right="z Line"/>
+		<neighbor left="Empty" right="Turn"/>
+		<!--neighbor left="Empty" right="z T"/-->
+		<neighbor left="Empty" right="y Line"/>
+		<neighbor left="Empty" right="y Turn"/>
+		<!--neighbor left="Empty" right="y T"/-->
+		<!--neighbor left="Empty" right="y X"/-->
+		<neighbor left="Empty" right="z Stairs"/>
+		<neighbor left="Empty" right="y Stairs"/>
+
+		<!--neighbor left="Line" right="Line"/-->
+		<neighbor left="z Line" right="z Line"/>
+		<neighbor left="y Line" right="y Line"/>
+		<neighbor left="y Line" right="xy Line"/>
+		<neighbor left="z Line" right="y Line" condition="Dense"/>
+		<neighbor left="z Line" right="xy Line" condition="Dense"/>
+		
+		<neighbor left="Line" right="z Turn"/>
+		<neighbor left="z Line" right="Turn"/>
+		<neighbor left="y Line" right="y Turn"/>
+		<neighbor left="z Line" right="y Turn" condition="Dense"/>
+		<neighbor left="y Line" right="Turn" condition="Dense"/>
+		<neighbor left="y Line" right="x Turn" condition="Dense"/>
+		
+		<!--neighbor left="Line" right="T"/>
+		<neighbor left="Line" right="zzz T"/>
+		<neighbor left="z Line" right="z T"/>
+		<neighbor left="y Line" right="y T"/>
+		<neighbor left="y Line" right="xy T"/>
+		<neighbor left="z Line" right="y T" condition="Dense"/>
+		<neighbor left="z Line" right="xy T" condition="Dense"/>
+		<neighbor left="y Line" right="z T" condition="Dense"/>
+		<neighbor left="y Line" right="xz T" condition="Dense"/-->
+		<!--neighbor left="Line" right="X"/>
+		<neighbor left="y Line" right="y X"/>
+		<neighbor left="z Line" right="y X" condition="Dense"/-->
+		
+		<neighbor left="x Line" right="Stairs"/>
+		<neighbor left="y Line" right="z Stairs"/>
+		<neighbor left="z Line" right="z Stairs" condition="Dense"/>
+		<neighbor left="z Line" right="xz Stairs" condition="Dense"/>
+		<neighbor left="y Line" right="y Stairs" condition="Dense"/>
+
+		<!--neighbor left="Turn" right="z Turn"/-->
+		<neighbor left="Turn" right="zz Turn"/>
+		<neighbor left="z Turn" right="Turn"/>
+		<neighbor left="zz Turn" right="Turn"/>
+		<neighbor left="y Turn" right="y Turn"/>
+		<neighbor left="y Turn" right="xy Turn"/>
+		<neighbor left="y Turn" right="xxy Turn"/>
+		<neighbor left="z Turn" right="y Turn" condition="Dense"/>
+		<neighbor left="z Turn" right="xy Turn" condition="Dense"/>
+		
+		<!--neighbor left="Turn" right="T"/>
+		<neighbor left="Turn" right="zz T"/>
+		<neighbor left="Turn" right="zzz T"/>
+		<neighbor left="z Turn" right="z T"/>
+		<neighbor left="y Turn" right="y T"/>
+		<neighbor left="y Turn" right="xxy T"/>
+		<neighbor left="z Turn" right="y T" condition="Dense"/>
+		<neighbor left="z Turn" right="xy T" condition="Dense"/>
+		<neighbor left="z Turn" right="xxy T" condition="Dense"/>
+		<neighbor left="y Turn" right="z T" condition="Dense"/-->
+		<!--neighbor left="Turn" right="X"/>
+		<neighbor left="y Turn" right="y X"/>
+		<neighbor left="z Turn" right="y X" condition="Dense"/-->
+		
+		<!--neighbor left="x Turn" right="Stairs"/-->
+		<neighbor left="Stairs" right="y Turn"/>
+		<neighbor left="Stairs" right="xy Turn"/>
+		<neighbor left="Stairs" right="Turn" condition="Dense"/>
+		<neighbor left="Stairs" right="x Turn" condition="Dense"/>
+		<neighbor left="Stairs" right="xx Turn" condition="Dense"/>
+		<neighbor left="y Stairs" right="y Turn" condition="Dense"/>
+		<neighbor left="y Stairs" right="xy Turn" condition="Dense"/>
+		<neighbor left="y Stairs" right="xxy Turn" condition="Dense"/>
+		
+		<!--neighbor left="T" right="T"/>
+		<neighbor left="T" right="zz T"/>
+		<neighbor left="T" right="zzz T"/>
+		<neighbor left="z T" right="zzz T"/>
+		<neighbor left="zzz T" right="z T"/>
+		<neighbor left="y T" right="y T"/>
+		<neighbor left="y T" right="xy T"/>
+		<neighbor left="y T" right="xxy T"/>
+		<neighbor left="zzz T" right="y T" condition="Dense"/>
+		<neighbor left="zzz T" right="xy T" condition="Dense"/>
+		<neighbor left="T" right="X"/>
+		<neighbor left="z T" right="X"/>
+		<neighbor left="y T" right="y X"/>
+		<neighbor left="y X" right="z T" condition="Dense"/>
+		
+		<neighbor left="x T" right="Stairs"/>
+		<neighbor left="xz T" right="Stairs"/>
+		<neighbor left="Stairs" right="y T" condition="Dense"/>
+		<neighbor left="Stairs" right="xy T" condition="Dense"/>
+		<neighbor left="Stairs" right="xxy T" condition="Dense"/>
+		<neighbor left="Stairs" right="z T" condition="Dense"/>
+		<neighbor left="Stairs" right="xz T" condition="Dense"/-->
+
+		<!--neighbor left="X" right="X"/>
+		<neighbor left="y X" right="y X"/>
+		<neighbor left="x X" right="Stairs"/>
+		<neighbor left="Stairs" right="y X"/>
+		<neighbor left="y Stairs" right="y X" condition="Dense"/-->
+		
+		<neighbor left="z Stairs" right="zzz Stairs"/>
+		<neighbor left="y Stairs" right="y Stairs"/>
+		<neighbor left="y Stairs" right="xy Stairs"/>
+		<neighbor left="y Stairs" right="xxy Stairs"/>
+		<neighbor left="Stairs" right="z Stairs"/>
+		<neighbor left="Stairs" right="zz Stairs"/>
+		<neighbor left="y Stairs" right="z Stairs" condition="Dense"/>
+		<neighbor left="y Stairs" right="zz Stairs" condition="Dense"/>
+
+		<neighbor left="Stairs" right="y Stairs"/>
+		<neighbor left="Stairs" right="xy Stairs"/>
+
+		<neighbor left="z Line" right="y Stairs"/>
+		<neighbor left="z Line" right="yyy Stairs"/>
+		<neighbor left="z Turn" right="y Stairs"/>
+		<neighbor left="z Turn" right="yyy Stairs"/>
+		<neighbor left="zz Turn" right="y Stairs"/>
+		<neighbor left="zz Turn" right="yyy Stairs"/>
+
+		<neighbor left="x Line" right="Stairs"/>
+		<!--neighbor left="x X" right="Stairs"/-->
+		<neighbor left="x Turn" right="Stairs"/>
+	</neighbors>
+</tileset>

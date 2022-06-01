@@ -1,0 +1,4 @@
+<markov values="BRW" origin="Center">
+  <one in="RB" out="WR"/>
+  <one in="RW" out="WR"/>
+</markov>

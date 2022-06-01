@@ -1,0 +1,35 @@
+<sequence values="DEIWRSA">
+  <prl in="***/*D*/***" out="***/*E*/***"/>
+  <one in="E" out="W" steps="15"/>
+  <one in="E" out="R" steps="1"/>
+  <all>
+    <rule in="RI" out="IR"/>
+    <rule in="RE" out="SR"/>
+    <rule in="WI" out="IW"/>
+    <rule in="WE" out="IW"/>
+    <rule in="RW" out="RR"/>
+    <rule in="R*/*W" out="R*/*R"/>
+
+    <field for="W" to="E" on="I" recompute="True"/>
+    <field for="R" to="W" on="EI" recompute="True" essential="True"/>
+  </all>
+  <prl>
+    <rule in="E" out="D"/>
+    <rule in="S" out="A"/>
+    <rule in="R" out="A"/>
+    <rule in="I" out="A"/>
+  </prl>
+  <all>
+    <rule in="DA/AD" out="**/*A"/>
+    <rule in="AAA/ADA/AAA" out="***/*A*/***"/>
+  </all>
+  <all in="DDD/DAD" out="***/*D*"/>
+</sequence>
+
+<!--
+1. Sheep eat grass.
+2. Wolves chase sheep.
+3. Wolves eat sheep and multiply.
+4. Wolves mark their territory with a trail, no other wolf can cross it.
+5. We just generated a dungeon.
+-->

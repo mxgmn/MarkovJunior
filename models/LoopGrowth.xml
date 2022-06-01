@@ -1,0 +1,5 @@
+<sequence values="BAW" origin="Center">
+  <one in="BBB/BAB/BBB" out="WAW/ABA/WAW"/>
+  <one in="BBB/BBB/WAW" out="WAW/ABA/WBW"/>
+  <all in="A" out="W"/>
+</sequence>

@@ -1,0 +1,18 @@
+<sequence values="BRW" periodic="True">
+  <one in="B" out="R" steps="20"/>
+  <one in="B" out="W" steps="20"/>
+  <all temperature="1.0">
+    <rule in="RB" out="BR"/>
+    <rule in="WB" out="BW"/>
+    <rule in="RW" out="BR"/>
+    <field for="W" from="R" on="BW" recompute="True"/>
+    <field for="R" to="W" on="BR" recompute="True"/>
+  </all>
+  <all in="RB" out="BR"/>
+</sequence>
+
+<!--
+Every red predator tries to catch the closest white creature. White creatures try to run away from red predators.
+
+Nonzero temperature causes creatures to make small mistakes.
+-->

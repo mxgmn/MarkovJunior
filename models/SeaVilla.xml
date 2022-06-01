@@ -1,0 +1,434 @@
+﻿<sequence values="Bwy" symmetry="(xy)">
+  <prl in="B" out="w"/>
+  <prl in="w *" out="y *"/>
+  <prl in="***/*y*/***" out="***/*B*/***"/>
+  <wfc values="BaV OoYhSAWwRrlgvPpxbUuCcKkXGEFi" tileset="MarchingHills" overlap="-3">
+    31 values
+    <rule in="w" out="Stone"/>
+    <rule in="y" out="Empty"/>
+
+    <prl in="BBBBB/BBBBB/BBBBB/BBBBB/BBBBB aBBBa/BBBBB/BBBBB/BBBBB/aBBBa" out="*****/*****/**Y**/*****/***** *****/*hah*/*aaa*/*hah*/*****"/>
+    <prl in="BBBBB/BBBBB/BBBBB hBBBh/aBBBa/hBBBh" out="*****/**S**/***** *AAA*/*aaa*/*AAA*"/>
+    <prl in="BBB/BBB/BBB hah/BBB/BBB" out="***/***/*S* ***/AaA/AaA"/>
+    <prl in="aBBBa" out="*AaA*"/>
+    <prl steps="1">
+      <rule in="a B" out="* a"/>
+      <rule in="h B" out="* a"/>
+      <rule in="A B" out="* a"/>
+    </prl>
+    <prl comment="mark water">
+      <rule in="Y * *" out="O * *"/>
+      <rule in="S * *" out="W * *"/>
+      <rule in="V * *" out="l * *"/>
+    </prl>
+    <prl>
+      <rule in="Y" out="w"/>
+      <rule in="S" out="w"/>
+      <rule in="V" out="w"/>
+    </prl>
+    <prl>
+      <rule in="O" out="Y"/>
+      <rule in="W" out="S"/>
+      <rule in="l" out="V"/>
+    </prl>
+    <prl in="***/*A*/***" out="***/*W*/***"/>
+    <prl in="BwB/BBB ***/AaA" out="*u*/*** ***/***"/>
+    <prl in="W" out="A"/>
+    <markov comment="draw all possible bridges">
+      <one in="YR/BB/*B/SB" out="*r/**/**/**" comment="cancel purposeless bridge"/>
+      <one in="BYB/BRB/BBB/BSB BhB/BBB/BBB/AaA" out="***/*B*/***/*** ***/*a*/*a*/***" comment="connect"/>
+      <one comment="continue">
+        <rule in="BSB/BRB/BBB/BBB/BBB *a*/BBB/BBB/BBB/BBB" out="***/*B*/***/*Y*/*R* ***/*a*/*a*/*h*/***"/>
+        <rule in="BYB/BRB/BBB/BBB/BBB *h*/BBB/BBB/BBB/BBB" out="***/*B*/***/*S*/*R* ***/*a*/*a*/*a*/***"/>
+      </one>
+      <one comment="retract">
+        <rule in="BBB/BBB/BYB/BrB *a*/BaB/BhB/BBB" out="*r*/***/*B*/*B* *B*/*B*/*B*/***"/>
+        <rule in="BBB/BBB/BSB/BrB *a*/BaB/BaB/BBB" out="*r*/***/*B*/*B* *B*/*B*/*B*/***"/>
+      </one>
+      <one in="R" out="r" comment="fail"/>
+      <one in="BSB/BBB AaA/BBB" out="***/*R* ***/***" comment="start"/>
+    </markov>
+    <prl in="r" out="B"/>
+    <all in="aaa/BBB BSB/BBB AaA/BaB" out="*r*/*** ***/*** ***/***" comment="ban stairs above bridges"/>
+    <all in="YBBSBBY" out="*ii*ii*" comment="draw all possible paths"/>
+    <all comment="draw stairs">
+      <rule in="BBBBB YBBSB aaaaB aaaaB Y**Si" out="***** *ii** ***i* ***i* *****"/>
+      <rule in="BBBBB YBBSB aaaaB aaaaB YBBSB aaaaB aaaaB Y**Si" out="***** *ii** ***i* ***i* ***** ***i* ***i* *****"/>
+      <rule in="BBBBB YBBSB aaaaB aaaaB YBBSB aaaaB aaaaB YBBSB aaaaB aaaaB Y**Si" out="***** *ii** ***i* ***i* ***** ***i* ***i* ***** ***i* ***i* *****"/>
+      <rule in="BBBBB YBBSB aaaaB aaaaB wBBw*" out="***** *ii** ***i* ***i* *****"/>
+    </all>
+    <all in="*BB* uBBw" out="**** ***u" comment="find external descents"/>
+    <all comment="prepare endpoints for the big cycle">
+      <rule in="iYi" out="*x*"/>
+      <rule in="Yi/i*" out="x*/**"/>
+    </all>
+    <prl>
+      <rule in="r" out="a"/>
+      <rule in="Y" out="o"/>
+      <rule in="S" out="o"/>
+      <rule in="a i" out="* F"/>
+      <rule in="a x" out="* b"/>
+    </prl>
+    <one in="x" out="R" steps="1"/>
+    <one steps="1">
+      <rule in="x" out="l"/>
+      <field for="l" from="R" on="ioxFb"/> не уверен насчет Fb
+    </one>
+    <one in="R" out="x"/>
+    <markov>
+      <one in="lW" out="R*" symmetry="(xyz)"/>
+      <path from="x" to="l" on="iox" color="W" longest="True"/>
+    </markov>
+    <one in="Wx" out="Wl" symmetry="(xyz)"/>
+    <prl>
+      <rule in="F" out="i"/>
+      <rule in="b" out="x"/>
+    </prl>
+    <markov>
+      <one in="Sl" out="SW" symmetry="(xyz)"/>
+      <path from="R" to="l" on="iox" color="S"/>
+    </markov>
+    <all>
+      <rule in="lB" out="*l"/>
+      <rule in="lW" out="*l"/>
+    </all>
+    <prl>
+      <rule in="S" out="W"/>
+      <rule in="x" out="o"/>
+    </prl>
+    <one in="RWW*" out="xpPR" symmetry="(xyz)"/>
+    <prl in="R" out="x"/>
+    <all comment="remove stairs incompatible with paths">
+      <rule in="iio aai aai **x" out="BB* **a **a ***"/>
+      <rule in="iio aai aai BBo aai aai **x" out="BB* **a **a *** **a **a ***"/>
+      <rule in="iio aai aai BBo aai aai BBo aai aai **x" out="BB* **a **a *** **a **a *** **a **a ***"/>
+    </all>
+    <path from="x" to="u" on="io" color="W" comment="connect to water"/>
+    <one in="W" out="S" steps="1"/>
+    <one in="SW" out="SS" symmetry="(xyz)"/>
+    <all symmetry="(xyz)">
+      <rule in="uWWW" out="*iio"/>
+      <rule in="oWWW" out="*iio"/>
+      <rule in="oWWx" out="*ii*"/>
+      <rule in="uSSS" out="*Ppu"/>
+      <rule in="uSSx" out="xPp*"/>
+    </all>
+    <prl in="u * *" out="x * *"/>
+    <all comment="fail on wrong stair turn">
+      <rule in="gB" out="*g"/>
+      <rule in="xPp p** P** xpP" out="ggg ggg ggg ggg"/>
+      <rule in="xpP P** p** xPp" out="ggg ggg ggg ggg"/>
+      <rule in="xPp p** P** *** p** P** xpP" out="ggg ggg ggg ggg ggg ggg ggg"/>
+      <rule in="xpP P** p** *** P** p** xPp" out="ggg ggg ggg ggg ggg ggg ggg"/>
+      <rule in="xPp p** P** *** p** P** *** p** P** xpP" out="ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg"/>
+      <rule in="xpP P** p** *** P** p** *** P** p** xPp" out="ggg ggg ggg ggg ggg ggg ggg ggg ggg ggg"/>
+    </all>
+    <all comment="delete unused descents">
+      <rule in="iio aai aai BBu" out="BB* **a **a ***"/>
+      <rule in="iio aai aai BBw" out="BB* **a **a ***"/>
+    </all>
+    <prl>
+      <rule in="BxB AaA" out="*b* ***"/>
+      <rule in="BxB B*B" out="*b* ***"/>
+      <rule in="***/*o*/*** hah/aaa/hah" out="***/*O*/*** ***/***/***"/>
+      <rule in="o h" out="O *"/>
+    </prl>
+    <markov comment="build trees to prepare key placement">
+      <one>
+        <rule in="iYF" out="r**"/>
+        <rule in="iY/*F" out="r*/**"/>
+      </one>
+      <one in="F" out="i"/>
+      <one>
+        <rule in="YiioiiO" out="*SS*SSY"/>
+        <rule in="Yiio*** ***i*** ***i*** ***oiiO" out="*SS**** ***S*** ***S*** ****SSY"/>
+        <rule in="***oiiO ***i*** ***i*** Yiio***" out="****SSY ***S*** ***S*** *SS****"/>
+        <rule in="Yiio*** ***i*** ***i*** ***o*** ***i*** ***i*** ***oiiO" out="*SS**** ***S*** ***S*** ******* ***S*** ***S*** ****SSY"/>
+        <rule in="***oiiO ***i*** ***i*** ***o*** ***i*** ***i*** Yiio***" out="****SSY ***S*** ***S*** ******* ***S*** ***S*** *SS****"/>
+        <rule in="Yiio*** ***i*** ***i*** ***o*** ***i*** ***i*** ***o*** ***i*** ***i*** ***oiiO" out="*SS**** ***S*** ***S*** ******* ***S*** ***S*** ******* ***S*** ***S*** ****SSY"/>
+        <rule in="***oiiO ***i*** ***i*** ***o*** ***i*** ***i*** ***o*** ***i*** ***i*** Yiio***" out="****SSY ***S*** ***S*** ******* ***S*** ***S*** ******* ***S*** ***S*** *SS****"/>
+      </one>
+      <one in="xPpbP/i****" out="Y**c*/F****"/>
+    </markov>
+    <all in="pY" out="*C"/>
+    <path from="Y" to="C" on="SoCY" color="l" longest="True"/>
+    <prl>
+      <rule in="S" out="i"/>
+      <rule in="r" out="i"/>
+    </prl>
+    <one in="Yl" out="K*" steps="1"/>
+    <one in="Yl" out="X*" steps="1"/>
+    <one in="Yl" out="R*" steps="1"/>
+    <all symmetry="(xyz)">
+      <rule in="Klll" out="***K"/>
+      <rule in="KllC" out="***k"/>
+      <rule in="Xlll" out="***X"/>
+      <rule in="XllC" out="***G"/>
+      <rule in="Rlll" out="***R"/>
+      <rule in="RllC" out="***r"/>
+      <rule in="Ylll" out="*iiY"/>
+      <rule in="YllC" out="*ii*"/>
+      <rule in="kPpc" out="o**k"/>
+      <rule in="GPpc" out="o**G"/>
+      <rule in="rPpc" out="o**r"/>
+    </all>
+    <all symmetry="(xyz)">
+      <rule in="lKl" out="*o*"/>
+      <rule in="lK/*l" out="*o/**"/>
+      <rule in="lXl" out="*o*"/>
+      <rule in="lX/*l" out="*o/**"/>
+      <rule in="lRl" out="*o*"/>
+      <rule in="lR/*l" out="*o/**"/>
+    </all>
+    <prl>
+      <rule in="BPB BaB" out="*** *E*"/>
+      <rule in="BpB BaB" out="*** *E*"/>
+      <rule in="BbB BaB" out="*** *E*"/>
+    </prl>
+    <prl>
+      <rule in="P" out="l"/>
+      <rule in="p" out="l"/>
+      <rule in="C" out="o"/>
+      <rule in="c" out="o"/>
+      <rule in="x" out="o"/>
+      <rule in="b" out="o"/>
+      <rule in="Y" out="o"/>
+    </prl>
+    <prl>
+      <rule in="***/*o*/*** hah/aaa/hah" out="***/*Y*/*** ***/***/***"/>
+      <rule in="o h" out="Y *"/>
+    </prl>
+    <all>
+      <rule in="Ylll" out="***o"/>
+      <rule in="olll" out="***Y"/>
+      <rule in="o l l l" out="* * * o"/>
+      <rule in="l l l o" out="o * * *"/>
+    </all>
+    <prl in="Yl" out="O*"/>
+    <union symbol="6" values="PY"/>
+    <markov comment="mark open areas">
+      <all>
+        <rule in="Piioii6" out="*SS*SSP"/>
+        <rule in="Piio*** ***i*** ***i*** ***oii6" out="*SS**** ***S*** ***S*** ****SSP"/>
+        <rule in="***oii6 ***i*** ***i*** Piio***" out="****SSP ***S*** ***S*** *SS****"/>
+        <rule in="Piio*** ***i*** ***i*** ***o*** ***i*** ***i*** ***oii6" out="*SS**** ***S*** ***S*** ******* ***S*** ***S*** ****SSP"/>
+        <rule in="***oii6 ***i*** ***i*** ***o*** ***i*** ***i*** Piio***" out="****SSP ***S*** ***S*** ******* ***S*** ***S*** *SS****"/>
+        <rule in="Piio*** ***i*** ***i*** ***o*** ***i*** ***i*** ***o*** ***i*** ***i*** ***oii6" out="*SS**** ***S*** ***S*** ******* ***S*** ***S*** ******* ***S*** ***S*** ****SSP"/>
+        <rule in="***oii6 ***i*** ***i*** ***o*** ***i*** ***i*** ***o*** ***i*** ***i*** Piio***" out="****SSP ***S*** ***S*** ******* ***S*** ***S*** ******* ***S*** ***S*** *SS****"/>
+      </all>
+      <all in="P" out="p"/>
+      <one in="O" out="P"/>
+    </markov>
+    <prl>
+      <rule in="p" out="o"/>
+      <rule in="i" out="B"/>
+    </prl>
+    <all symmetry="(xyz)">
+      <rule in="ullo" out="***O"/>
+      <rule in="Ollo" out="***O"/>
+      <rule in="OSSo" out="***O"/>
+    </all>
+    <one steps="1" comment="place the goal">
+      <rule in="***/*o*/*** hah/aaa/hah" out="***/*U*/*** ***/***/***"/>
+      <field for="U" from="u" on="UKXRkGrSaOol"/>
+    </one>
+    <one comment="detect trivial levels">
+      <rule in="BBB/BUB/BBB" out="***/*Y*/***"/>
+      <rule in="* Y" out="Y *"/>
+      <rule in="Y*" out="*Y"/>
+    </one>
+    <prl in="O" out="o"/>
+    <union symbol="?" values="aBhA"/>
+    <all comment="retract dead ends">
+      <rule in="????/????/???? ????/?oSS/???? ????/????/????" out="****/****/**** ****/*oBB/**** ****/****/****"/>
+      <rule in="???/???/??? ???/?o?/??? ???/?S?/??? ???/?S?/???" out="***/***/*** ***/*o*/*** ***/*B*/*** ***/*B*/***"/>
+      <rule in="???/?S?/??? ???/?S?/??? ???/?o?/??? ???/???/???" out="***/*B*/*** ***/*B*/*** ***/*o*/*** ***/***/***"/>
+    </all>
+    <all in="oSSoSSo/S*****S/S*****S/o**V**o/S*****S/S*****S/oSSoSSo" out="*******/*PPPPP*/*PPPPP*/*PPvPP*/*PPPPP*/*PPPPP*/*******" comment="detect rooms"/>
+    <all comment="repair removed stairs">
+      <rule in="ABA" out="*a*"/>
+      <rule in="aBa" out="*a*"/>
+    </all>
+    <prl>
+      <rule in="l" out="i"/>
+      <rule in="S" out="i"/>
+      <rule in="V" out="o"/>
+      <rule in="u" out="w"/>
+    </prl>
+    <prl in="o i i o i i o i i o" out="O * * O * * O * * O" comment="mark triple ladders"/>
+    <prl in="o i i o i i o" out="O * * O * * O" comment="mark double ladders"/>
+    <all comment="delete unused bridges">
+      <rule in="hB" out="a*"/>
+      <rule in="BBB/BoB/BBB BBB/aaa/BBB" out="***/*B*/*** ***/BBB/***"/>
+      <rule in="EaE" out="*E*"/>
+    </all>
+
+    <union symbol="!" values="Bi"/>
+    <map scale="5/3 5/3 6/3" values="BaWUyogEpTCOYMAPeDFiKkXGRrwxb" folder="SeaVilla">
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB aaB/aaB/BBB" fout="TopOut" legend="Ea*g"/>
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB aaa/aaa/aaB" fout="TopIn" legend="Ea*g"/>
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB aaB/aaB/aaB" fout="TopWall" legend="Ea*g"/>
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB aaa/aaa/aaa" fout="TopStone" legend="E*g"/>
+
+      <rule in="aaB/aaB/BBB BBB/BoB/BBB aaB/aaB/BBB" fout="Out" legend="E*a"/>
+      <rule in="aaa/aaa/aaB BBB/BoB/BBB aaa/aaa/aaB" fout="In" legend="Ea*"/>
+      <rule in="aaB/aaB/aaB BBB/BoB/BBB aaB/aaB/aaB" fout="Wall" legend="E*a"/>
+      <rule in="aaa/aaa/aaa BBB/BoB/BBB aaa/aaa/aaa" fout="Stone" legend="Ea*"/>
+
+      <rule in="BBB/aaB/aaB BBB/BoB/BBB aaa/aaa/aaB" fout="OutIn" legend="Ea*"/>
+      <rule in="aaB/aaB/BBB BBB/BoB/BBB aaB/aaB/aaB" fout="OutWall" legend="E*a"/>
+      <rule in="aaB/aaB/aaB BBB/BoB/BBB aaa/aaa/aaB" fout="OutIn" legend="Ea*"/>
+      <rule in="aaa/aaa/aaB BBB/BoB/BBB aaa/aaa/aaa" fout="Stone" legend="Ea*"/>
+      <rule in="aaB/aaB/aaB BBB/BoB/BBB aaa/aaa/aaa" fout="Stone" legend="Ea*"/>
+      <rule in="aaB/aaB/BBB BBB/BoB/BBB aaa/aaa/aaa" fout="Stone" legend="Ea*"/>
+
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB hah/aaa/hah" fout="TopCross" legend="Eg*"/>
+      <rule in="aaa/aaa/aaa BBB/BoB/BBB hah/aaa/hah" fout="Cross" legend="P*"/>
+
+      <rule in="BBB/BBB/BBB BBB/ioB/BBB AAB/aiB/AAB" fout="StairsTop" legend="*"/>
+      <rule in="aaB/aiB/aaB BBB/Boi/BBB AAA/aaa/AAA" fout="StairsBottom" legend="EabW*e"/>
+      <rule in="BBB/BBB/BBB BBB/iOB/BBB AAB/aiB/AAB" fout="LadderTop" legend="E*W"/>
+      <rule in="aaB/aiB/aaB BBB/BOi/BBB AAA/aaa/AAA" fout="LadderBottom" legend="EaW*D"/>
+      <rule in="aaB/aiB/aaB BBB/BOB/BBB AAB/aiB/AAB" fout="Ladder" legend="EaD*"/>
+      <rule in="aaB/aiB/aaB BBB/BwB/BBB AAA/aaa/AAA" fout="Pier" legend="yUw*"/>
+
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB AAB/aaB/AAB" fout="TopEdge" legend="Ex*ag"/>
+      <rule in="aaB/aaB/aaB BBB/BoB/BBB AAB/aaB/AAB" fout="Edge" legend="E*"/>
+      <rule in="aaB/aaB/aaB BBB/BoB/BBB AAA/aaa/AAA" fout="Dir" legend="Ea*"/>
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB AAA/aaa/AAA" fout="TopDir" legend="E*g"/>
+      <rule in="aaa/aaa/aaa BBB/BoB/BBB AAA/aaa/AAA" fout="Dir" legend="Ea*"/>
+
+      <rule in="BBB/BBB/BBB BBB/BwB/BBB aaa/aaa/aaa" fout="Water" legend="yU*"/>
+      <rule in="BBB/BBB/BBB BBB/BwB/BBB hah/aaa/hah" fout="Water" legend="yU*"/>
+      <rule in="BBB/BBB/BBB BBB/BwB/BBB AAA/aaa/AAA" fout="Water" legend="yU*"/>
+      <rule in="aaB/aaB/aaB BBB/BwB/BBB AAA/aaa/AAA" fout="Water" legend="yU*"/>
+      <rule in="aaB/aaB/aaB BBB/BwB/BBB aaa/aaa/aaa" fout="WaterWall" legend="yaU*"/>
+      <rule in="aaa/aaa/aaB BBB/BwB/BBB aaa/aaa/aaa" fout="WaterWall" legend="yaU*"/>
+      <rule in="aaB/aaB/BBB BBB/BwB/BBB aaa/aaa/aaa" fout="WaterWall" legend="yaU*"/>
+      <rule in="aaa/aaa/aaa BBB/BwB/BBB aaa/aaa/aaa" fout="WaterWall" legend="yaU*"/>
+      <rule in="aaa/aaa/aaa BBB/BwB/BBB hah/aaa/hah" fout="Water" legend="yU*"/>
+      <rule in="aaa/aaa/aaa BBB/BwB/BBB AAA/aaa/AAA" fout="Water" legend="yU*"/>
+
+      <rule in="BBB/BBB/BBB BBB/ioi/BBB AAA/aaa/AAA" fout="Line" legend="EW*"/>
+      <rule in="aaa/aaa/aaa BBB/ioi/BBB AAA/aaa/AAA" fout="Line" legend="EW*"/>
+      <rule in="aaB/aaB/aaB BBB/ioi/BBB AAA/aaa/AAA" fout="Line" legend="EW*"/>
+      <rule in="BBB/BBB/BBB B*B/io*/B*B hah/aaa/hah" fout="CrossX" legend="EW*"/>
+      <rule in="aaa/aaa/aaa B*B/io*/B*B hah/aaa/hah" fout="CrossX" legend="EW*"/>
+
+      <rule in="***/***/*** PPP/PvP/PPP aaa/aaa/aaa" fout="Room" legend="T*"/>
+      <rule in="***/***/*** PiB/io!/B!B hah/aaa/hah" fout="RoomOut" legend="TaWE*"/>
+      <rule in="***/***/*** PiP/ioi/PiB hah/aaa/hah" fout="RoomIn" legend="TaW*"/>
+      <rule in="***/***/*** PiB/ioi/BiP hah/aaa/hah" fout="RoomDouble" legend="TaW*"/>
+      <rule in="***/***/*** PiB/io!/PiB hah/aaa/hah" fout="RoomWall" legend="TaW*"/>
+      <rule in="***/***/*** PiP/ioi/PiP hah/aaa/hah" fout="Room" legend="T*"/>
+      <rule in="***/***/*** PiP/PoP/PiP AaA/AaA/AaA" fout="Room" legend="T*"/>
+      <rule in="***/***/*** PiB/PoB/PiB AaA/AaA/AaA" fout="RoomWall" legend="TaW*"/>
+
+      <rule in="BBB/BBB/BBB BBB/ioi/BBB BBB/aaa/BBB" fout="Line" legend="EW*"/>
+      <rule in="BBB/BBB/BBB BBB/ioi/BBB BBB/EEE/BBB" fout="BridgeWood" legend="*o"/>
+      <rule in="BBB/BBB/BBB BBB/ioi/BBB AAB/aaa/AAB" fout="Line" legend="EW*"/>
+      <rule in="aaB/aaB/aaB BBB/ioi/BBB AAB/aaa/AAB" fout="Line" legend="EW*"/>
+      <rule in="BBB/BBB/BBB BBB/BoB/BBB AAB/aaa/AAB" fout="TopEdge" legend="Ex*ag"/>
+      <rule in="aaB/aaB/aaB BBB/BoB/BBB AAB/aaa/AAB" fout="Edge" legend="E*"/>
+      <rule in="BBB/BBB/BBB BBB/ioi/BBB AAB/aaE/AAB" fout="TopContactWood" legend="Eo*W"/>
+      <rule in="aaB/aaB/aaB BBB/ioi/BBB AAB/aaE/AAB" fout="ContactWood" legend="Eo*W"/>
+
+      <rule in="***/***/*** ***/iU*/*** ***/***/***" fout="Goal" legend="EW*C"/>
+      <rule in="***/***/*** BBB/BKi/BBB ***/***/***" fout="KeyK" legend="EW*KOM"/>
+      <rule in="***/***/*** BBB/BXi/BBB ***/***/***" fout="KeyL" legend="EW*XOM"/>
+      <rule in="***/***/*** BBB/BRi/BBB ***/***/***" fout="KeyR" legend="EW*ROM"/>
+      <rule in="***/***/*** BBB/iki/BBB ***/***/***" fout="LockK" legend="EW*kY"/>
+      <rule in="***/***/*** BBB/iGi/BBB ***/***/***" fout="LockL" legend="EW*GY"/>
+      <rule in="***/***/*** BBB/iri/BBB ***/***/***" fout="LockR" legend="EW*rY"/>
+
+        <one file="DrawPier" legend="BowaEW"/>
+        <all comment="finalize pier">
+          <rule in="o U" out="* o"/>
+          <rule in="o y" out="* o"/>
+        </all>
+        <prl comment="complete roads">
+          <rule in="WEW" out="*W*"/>
+          <rule in="WEB BBW" out="*W* ***"/>
+        </prl>
+        <prl comment="fill some gaps">
+          <rule in="aBa" out="*a*"/>
+          <rule in="aEa" out="*a*"/>
+          <rule in="DBa" out="*a*"/>
+          <rule in="a B a" out="* a *"/>
+          <rule in="a B E" out="* a *"/>
+          <rule in="a E" out="* a"/>
+          <rule in="EaE *B* *U*" out="*** *a* ***"/>
+        </prl>
+        <prl comment="fill stair gaps">
+          <rule in="aBe" out="*a*"/>
+          <rule in="aUe" out="*a*"/>
+        </prl>
+        <prl in="e" out="B" comment="finalize stairs"/>
+        <all>
+          <rule in="PE" out="*P" comment="mark redundant floors"/>
+          <rule in="a U" out="* a"/>
+          <rule in="a y" out="* a"/>
+        </all>
+        <prl in="P" out="B"/>
+        <prl comment="remove redundant walls">
+          <rule in="BBB BaB BaB BaB BaB BaB *a*" out="*** *B* *B* *B* *B* *B* *E*"/>
+          <rule in="BaB BaB BaB BaB BaB BaB BBB" out="*B* *B* *B* *B* *B* *B* ***"/>
+        </prl>
+        <all comment="continue columns above rooms">
+          <rule in="aaa/aaa/aaa BBB/BBB/BBB" out="***/***/*** aaa/aaa/aaa"/>
+          <rule in="aaa/aaa/aaa TTT/TTT/TTT" out="***/***/*** aaa/aaa/aaa"/>
+        </all>
+        <union symbol="?" values="BaKXRkGr"/>
+        <all in="??g??" out="**B**" comment="remove thin grass"/>
+        <all in="BBYBYBYB" out="*Y*Y*Y*Y" comment="finalize doors"/>
+        <prl in="Y E" out="* Y"/>
+        <all>
+          <rule in="YE" out="*a"/>
+          <rule in="Y*/*E" out="**/*a"/>
+        </all>
+        <union symbol="@" values="aEW"/>
+        <prl symmetry="(xyz)">
+          <rule in="@B" out="*A"/>
+          <rule in="@*/*B" out="**/*A"/>
+        </prl>
+        <markov>
+          <one>
+            <rule in="pK" out="*p"/>
+            <rule in="pk" out="*p"/>
+          </one>
+          <path from="K" to="k" on="A" color="p" inertia="True"/>
+        </markov>
+        <markov>
+          <one>
+            <rule in="pX" out="*p"/>
+            <rule in="pG" out="*p"/>
+          </one>
+          <path from="X" to="G" on="A" color="p" inertia="True"/>
+        </markov>
+        <markov>
+          <one>
+            <rule in="pR" out="*p"/>
+            <rule in="pr" out="*p"/>
+          </one>
+          <path from="R" to="r" on="A" color="p" inertia="True"/>
+        </markov>
+        <prl>
+          <rule in="A" out="B"/>
+          <rule in="k" out="B"/>
+          <rule in="G" out="B"/>
+          <rule in="r" out="B"/>
+          <rule in="O p" out="* O"/>
+          <rule in="b a" out="* E"/>
+          <rule in="aax aBB aBB" out="**a *aa *a*"/>
+        </prl>
+        <prl comment="final colors">
+          <rule in="i" out="E"/>
+          <rule in="F" out="a"/>
+          <rule in="D" out="a"/>
+          <rule in="b" out="a"/>
+          <rule in="x" out="a"/>
+        </prl>
+    </map>
+
+  </wfc>
+</sequence>

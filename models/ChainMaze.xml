@@ -1,0 +1,4 @@
+<sequence values="BDA">
+  <convchain sample="Maze" on="B" black="D" white="A" n="2" steps="10"/>
+  <all in="AD/DA" out="AD/AA"/>
+</sequence>

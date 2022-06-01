@@ -1,0 +1,94 @@
+<tileset>
+  <tiles>
+    <tile name="Empty"/>
+    <tile name="Cube" weight="0.5"/>
+    <tile name="StairsT"/>
+    <tile name="StairsB"/>
+    <tile name="Turn"/>
+    <tile name="T1" weight="10.0"/>
+    <tile name="T2" weight="10.0"/>
+  </tiles>
+  <neighbors>
+    <neighbor left="Empty" right="Empty"/>
+    <neighbor left="Empty" right="StairsT"/>
+    <neighbor left="Empty" right="z StairsT"/>
+    <neighbor left="Empty" right="z StairsB"/>
+    <neighbor left="Empty" right="zz StairsB"/>
+    <neighbor left="Empty" right="Turn"/>
+    <neighbor left="Empty" right="zzz Turn"/>
+
+    <neighbor left="Empty" right="Cube"/>
+    <neighbor left="Cube" right="z StairsT"/>
+    <neighbor left="Cube" right="z StairsB"/>
+    <neighbor left="Cube" right="Turn"/>
+    <neighbor left="Cube" right="zzz Turn"/>
+    <neighbor top="Cube" bottom="Cube"/>
+
+    <neighbor left="z StairsT" right="z StairsT"/>
+    <neighbor left="z StairsT" right="z StairsB"/>
+    <neighbor left="StairsT" right="StairsB"/>
+    <neighbor left="StairsB" right="StairsT"/>
+    <neighbor left="z StairsB" right="StairsT"/>
+    <neighbor left="StairsB" right="z StairsT"/>
+    <neighbor left="z StairsB" right="z StairsB"/>
+    <neighbor left="StairsT" right="z Turn"/>
+    <neighbor left="zz StairsB" right="zz Turn"/>
+
+    <neighbor left="Empty" right="zzz T1"/>
+    <neighbor left="Empty" right="zzz T2"/>
+    <neighbor left="Cube" right="zzz T1"/>
+    <neighbor left="Cube" right="zzz T2"/>
+    <neighbor left="StairsT" right="z T1"/>
+    <neighbor left="z T1" right="StairsT"/>
+    <neighbor left="StairsT" right="T2"/>
+    <neighbor left="z T2" right="StairsT"/>
+    <neighbor left="T1" right="StairsB"/>
+    <neighbor left="StairsB" right="zzz T1"/>
+    <neighbor left="zzz T2" right="StairsB"/>
+    <neighbor left="StairsB" right="zzz T2"/>
+
+    <neighbor top="Empty" bottom="Empty"/>
+    <neighbor top="StairsT" bottom="Empty"/>
+    <neighbor top="Empty" bottom="StairsB"/>
+    <neighbor top="Empty" bottom="Turn"/>
+    <neighbor top="Turn" bottom="Empty"/>
+
+    <neighbor top="StairsT" bottom="StairsB"/>
+    <neighbor top="StairsB" bottom="StairsT"/>
+    <neighbor top="StairsT" bottom="Turn"/>
+    <neighbor top="StairsT" bottom="z Turn"/>
+    <neighbor top="StairsT" bottom="zz Turn"/>
+    <neighbor top="StairsT" bottom="zzz Turn"/>
+    <neighbor top="Turn" bottom="StairsB"/>
+    <neighbor top="z Turn" bottom="StairsB"/>
+    <neighbor top="zz Turn" bottom="StairsB"/>
+    <neighbor top="zzz Turn" bottom="StairsB"/>
+    <neighbor top="Turn" bottom="Turn"/>
+    <neighbor top="Turn" bottom="z Turn"/>
+    <neighbor top="Turn" bottom="zz Turn"/>
+    <neighbor top="Turn" bottom="zzz Turn"/>
+
+    <neighbor top="Empty" bottom="T1"/>
+    <neighbor top="T1" bottom="Empty"/>
+    <neighbor top="Empty" bottom="T2"/>
+    <neighbor top="T2" bottom="Empty"/>
+    <neighbor top="StairsT" bottom="T1"/>
+    <neighbor top="StairsT" bottom="z T1"/>
+    <neighbor top="StairsT" bottom="z T2"/>
+    <neighbor top="StairsT" bottom="zzz T2"/>
+    <neighbor top="z T1" bottom="StairsB"/>
+    <neighbor top="zzz T1" bottom="StairsB"/>
+    <neighbor top="T2" bottom="StairsB"/>
+    <neighbor top="zzz T2" bottom="StairsB"/>
+    <neighbor top="Turn" bottom="T1"/>
+    <neighbor top="T1" bottom="Turn"/>
+    <neighbor top="zzz Turn" bottom="T1"/>
+    <neighbor top="zz Turn" bottom="T1"/>
+    <neighbor top="T1" bottom="zz Turn"/>
+    <neighbor top="z Turn" bottom="T2"/>
+    <neighbor top="T2" bottom="z Turn"/>
+    <neighbor top="zzz Turn" bottom="T2"/>
+    <neighbor top="T2" bottom="zzz Turn"/>
+    <neighbor top="T2" bottom="zz Turn"/>
+  </neighbors>
+</tileset>

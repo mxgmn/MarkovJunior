@@ -1,0 +1,6 @@
+<sequence values="RUBDW">
+  <prl in="*R" out="*U" symmetry="()"/>
+  <prl in="U*" out="D*" symmetry="()"/>
+  <prl in="D" out="B" p="0.4" steps="1"/>
+  <path from="R" to="U" on="D" color="W"/>
+</sequence>

@@ -1,0 +1,12 @@
+<markov values="WRB" origin="Center">
+  <one in="RW" out="BR"/>
+  <path from="R" to="W" on="B" color="W"/>
+</markov>
+
+<!--
+For an alternative formulaion using fields, replace path block with this:
+
+<one in="RB" out="BR">
+    <gradient for="R" on="B" to="W" recompute="False"/>
+</one>
+-->

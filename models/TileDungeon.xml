@@ -1,0 +1,11 @@
+<sequence values="PB">
+  <all in="***/*P*/***" out="***/*B*/***"/>
+  <wfc tileset="Dungeon" values="ABW">
+    <rule in="P" out="Stone"/>
+    <markov>
+      <all in="WA" out="*W"/>
+      <path from="A" to="W" on="B" color="W"/>
+      <one in="A" out="W"/>
+    </markov>
+  </wfc>
+</sequence>

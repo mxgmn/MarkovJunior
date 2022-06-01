@@ -1,0 +1,11 @@
+<sequence values="BRW" origin="Center">
+  <one steps="3000">
+    <rule in="RB" out="WR"/>
+    <rule in="RW" out="WR"/>
+  </one>
+  <one in="R" out="W"/>
+  <all>
+    <rule in="WB/BW" out="WB/WW"/>
+    <rule in="BBB/BWB" out="***/*B*"/>
+  </all>
+</sequence>

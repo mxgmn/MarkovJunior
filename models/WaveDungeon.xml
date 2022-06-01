@@ -1,0 +1,30 @@
+<sequence values="BWDG">
+  <all in="***/*B*/***" out="***/*D*/***"/>
+  <one in="DDDD/DDDD/DDDD" out="WWWW/WWWW/WWWW" steps="5"/>
+  <markov>
+    <all in="GW" out="*G"/>
+    <path from="G" to="W" on="D" color="W" inertia="True"/>
+    <one in="W" out="G"/>
+  </markov>
+  <all in="G" out="W"/>
+  <wfc sample="Dungeon" values="BWP" n="3">
+    <rule in="B" out="B"/>
+    <rule in="W" out="W"/>
+
+    <one in="W" out="P" steps="1"/>
+    <all in="PW" out="*P"/>
+    <all in="W" out="B"/>
+  </wfc>
+</sequence>
+
+<!--<sequence values="PB">
+  <all in="***/*P*/***" out="***/*B*/***"/>
+  <wfc sample="Skew2" n="3" values="BWE" shannon="True">
+    <rule in="P" out="B"/>
+    <markov>
+      <all in="EW" out="*E"/>
+      <path from="E" to="W" on="B" color="W"/>
+      <one in="W" out="E"/>
+    </markov>
+  </wfc>
+</sequence>-->

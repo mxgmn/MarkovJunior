@@ -1,0 +1,7 @@
+<sequence values="BW" symmetry="(x)">
+  <all in="B/*/*" out="W/*/*"/>
+  <wfc sample="Flowers" values="zYgN" n="3" periodic="True" shannon="True">
+    <rule in="B" out="N|g"/>
+    <rule in="W" out="z|g|Y"/>
+  </wfc>
+</sequence>

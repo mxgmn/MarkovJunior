@@ -1,0 +1,10 @@
+<markov values="BRWU" origin="Center">
+  <one in="RB" out="WR"/>
+  <one in="RW" out="UR"/>
+</markov>
+
+<!--
+Generates connected cave systems with pools.
+
+(-) Can be accelerated by setting forgetPastMatches="True" in both nodes.
+-->

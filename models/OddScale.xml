@@ -1,0 +1,13 @@
+<sequence values="BW" symmetry="()">
+  <prl in="***/*B*/***" out="***/*W*/***"/>
+  <prl in="W" out="B" p="0.5" steps="1"/>
+  <map scale="2 2 1" values="BFA">
+    <rule in="W" out="FAF/AAA/FAF"/>
+  </map>
+</sequence>
+
+<!--
+Notice that the scale doesn't coincide with the rule output size.
+
+Useful for making rooms for regular dungeon generators.
+-->

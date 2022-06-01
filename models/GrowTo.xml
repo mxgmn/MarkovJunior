@@ -1,0 +1,7 @@
+<sequence values="BUN">
+  <one in="B" out="U" steps="1"/>
+  <one in="B" out="N" steps="1"/>
+  <one in="NB" out="NN" temperature="10.0">
+    <field for="N" to="U" on="B" recompute="False"/>
+  </one>
+</sequence>

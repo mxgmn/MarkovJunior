@@ -1,0 +1,17 @@
+<sequence values="DABWO">
+  <all in="***/*D*/***" out="***/*B*/***"/>
+  <one in="BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/**BBB***/**BBB***/**BBB***"
+      out="DDDDDDDD/DOOOOOOD/DOOOOOOD/DOOOOOOD/DOOOOOOD/DDDODDDD/**DOD***/**DWD***/********" steps="10"/>
+  <markov>
+    <all in="AW" out="AA"/>
+    <path from="A" to="W" on="B" color="A" inertia="True"/>
+    <one in="W" out="A"/>
+  </markov>
+  <convchain sample="Maze" on="B" black="D" white="A" n="2" steps="10"/>
+  <all in="AD/DA" out="AD/AA"/>
+  <all in="OA" out="*O"/>
+</sequence>
+
+<!--
+TODO: Add more room shapes.
+-->

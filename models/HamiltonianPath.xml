@@ -1,0 +1,29 @@
+<sequence values="BRWGU" origin="Center">
+  <one symmetry="()">
+    <rule in="B/B/R" out="R/B/B"/>
+    <rule in="BBR" out="RBB"/>
+  </one>
+  <markov symmetry="(x)">
+    <one in="RBB" out="WWR"/>
+    <one in="R/B/B" out="W/W/R"/>
+  </markov>
+  <one in="BBB/BWB" out="***/*R*"/>
+  <markov>
+    <one in="UWW" out="UUU"/>
+    <sequence>
+      <one in="UWG" out="RBW"/>
+      <all in="U" out="W"/>
+    </sequence>
+    <one in="RBW" out="UWG"/>
+  </markov>
+</sequence>
+
+<!--
+Starts with a fixed Hamiltonian path and applies transformations to it to generate other Hamiltonian paths (containing only one connectivity component).
+
+For a simpler version that doesn't care about maintaining a single connectivity component see HamiltonianPaths.
+
+Algorithm adapted from: https://sci-hub.se/https://aip.scitation.org/doi/pdf/10.1063/1.443937?class=pdf
+
+Compare with an implementation in a conventional language: http://clisby.net/projects/hamiltonian_path/hamiltonian_path_v1.html
+-->

@@ -1,0 +1,5 @@
+<all values="BWA" origin="Center" in="WBB" out="WAW"/>
+
+<!--
+Compare the generated mazes with the results of MazeGrowth.
+-->

@@ -1,0 +1,15 @@
+<sequence values="BRUW" origin="Center">
+  <one>
+    <rule in="BB*BB/BBBBB/BBBBR/BBBBB/BB*BB" out="**R**/*WWW*/*WWWU/*WWW*/**R**"/>
+    <rule in="BBBBB/BBBBB/RBBB*/BBBBB/BBBBB" out="*****/*****/UWWWR/*****/*****"/>
+  </one>
+  <all>
+    <rule in="R" out="W"/>
+    <rule in="U" out="W"/>
+  </all>
+  <all>
+    <rule in="BBB/BWB" out="BBB/BBB"/>
+    <rule in="WWW/WBW" out="WWW/WWW"/>
+  </all>
+  <all in="BBB/WWB/WWB" out="***/*B*/***"/>
+</sequence>

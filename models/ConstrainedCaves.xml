@@ -1,0 +1,15 @@
+<sequence values="DABWOP">
+  <prl in="***/*D*/***" out="***/*B*/***"/>
+  <one file="ConstrainedRoom" legend="BDWO*" steps="5"/>
+  <markov>
+    <all in="AW" out="AA"/>
+    <path from="A" to="W" on="B" color="A" inertia="True"/>
+    <one in="W" out="A"/>
+  </markov>
+  <prl in="B" out="P" p="0.4545" steps="1"/>
+  <convolution neighborhood="Moore">
+    <rule in="P" out="B" sum="5..8" values="BD"/>
+    <rule in="B" out="P" sum="5..8" values="PA"/>
+  </convolution>
+  <prl in="D" out="B"/>
+</sequence>

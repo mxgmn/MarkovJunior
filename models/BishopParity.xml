@@ -1,0 +1,22 @@
+<sequence values="BRGUW" origin="Random">
+  <one in="B" out="G" steps="1" temperature="10.0">
+    <field for="G" from="R" on="B"/>
+  </one>
+  <one in="BBB/BBB/BBB" out="***/*U*/***" steps="1" temperature="10.0">
+    <field for="U" from="RG" on="B"/>
+  </one>
+  <one>
+    <rule in="R*/*B" out="W*/*R"/>
+    <rule in="U*/RB" out="U*/WR"/>
+    <rule in="U*/BR" out="U*/RW"/>
+
+    <observe value="G" from="B" to="R"/>
+    <observe value="R" to="W"/>
+    <observe value="B" to="BW"/>
+    <observe value="U" to="U"/>
+  </one>
+</sequence>
+
+<!--
+To capture the target, the bishop might need to step into the magic portal that changes its parity.
+-->

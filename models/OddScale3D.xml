@@ -1,0 +1,23 @@
+<sequence values="BW" symmetry="()">
+  <prl in="***/***/*** ***/*B*/*** ***/***/***" out="***/***/*** ***/*W*/*** ***/***/***"/>
+  <prl in="W" out="B" p="0.5" steps="1"/>
+  <map scale="6 6 6" values="BADYWU" symmetry="()">
+    <rule in="W" out="DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA/AAAAAAA DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD/AAAAAAA/DADADAD"/>
+    <sequence symmetry="(xyz)" comment="">
+      <all>
+        <rule in="DB" out="Y*"/>
+        <rule in="D*/*B" out="Y*/**"/>
+      </all>
+      <all in="D" out="A"/>
+      <markov>
+        <one in="WAY" out="WUW"/>
+        <one in="Y" out="W"/>
+      </markov>
+      <all in="U" out="W"/>
+    </sequence>
+  </map>
+</sequence>
+
+<!--
+After this scale you can run all kinds of algorithms on the surface. Used in SurfaceDungeon and CarmaTower.
+-->

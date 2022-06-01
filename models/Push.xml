@@ -1,0 +1,8 @@
+<sequence values="BWP">
+  <one in="B" out="W" steps="120"/>
+  <one in="B" out="P" steps="20"/>
+  <all>
+    <rule in="PB" out="BP"/>
+    <rule in="PWB" out="BPW"/>
+  </all>
+</sequence>

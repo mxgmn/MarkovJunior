@@ -1,0 +1,95 @@
+<tileset fullSymmetry="True">
+	<tiles>
+		<tile name="Empty"/>
+		<tile name="Turn"/>
+		<tile name="Stairs"/>
+		<tile name="Cube"/>
+		<tile name="T"/>
+	</tiles>
+	<neighbors>
+		<neighbor left="Empty" right="Empty"/>
+		<neighbor left="Stairs" right="Empty"/>
+		<neighbor left="Empty" right="y Stairs"/>
+		<neighbor left="Empty" right="Turn"/>
+		<neighbor left="z Turn" right="Empty"/>
+		<neighbor left="Empty" right="y Turn"/>
+
+		<neighbor left="z Stairs" right="zzz Stairs"/>
+		<neighbor left="y Stairs" right="y Stairs"/>
+		<!--neighbor left="y Stairs" right="xy Stairs" comment="too touching stairs"/-->
+		<neighbor left="y Stairs" right="xxy Stairs"/>
+		<neighbor left="Stairs" right="z Stairs"/>
+		<neighbor left="Stairs" right="zz Stairs"/>
+		<neighbor left="y Stairs" right="z Stairs"/>
+		<neighbor left="y Stairs" right="zz Stairs"/>
+		<neighbor left="Stairs" right="y Stairs"/>
+		<neighbor left="Stairs" right="xy Stairs"/>
+
+		<neighbor left="xxx Turn" right="Stairs"/>
+		<neighbor left="zz Stairs" right="xxxz Turn"/>
+		
+		<neighbor left="Stairs" right="Turn"/>
+		<neighbor left="Stairs" right="zzz Turn"/>
+		<neighbor left="Stairs" right="x Turn"/>
+		<neighbor left="Stairs" right="xxx Turn"/>
+		<neighbor left="Stairs" right="y Turn"/>
+		<neighbor left="Stairs" right="yyy Turn"/>
+		<neighbor left="y Stairs" right="y Turn"/>
+		
+		<neighbor left="y Turn" right="y Turn"/>
+		<neighbor left="y Turn" right="xxy Turn"/>
+		<neighbor left="y Turn" right="xxxy Turn"/>
+		<neighbor left="y Turn" right="yyy Turn"/>
+		<neighbor left="y Turn" right="xyyy Turn"/>
+		<neighbor left="y Turn" right="xxxyyy Turn"/>
+
+		<neighbor left="y Turn" right="Turn"/>
+		<neighbor left="xy Turn" right="Turn"/>
+		<neighbor left="xxy Turn" right="Turn"/>
+		<neighbor left="y Turn" right="zzz Turn"/>
+		<neighbor left="xxxy Turn" right="zzz Turn"/>
+		<neighbor left="xxy Turn" right="zzz Turn"/>
+
+		<neighbor left="Empty" right="Cube"/>
+		<neighbor left="y Cube" right="y Cube"/>
+		<neighbor left="Stairs" right="Cube"/>
+		<neighbor left="y Stairs" right="Cube"/>
+		<neighbor left="Cube" right="y Turn"/>
+		<neighbor left="Cube" right="Turn"/>
+		<neighbor left="z Turn" right="Cube"/>
+
+		<neighbor left="Empty" right="zzz T"/>
+		<neighbor left="Empty" right="y T"/>
+		<neighbor left="Empty" right="yyy T"/>
+		<neighbor left="z Stairs" right="xxx T"/>
+		<neighbor left="z Stairs" right="yx T"/>
+		<neighbor left="Stairs" right="y T"/>
+		<neighbor left="Stairs" right="xy T"/>
+		<neighbor left="Stairs" right="yyy T"/>
+		<neighbor left="Cube" right="zzz T"/>
+		<neighbor left="Cube" right="y T"/>
+		<neighbor left="Cube" right="xyyy T"/>
+
+		<neighbor left="y T" right="y T"/>
+		<neighbor left="y T" right="xxy T"/>
+		<neighbor left="y T" right="xyyy T"/>
+
+		<neighbor left="y Turn" right="xxxy T"/>
+		<neighbor left="yyy Turn" right="xxy T"/>
+		<neighbor left="y Turn" right="xxxyyy T"/>
+		<neighbor left="yyy Turn" right="xxyyy T"/>
+
+		<neighbor left="y Turn" right="zzz T"/>
+		<neighbor left="y Turn" right="xxzzz T"/>
+		<neighbor left="yyy Turn" right="xzzz T"/>
+		<neighbor left="yyy Turn" right="xxxzzz T"/>
+		<neighbor left="xz Turn" right="y T"/>
+		<neighbor left="yxz Turn" right="y T"/>
+		<neighbor left="z Turn" right="yyy T"/>
+		<neighbor left="zz Turn" right="yyy T"/>
+
+		<neighbor left="y T" right="zzz T"/>
+		<neighbor left="yyy T" right="xzzz T"/>
+		<neighbor left="yyy T" right="xxxzzz T"/>
+	</neighbors>
+</tileset>

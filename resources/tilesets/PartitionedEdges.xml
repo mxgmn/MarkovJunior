@@ -1,0 +1,215 @@
+<tileset>
+  <tiles>
+    <tile name="Empty"/> 1
+    <tile name="Line"/> 2
+    <tile name="Turn"/> 4
+    <tile name="X" weight="0.1"/> 1
+    <tile name="ContactDown"/> 4
+    <tile name="ContactUp"/> 4
+    <tile name="Bridge"/> 4
+    <tile name="o"/> 1
+    21
+
+    <tile name="00" weight="1.5"/> 2
+    <tile name="01"/> 2
+    <tile name="10" weight="1.5"/> 2
+    <tile name="11"/> 2
+    <tile name="Down"/> 4
+    <tile name="Up0"/> 4
+    <tile name="Up1"/> 4
+    20
+
+    <tile name="Nothing" weight="10.0"/> 1
+    <tile name="I"/> 2
+    <tile name="T" weight="0.1"/> 4
+    <tile name="Cross"/> 1
+    8
+
+    49
+  </tiles>
+  <neighbors>
+    <neighbor left="Empty" right="00"/>
+    <neighbor left="Empty" right="01"/>
+    <neighbor left="Down" right="Empty"/>
+    <neighbor left="Up0" right="Empty"/>
+    <neighbor left="Up1" right="Empty"/>
+    <neighbor left="o" right="00"/>
+    <neighbor left="o" right="01"/>
+    <neighbor left="Down" right="o"/>
+    <neighbor left="Up0" right="o"/>
+    <neighbor left="Up1" right="o"/>
+    <neighbor left="z Line" right="00"/>
+    <neighbor left="z Line" right="01"/>
+    <neighbor left="Line" right="10"/>
+    <neighbor left="Line" right="11"/>
+    <neighbor left="z Turn" right="00"/>
+    <neighbor left="z Turn" right="01"/>
+    <neighbor left="Turn" right="10"/>
+    <neighbor left="Turn" right="11"/>
+    <neighbor left="X" right="10"/>
+    <neighbor left="X" right="11"/>
+    <neighbor left="Up0" right="z Line"/>
+    <neighbor left="Up1" right="z Line"/>
+    <neighbor left="Up0" right="Turn"/>
+    <neighbor left="Up1" right="Turn"/>
+    <neighbor left="z ContactDown" right="00"/>
+    <neighbor left="z ContactUp" right="00"/>
+    <neighbor left="z ContactDown" right="01"/>
+    <neighbor left="z ContactUp" right="01"/>
+    <neighbor left="10" right="ContactDown"/>
+    <neighbor left="11" right="ContactDown"/>
+    <neighbor left="10" right="ContactUp"/>
+    <neighbor left="11" right="ContactUp"/>
+    <neighbor left="ContactDown" right="Down"/>
+    <neighbor left="ContactUp" right="Up0"/>
+    <neighbor left="ContactUp" right="Up1"/>
+    <neighbor left="z Bridge" right="00"/>
+    <neighbor left="z Bridge" right="01"/>
+    <neighbor left="Bridge" right="Down"/>
+    <neighbor left="zz Up0" right="Bridge"/>
+    <neighbor left="zz Up1" right="Bridge"/>
+
+    <neighbor left="Nothing" right="z 00"/>
+    <neighbor left="Nothing" right="z 10"/>
+    <neighbor left="Nothing" right="z Down"/>
+    <neighbor left="Nothing" right="z Up0"/>
+    <neighbor left="I" right="z 00"/>
+    <neighbor left="I" right="z 10"/>
+    <neighbor left="I" right="z Down"/>
+    <neighbor left="I" right="z Up0"/>
+    <neighbor left="z I" right="z 01"/>
+    <neighbor left="z I" right="z 11"/>
+    <neighbor left="z I" right="z Up1"/>
+    <neighbor left="zz T" right="z 00"/>
+    <neighbor left="zz T" right="z 10"/>
+    <neighbor left="zz T" right="z Down"/>
+    <neighbor left="zz T" right="z Up0"/>
+    <neighbor left="T" right="z 01"/>
+    <neighbor left="T" right="z 11"/>
+    <neighbor left="T" right="z Up1"/>
+    <neighbor left="z T" right="z 01"/>
+    <neighbor left="z T" right="z 11"/>
+    <neighbor left="z T" right="z Up1"/>
+    <neighbor left="z T" right="zzz Up1"/>
+    <neighbor left="Cross" right="z 01"/>
+    <neighbor left="Cross" right="z 11"/>
+    <neighbor left="Cross" right="z Up1"/>
+
+    <neighbor top="Empty" bottom="Empty"/>
+    <neighbor top="Empty" bottom="Line"/>
+    <neighbor top="Empty" bottom="Turn"/>
+    <neighbor top="Empty" bottom="X"/>
+    <neighbor top="Empty" bottom="ContactDown"/>
+    <neighbor top="Empty" bottom="ContactUp"/>
+    <neighbor top="Empty" bottom="Bridge"/>
+    <neighbor top="Line" bottom="Empty"/>
+    <neighbor top="Line" bottom="Line"/>
+    <neighbor top="Line" bottom="z Line"/>
+    <neighbor top="Line" bottom="Turn"/>
+    <neighbor top="Line" bottom="X"/>
+    <neighbor top="Line" bottom="ContactDown"/>
+    <neighbor top="z Line" bottom="ContactDown"/>
+    <neighbor top="Turn" bottom="Empty"/>
+    <neighbor top="Turn" bottom="Line"/>
+    <neighbor top="Turn" bottom="Turn"/>
+    <neighbor top="Turn" bottom="z Turn"/>
+    <neighbor top="Turn" bottom="zz Turn"/>
+    <neighbor top="Turn" bottom="X"/>
+    <neighbor top="Turn" bottom="ContactDown"/>
+    <neighbor top="Turn" bottom="zz ContactDown"/>
+    <neighbor top="X" bottom="Empty"/>
+    <neighbor top="X" bottom="Line"/>
+    <neighbor top="X" bottom="Turn"/>
+    <neighbor top="X" bottom="X"/>
+    <neighbor top="ContactUp" bottom="Empty"/>
+    <neighbor top="ContactUp" bottom="Line"/>
+    <neighbor top="ContactUp" bottom="z Line"/>
+    <neighbor top="ContactUp" bottom="Turn"/>
+    <neighbor top="zz ContactUp" bottom="Turn"/>
+    <neighbor top="ContactUp" bottom="X"/>
+    <neighbor top="ContactUp" bottom="ContactDown"/>
+    <neighbor top="ContactUp" bottom="z ContactDown"/>
+    <neighbor top="ContactUp" bottom="zz ContactDown"/>
+    <neighbor top="ContactDown" bottom="Empty"/>
+    <neighbor top="Bridge" bottom="Empty"/>
+    <!--<neighbor top="ContactDown" bottom="z Line"/>
+    <neighbor top="ContactDown" bottom="z Turn"/>
+    <neighbor top="ContactDown" bottom="z ContactDown"/>
+    <neighbor top="Bridge" bottom="z Line"/>
+    <neighbor top="Bridge" bottom="z Turn"/>
+    <neighbor top="Bridge" bottom="z ContactDown"/>-->
+
+    <neighbor top="o" bottom="Empty"/>
+    <neighbor top="o" bottom="Line"/>
+    <neighbor top="o" bottom="Turn"/>
+    <neighbor top="o" bottom="X"/>
+    <neighbor top="o" bottom="ContactDown"/>
+    <neighbor top="o" bottom="ContactUp"/>
+    <neighbor top="o" bottom="Bridge"/>
+    <neighbor top="o" bottom="o"/>
+    <neighbor top="Empty" bottom="o"/>
+    <neighbor top="Line" bottom="o"/>
+    <neighbor top="Turn" bottom="o"/>
+    <neighbor top="X" bottom="o"/>
+    <neighbor top="ContactDown" bottom="o"/>
+    <neighbor top="ContactUp" bottom="o"/>
+    <neighbor top="Bridge" bottom="o"/>
+
+    <neighbor top="00" bottom="00"/>
+    <neighbor top="00" bottom="01"/>
+    <neighbor top="00" bottom="10"/>
+    <neighbor top="00" bottom="11"/>
+    <neighbor top="00" bottom="Down"/>
+    <neighbor top="01" bottom="00"/>
+    <neighbor top="01" bottom="01"/>
+    <neighbor top="01" bottom="10"/>
+    <neighbor top="01" bottom="11"/>
+    <neighbor top="01" bottom="Down"/>
+    <neighbor top="10" bottom="00"/>
+    <neighbor top="10" bottom="01"/>
+    <neighbor top="10" bottom="10"/>
+    <neighbor top="10" bottom="11"/>
+    <neighbor top="10" bottom="Down"/>
+    <neighbor top="11" bottom="00"/>
+    <neighbor top="11" bottom="01"/>
+    <neighbor top="11" bottom="10"/>
+    <neighbor top="11" bottom="11"/>
+    <neighbor top="11" bottom="Down"/>
+    <neighbor top="Down" bottom="zz Up0"/>
+    <neighbor top="Down" bottom="zz Up1"/>
+    <neighbor top="Up0" bottom="00"/>
+    <neighbor top="Up0" bottom="01"/>
+    <neighbor top="Up0" bottom="10"/>
+    <neighbor top="Up0" bottom="11"/>
+    <neighbor top="Up0" bottom="Down"/>
+    <neighbor top="Up0" bottom="zz Down"/>
+    <neighbor top="Up1" bottom="00"/>
+    <neighbor top="Up1" bottom="01"/>
+    <neighbor top="Up1" bottom="10"/>
+    <neighbor top="Up1" bottom="11"/>
+    <neighbor top="Up1" bottom="Down"/>
+    <neighbor top="Up1" bottom="zz Down"/>
+
+    <neighbor top="Nothing" bottom="Nothing"/>
+    <neighbor top="Nothing" bottom="I"/>
+    <neighbor top="Nothing" bottom="T"/>
+    <neighbor top="Nothing" bottom="Cross"/>
+    <neighbor top="I" bottom="Nothing"/>
+    <neighbor top="I" bottom="I"/>
+    <neighbor top="I" bottom="z I"/>
+    <neighbor top="I" bottom="T"/>
+    <neighbor top="z I" bottom="T"/>
+    <neighbor top="I" bottom="Cross"/>
+    <neighbor top="T" bottom="Nothing"/>
+    <neighbor top="T" bottom="I"/>
+    <neighbor top="T" bottom="z I"/>
+    <neighbor top="T" bottom="T"/>
+    <neighbor top="T" bottom="z T"/>
+    <neighbor top="T" bottom="zz T"/>
+    <neighbor top="T" bottom="Cross"/>
+    <neighbor top="Cross" bottom="Nothing"/>
+    <neighbor top="Cross" bottom="I"/>
+    <neighbor top="Cross" bottom="T"/>
+    <neighbor top="Cross" bottom="Cross"/>
+  </neighbors>
+</tileset>

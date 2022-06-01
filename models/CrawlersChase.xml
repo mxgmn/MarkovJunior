@@ -1,0 +1,21 @@
+<sequence values="BWRUGE">
+  <one in="BB" out="UR" steps="12"/>
+  <markov>
+    <all>
+      <rule in="URB" out="BUR"/>
+      <rule in="UR/*B" out="BU/*R"/>
+      <rule in="URW" out="BEG"/>
+      <rule in="UR/*W" out="BE/*G"/>
+      <rule in="EG/BB" out="UR/RU"/>
+      <rule in="BB/BW" out="**/WB"/>
+
+      <field for="R" to="W" on="B" recompute="True" essential="True"/>
+      <field for="W" from="R" on="B" recompute="True"/>
+    </all>
+    <one in="B" out="W"/>
+  </markov>
+</sequence>
+
+<!--
+White creature tries to run away from a pack of crawlers. As usual, crawlers can break.
+-->

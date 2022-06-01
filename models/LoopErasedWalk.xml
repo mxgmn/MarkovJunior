@@ -1,0 +1,7 @@
+<one values="BRWGOU" origin="Center">
+  <rule in="RBB" out="WWR"/>
+  <rule in="RBW" out="GWO"/>
+  <rule in="OWG" out="OBU"/>
+  <rule in="UWW" out="BBU"/>
+  <rule in="UWO" out="BBR"/>
+</one>

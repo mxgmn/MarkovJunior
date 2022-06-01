@@ -1,0 +1,92 @@
+<tileset>
+  <tiles>
+    <tile name="Empty" weight="2.0"/>
+    <tile name="Line"/>
+    <tile name="Turn"/>
+    <tile name="X" weight="0.1"/>
+    <tile name="Down" weight="4.0"/>
+    <tile name="Up" weight="4.0"/>
+  </tiles>
+  <neighbors>
+    <neighbor left="Empty" right="Empty"/>
+    <neighbor left="Empty" right="z Line"/>
+    <neighbor left="Empty" right="Turn"/>
+    <neighbor left="Empty" right="z Down"/>
+    <neighbor left="Down" right="Empty"/>
+    <neighbor left="Empty" right="z Up"/>
+    <neighbor left="Up" right="Empty"/>
+
+    <neighbor left="Line" right="Line"/>
+    <neighbor left="z Line" right="z Line"/>
+    <neighbor left="z Line" right="Turn"/>
+    <neighbor left="Line" right="z Turn"/>
+    <neighbor left="Line" right="X"/>
+    <neighbor left="Line" right="Down"/>
+    <neighbor left="z Line" right="z Down"/>
+    <neighbor left="Line" right="Up"/>
+    <neighbor left="z Line" right="z Up"/>
+    ~ <neighbor left="Up" right="z Line"/>
+
+    <neighbor left="Turn" right="z Turn"/>
+    <neighbor left="Turn" right="zz Turn"/>
+    <neighbor left="z Turn" right="Turn"/>
+    <neighbor left="zz Turn" right="Turn"/>
+    <neighbor left="Turn" right="X"/>
+    <neighbor left="Turn" right="Down"/>
+    <neighbor left="z Down" right="Turn"/>
+    <neighbor left="zzz Down" right="Turn"/>
+    <neighbor left="Turn" right="Up"/>
+    <neighbor left="z Up" right="Turn"/>
+    <neighbor left="zzz Up" right="Turn"/>
+    ~ <neighbor left="Up" right="Turn"/>
+
+    <neighbor left="X" right="X"/>
+    <neighbor left="X" right="Down"/>
+    <neighbor left="X" right="Up"/>
+    <neighbor left="z Down" right="z Down"/>
+    <neighbor left="z Down" right="zzz Down"/>
+    <neighbor left="z Up" right="z Up"/>
+    <neighbor left="z Up" right="zzz Up"/>
+    <neighbor left="z Down" right="z Up"/>
+    <neighbor left="z Down" right="zzz Up"/>
+    <neighbor left="zz Up" right="Down"/>
+    <neighbor left="Up" right="zz Down"/>
+    ~ <neighbor left="Up" right="z Down"/>
+
+    <neighbor top="Empty" bottom="Empty"/>
+    <neighbor top="Empty" bottom="Line"/>
+    <neighbor top="Empty" bottom="Turn"/>
+    <neighbor top="Empty" bottom="X"/>
+    <neighbor top="Empty" bottom="Down"/>
+    <neighbor top="Line" bottom="Empty"/>
+    <neighbor top="Line" bottom="Line"/>
+    <neighbor top="Line" bottom="z Line"/>
+    <neighbor top="Line" bottom="Turn"/>
+    <neighbor top="Line" bottom="X"/>
+    <neighbor top="Line" bottom="Down"/>
+    <neighbor top="z Line" bottom="Down"/>
+    <neighbor top="Turn" bottom="Empty"/>
+    <neighbor top="Turn" bottom="Line"/>
+    <neighbor top="Turn" bottom="Turn"/>
+    <neighbor top="Turn" bottom="z Turn"/>
+    <neighbor top="Turn" bottom="zz Turn"/>
+    <neighbor top="Turn" bottom="X"/>
+    <neighbor top="Turn" bottom="Down"/>
+    <neighbor top="Turn" bottom="zz Down"/>
+    <neighbor top="X" bottom="Empty"/>
+    <neighbor top="X" bottom="Line"/>
+    <neighbor top="X" bottom="Turn"/>
+    <neighbor top="X" bottom="X"/>
+    <neighbor top="X" bottom="Down"/>
+    <neighbor top="Down" bottom="zz Up"/>
+    <neighbor top="Up" bottom="Empty"/>
+    <neighbor top="Up" bottom="Line"/>
+    <neighbor top="Up" bottom="z Line"/>
+    <neighbor top="Up" bottom="Turn"/>
+    <neighbor top="zz Up" bottom="Turn"/>
+    <neighbor top="Up" bottom="X"/>
+    <neighbor top="Up" bottom="Down"/>
+    <neighbor top="Up" bottom="zz Down"/>
+    ~ <neighbor top="Up" bottom="z Down"/>
+  </neighbors>
+</tileset>

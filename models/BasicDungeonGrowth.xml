@@ -1,0 +1,12 @@
+<sequence values="BRACDG" origin="Center">
+  <union symbol="?" values="BR"/>
+  <one in="**?**/*BBB*/*BBB?/*BBB*/**R**" out="AARAA/ADDDA/ADDDR/ADDDA/AACAA"/>
+  <one in="ACA/BBB" out="ARA/BBB"/>
+  <all>
+    <rule in="C" out="D"/>
+    <rule in="R" out="D"/>
+  </all>
+  <all in="BD" out="*A"/>
+  <all in="DDD/ADA/DDD" out="***/D*D/***"/>
+  <all in="DDD/DAD/DDD" out="***/*D*/***"/>
+</sequence>

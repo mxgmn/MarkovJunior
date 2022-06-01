@@ -1,0 +1,13 @@
+<sequence values="EYUD">
+  <one in="E" out="Y" steps="30"/>
+  <one in="E" out="U" steps="30"/>
+  <all>
+    <rule in="YE" out="DY"/>
+    <rule in="UE" out="DU"/>
+    <rule in="YU" out="DD"/>
+    <rule in="Y*/*U" out="D*/*D"/>
+
+    <field for="Y" to="U" on="YUE" recompute="True"/>
+    <field for="U" to="Y" on="YUE" recompute="True"/>
+  </all>
+</sequence>

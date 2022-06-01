@@ -1,0 +1,44 @@
+<sequence values="BGOERK">
+  <prl steps="75">
+    <rule in="OG" out="*O"/>
+    <rule in="O*/*G" out="**/*O"/>
+    <rule in="B" out="G" p="0.01"/>
+    <rule in="O" out="B"/>
+    <rule in="G" out="O" p="0.0001"/>
+  </prl>
+  <all in="*G*/GBG" out="***/*G*"/>
+  <all>
+    <rule in="*B*/BGB/*B*" out="***/*B*/***"/>
+    <rule in="*BB*/BGGB/*BB*" out="****/*BB*/****"/>
+  </all>
+  <markov>
+    <sequence>
+      <one in="G" out="R" steps="1"/>
+      <all in="RG" out="RR" steps="10"/>
+      <all in="RG" out="EE"/>
+      <all>
+        <rule in="ER" out="*E"/>
+        <rule in="EG" out="*E"/>
+      </all>
+    </sequence>
+  </markov>
+  <markov>
+    <sequence>
+      <one in="B" out="K" steps="1"/>
+      <all in="KB" out="*K" steps="10"/>
+      <all in="KB" out="GG"/>
+      <all>
+        <rule in="GB" out="*G"/>
+        <rule in="GK" out="*G"/>
+      </all>
+    </sequence>
+  </markov>
+  <prl>
+    <rule in="K" out="E"/>
+    <rule in="G" out="B"/>
+  </prl>
+</sequence>
+
+<!--
+A noise-like generator based on the forest-fire model https://en.wikipedia.org/wiki/Forest-fire_model
+-->

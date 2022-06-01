@@ -1,0 +1,15 @@
+<sequence values="BAWRGY" origin="Center">
+  <all in="A*B" out="**A"/>
+  <one in="A" out="R" steps="1"/>
+  <one in="A" out="Y" steps="10"/>
+  <all in="A" out="B"/>
+  <markov>
+    <one in="RBB" out="WWR">
+      <observe value="G" from="B" to="R"/>
+      <observe value="B" to="BW"/>
+      <observe value="R" to="W"/>
+    </one>
+    <prl in="W" out="A"/>
+    <one in="Y" out="G"/>
+  </markov>
+</sequence>

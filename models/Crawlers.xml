@@ -1,0 +1,7 @@
+<sequence values="BUR">
+  <one in="BB" out="UR" steps="12"/>
+  <all>
+    <rule in="URB" out="BUR"/>
+    <rule in="UR/*B" out="BU/*R"/>
+  </all>
+</sequence>

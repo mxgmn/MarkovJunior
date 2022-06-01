@@ -1,0 +1,8 @@
+<sequence values="BWG">
+  <all file="BasicDijkstraRoom" legend="BW"/>
+  <markov>
+    <all in="GW" out="GG"/>
+    <path from="G" to="W" on="B" color="G" inertia="True"/>
+    <one in="W" out="G"/>
+  </markov>
+</sequence>

@@ -1,0 +1,16 @@
+<sequence values="BRUWG" origin="Center" folder="DualRetraction">
+  <one>
+    <rule file="Room1" legend="B*RUW"/>
+    <rule file="Room2" legend="B*RGWU"/>
+  </one>
+  <all>
+    <rule in="R" out="W"/>
+    <rule in="U" out="W"/>
+  </all>
+  <all>
+    <rule in="BBB/BBB/BBB BBB/BWB/BBB" out="***/***/*** ***/*B*/***"/>
+    <rule in="WWW/GBG" out="***/*G*"/>
+    <rule in="GGG/GBG" out="***/*G*"/>
+    <rule in="BBB/BBB/BBB GGG/GWG/GGG" out="***/***/*** ***/*G*/***"/>
+  </all>
+</sequence>

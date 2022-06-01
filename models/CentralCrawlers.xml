@@ -1,0 +1,9 @@
+<sequence values="BWUR" origin="Center">
+  <one in="BB" out="UR" steps="10"/>
+  <all temperature="5.0">
+    <rule in="URB" out="BUR"/>
+    <rule in="UR/*B" out="BU/*R"/>
+    <rule in="W" out="B"/>
+    <field for="R" to="W" on="B" recompute="False"/>
+  </all>
+</sequence>

@@ -1,0 +1,12 @@
+<sequence values="BW">
+  <all in="B" out="W"/>
+  <all in="***/***/*** ***/*W*/*** ***/***/***" out="***/***/*** ***/*B*/*** ***/***/***"/>
+  <wfc values="BADG" tileset="EscherSurface">
+    <rule in="W" out="Empty"/>
+    <all>
+      <rule in="ABA" out="*A*"/>
+      <rule in="GBG" out="*G*"/>
+      <rule in="DBD" out="*D*"/>
+    </all>
+  </wfc>
+</sequence>

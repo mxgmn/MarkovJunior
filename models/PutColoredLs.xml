@@ -1,0 +1,14 @@
+<markov values="BWRGU">
+  <all>
+    <rule in="RW" out="RR"/>
+    <rule in="GW" out="GG"/>
+    <rule in="UW" out="UU"/>
+  </all>
+  <!--<one in="W" out="R|G|U"/>-->
+  <one>
+    <rule in="W" out="R"/>
+    <rule in="W" out="G"/>
+    <rule in="W" out="U"/>
+  </one>
+  <one in="BBB*/BBB*/BBBB/BBBB/BBBB" out="BBB*/BWB*/BWBB/BWWB/BBBB"/>
+</markov>

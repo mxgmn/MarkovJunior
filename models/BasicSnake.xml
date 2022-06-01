@@ -1,0 +1,16 @@
+<sequence values="BWDPGR" origin="Center">
+  <all>
+    <rule in="WBB" out="**D"/>
+    <rule in="DBB" out="**D"/>
+  </all>
+  <one in="WBD" out="PGR"/>
+  <one in="RBD" out="GGR" steps="2"/>
+  <one in="D" out="W" steps="15"/>
+  <markov>
+    <one in="RBW" out="GGR"/>
+    <all>
+      <rule in="RBD" out="GGR"/>
+      <rule in="PGG" out="DBP"/>
+    </all>
+  </markov>
+</sequence>

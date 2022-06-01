@@ -1,0 +1,23 @@
+<sequence values="BWEPRUG" origin="Center">
+  <one in="WBB" out="PER"/>
+  <one in="RBB" out="EER" steps="10"/>
+  <markov>
+    <one>
+      <rule in="RBB" out="GGU"/>
+      <rule in="EEG" out="GGG"/>
+      <rule in="PEG" out="BBP"/>
+    </one>
+    <all>
+      <rule in="G" out="E"/>
+      <rule in="U" out="R"/>
+    </all>
+    <all>
+      <rule in="R" out="P"/>
+      <rule in="P" out="R"/>
+    </all>
+  </markov>
+</sequence>
+
+<!--
+Looks like a hack at first, but then this is exactly how many real noodle-like organisms move! Because in MJ, like the real world, only local interactions are allowed.
+-->

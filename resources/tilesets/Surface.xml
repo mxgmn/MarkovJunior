@@ -1,0 +1,62 @@
+<tileset fullSymmetry="True">
+  <tiles>
+    <tile name="Empty"/> 1
+    <tile name="Plane"/> 3
+    <tile name="Angle"/> 12
+    <tile name="Corner"/> 8
+    <tile name="Concave"/> 24
+  </tiles>
+  <neighbors>
+    <neighbor left="Empty" right="Empty"/>
+    <neighbor left="Empty" right="y Plane"/>
+    <neighbor left="Empty" right="Angle"/>
+    <neighbor left="Empty" right="Corner"/>
+    <neighbor left="Plane" right="Plane"/>
+    <neighbor left="y Plane" right="y Plane"/>
+    <neighbor left="y Plane" right="Angle"/>
+    <neighbor left="Plane" right="yx Angle"/>
+    <neighbor left="y Plane" right="Corner"/>
+
+    <neighbor left="z Angle" right="Angle"/>
+    <neighbor left="zz Angle" right="Angle"/>
+    <neighbor left="xz Angle" right="Angle"/>
+    <neighbor left="y Angle" right="y Angle"/>
+    <neighbor left="Angle" right="z Angle"/>
+    <neighbor left="Angle" right="zz Angle"/>
+
+    <neighbor left="z Angle" right="Corner"/>
+    <neighbor left="zz Angle" right="Corner"/>
+    <neighbor left="y Angle" right="y Corner"/>
+
+    <neighbor left="z Corner" right="Corner"/>
+    <neighbor left="zz Corner" right="Corner"/>
+    <neighbor left="yz Corner" right="Corner"/>
+    <neighbor left="yzz Corner" right="Corner"/>
+    <neighbor left="Corner" right="z Corner"/>
+
+    <neighbor left="y Concave" right="Empty"/>
+    <neighbor left="Plane" right="Concave"/>
+    <neighbor left="x Angle" right="Concave"/>
+    <neighbor left="xxx Angle" right="Concave"/>
+    <neighbor left="xz Angle" right="yyy Concave"/>
+    <neighbor left="xzz Angle" right="yyy Concave"/>
+    <neighbor left="y Angle" right="y Concave"/>
+    <neighbor left="yzzz Angle" right="z Concave"/>
+    <neighbor left="Corner" right="y Concave"/>
+    <neighbor left="zzz Corner" right="z Concave"/>
+    <neighbor left="z Corner" right="yyy Concave"/>
+    <neighbor left="yz Corner" right="yyy Concave"/>
+    <neighbor left="zz Corner" right="yyy Concave"/>
+    <neighbor left="yzz Corner" right="yyy Concave"/>
+    <neighbor left="y Concave" right="yyy Concave"/>
+    <neighbor left="xy Concave" right="yyy Concave"/>
+    <neighbor left="xxy Concave" right="yyy Concave"/>
+
+    <neighbor left="z Concave" right="Concave"/>
+    <neighbor left="zz Concave" right="Concave"/>
+    <neighbor left="yy Concave" right="Concave"/>
+    <neighbor left="zyy Concave" right="Concave"/>
+    <neighbor left="Concave" right="z Concave"/>
+    <neighbor left="zzz Concave" right="y Concave"/>
+  </neighbors>
+</tileset>

@@ -1,0 +1,41 @@
+<sequence values="BtEDGANYOWU" origin="Center">
+  <prl in="***/*B*/***" out="***/*E*/***"/>
+  <all in="tEE" out="**t"/>
+  <one file="Chip" legend="*tEADN" steps="2"/>
+  <markov>
+    <all>
+      <rule in="EG" out="tG"/>
+      <rule in="E*/*G" out="t*/*G"/>
+    </all>
+    <path from="A" to="U" on="E" color="G" inertia="True"/>
+    <all in="A" out="U"/>
+    <one file="Chip" legend="*tEADN"/>
+  </markov>
+  <prl in="B" out="E"/>
+  <all>
+    <rule in="EU" out="EE"/>
+    <rule in="EEE/ttE/EEE" out="***/E**/***"/>
+  </all>
+  <markov>
+    <one>
+      <rule in="NUAU" out="NAGG"/>
+      <rule in="UAG" out="GUA"/>
+      <rule in="UA/*G" out="GU/*A"/>
+    </one>
+    <one in="UG" out="UA"/>
+  </markov>
+  <all in="NG" out="NW"/>
+  <all>
+    <rule in="ND" out="DN"/>
+    <rule in="NWGG" out="DWYO"/>
+    <rule in="YOG" out="GYO"/>
+    <rule in="YO/*G" out="GY/*O"/>
+    <rule in="YOAD" out="GGAN"/>
+  </all>
+</sequence>
+
+<!--
+This is not how circuits actually work.
+
+TODO: Make a generator of WireWorld networks.
+-->

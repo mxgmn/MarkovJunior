@@ -1,0 +1,21 @@
+<sequence values="BW">
+  <all in="B" out="W"/>
+  <all in="*****/*****/**W**/*****/*****" out="*****/*****/**B**/*****/*****"/>
+  <wfc values="BWARGUI" tileset="Escher" periodic="True">
+    <rule in="W" out="Empty"/>
+    <sequence>
+      <all>
+        <rule in="ABA" out="*A*"/>
+        <rule in="WBA" out="*A*"/>
+      </all>
+      <all symmetry="()">
+        <rule in="RI" out="RB"/>
+        <rule in="R/I" out="G/B"/>
+        <rule in="R I" out="U B"/>
+        <rule in="IR" out="BI"/>
+        <rule in="I/R" out="B/I"/>
+        <rule in="I R" out="B I"/>
+      </all>
+    </sequence>
+  </wfc>
+</sequence>

@@ -1,0 +1,34 @@
+<tileset fullSymmetry="True">
+  <tiles>
+    <tile name="Empty"/>
+    <tile name="Line"/>
+    <tile name="Turn"/>
+  </tiles>
+  <neighbors>
+    <neighbor left="Empty" right="Empty"/>
+    <neighbor left="Empty" right="Line"/>
+    <neighbor left="Line" right="Line"/>
+    <neighbor left="y Line" right="y Line"/>
+    <neighbor left="Line" right="x Line"/>
+
+    <neighbor left="Empty" right="Turn"/>
+    <neighbor left="Empty" right="y Turn"/>
+    <neighbor left="Line" right="Turn"/>
+    <neighbor left="Line" right="x Turn"/>
+    <neighbor left="Line" right="y Turn"/>
+    <neighbor left="y Line" right="z Turn"/>
+
+    <neighbor left="z Turn" right="Turn"/>
+    <neighbor left="zz Turn" right="Turn"/>
+    <neighbor left="Turn" right="z Turn"/>
+    <neighbor left="Turn" right="zz Turn"/>
+    <neighbor left="Turn" right="xz Turn"/>
+    <neighbor left="zx Turn" right="Turn"/>
+    <neighbor left="zzx Turn" right="Turn"/>
+    <neighbor left="zzzx Turn" right="Turn"/>
+
+    <neighbor left="y Turn" right="y Turn"/>
+    <neighbor left="y Turn" right="yyy Turn"/>
+    <neighbor left="y Turn" right="zzyyy Turn"/>
+  </neighbors>
+</tileset>

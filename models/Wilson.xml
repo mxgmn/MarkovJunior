@@ -1,0 +1,26 @@
+<sequence values="BWIRKGYU" origin="Center">
+  <all>
+    <rule in="WBB" out="**I"/>
+    <rule in="IBB" out="**I"/>
+  </all>
+  <markov>
+    <one>
+      <rule in="RBI" out="KKR"/>
+      <rule in="RBK" out="GKY"/>
+      <rule in="RBW" out="WWW"/>
+
+      <rule in="WKK" out="WWW"/>
+
+      <rule in="YKG" out="YBU"/>
+      <rule in="UKK" out="IBU"/>
+      <rule in="UKY" out="IBR"/>
+    </one>
+    <one in="I" out="R"/>
+  </markov>
+</sequence>
+
+<!--
+Generates a random maze, in a way that each maze has the same probability of appearing.
+
+Compare to an implementation in a conventional language: https://bl.ocks.org/mbostock/11357811
+-->

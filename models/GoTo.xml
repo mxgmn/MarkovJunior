@@ -1,0 +1,8 @@
+<markov values="BRWD" origin="Random">
+  <one>
+    <rule in="RW" out="BR"/>
+    <rule in="RD" out="BR"/>
+  </one>
+  <path from="R" to="W" on="B" color="D"/>
+  <one in="B" out="W"/>
+</markov>

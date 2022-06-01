@@ -1,0 +1,17 @@
+<sequence values="BRWG" origin="Center">
+  <one in="RBB" out="WWR" steps="1"/>
+  <one in="R*B/***/W**" out="WWR/***/***" symmetry="(xy+)"/>
+  <one in="BBB/BWB" out="***/*R*"/>
+  <markov>
+    <all in="GWW" out="WBR"/>
+    <all in="WBR" out="GWW"/>
+  </markov>
+</sequence>
+
+<!--
+See HamiltonianPath for a modification that maintains a single connectivity component.
+
+Algorithm adapted from: https://sci-hub.se/https://aip.scitation.org/doi/pdf/10.1063/1.443937?class=pdf
+
+Compare with an implementation in a conventional language: http://clisby.net/projects/hamiltonian_path/hamiltonian_path_v1.html
+-->

@@ -1,0 +1,21 @@
+<sequence values="BDIORGW" origin="Center">
+  <all>
+    <rule in="I*B" out="**D"/>
+    <rule in="D*B" out="**I"/>
+  </all>
+  <one in="DBI" out="OR*" steps="1"/>
+  <one in="D" out="G" steps="1"/>
+  <all in="D" out="I"/>
+  <one search="True" limit="300" depthCoefficient="-1.0">
+    <rule in="ORBBB" out="WWOR*"/>
+    <rule in="ORBBG" out="WWWWO"/>
+    <rule in="BBB/R**/O**" out="OR*/W**/W**"/>
+    <rule in="BBG/R**/O**" out="WWO/W**/W**"/>
+
+    <observe value="I" from="B" to="W"/>
+    <observe value="O" to="W"/>
+    <observe value="R" to="W"/>
+    <observe value="G" to="O"/>
+    <observe value="B" to="BW"/>
+  </one>
+</sequence>

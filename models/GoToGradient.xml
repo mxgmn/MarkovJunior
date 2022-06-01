@@ -1,0 +1,8 @@
+<markov values="BRW" origin="Random">
+  <one in="RW" out="BR"/>
+  <one temperature="1.0">
+    <rule in="RB" out="BR"/>
+    <field for="R" to="W" on="B" recompute="True" essential="True"/>
+  </one>
+  <one in="B" out="W"/>
+</markov>

@@ -1,0 +1,8 @@
+<sequence values="BYE">
+  <one in="B" out="E" steps="10"/>
+  <one in="B" out="Y" steps="10"/>
+  <one>
+    <rule in="EB" out="EE"/>
+    <rule in="YB" out="YY"/>
+  </one>
+</sequence>

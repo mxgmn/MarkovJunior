@@ -1,0 +1,3 @@
+<one values="BRW" origin="Center" in="RBB" out="WWR" temperature="0.1">
+  <field for="W" to="R" on="B" recompute="False"/>
+</one>

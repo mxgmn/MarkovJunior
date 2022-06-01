@@ -1,0 +1,8 @@
+<markov values="BRGW" origin="Center">
+  <one in="RBB" out="GGR"/>
+  <one in="RGG" out="WWR"/>
+</markov>
+
+<!--
+(-) Can be accelerated by setting forgetPastMatches="True" in both blocks.
+-->

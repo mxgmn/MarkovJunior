@@ -1,0 +1,101 @@
+<tileset fullSymmetry="True">
+	<tiles>
+		<tile name="Empty"/>
+		<tile name="X" weight="0.1"/>
+		<tile name="Line"/>
+		<tile name="Turn"/>
+		<tile name="Stairs" weight="100.0"/>
+	</tiles>
+	<neighbors>
+		<neighbor left="Empty" right="Empty"/>
+		<neighbor left="Empty" right="y Line"/>
+		<neighbor left="Empty" right="yyy Line"/>
+		<neighbor left="Empty" right="z Line"/>
+		<neighbor left="Empty" right="Turn"/>
+		<neighbor left="Empty" right="y Turn"/>
+		<neighbor left="Empty" right="yyy Turn"/>
+		<neighbor left="Empty" right="y Stairs"/>
+		<neighbor left="Stairs" right="Empty"/>
+
+		<neighbor left="Empty" right="y X"/>
+		<neighbor left="Empty" right="yyy X"/>
+		<neighbor left="X" right="X"/>
+		<neighbor left="y X" right="yyy X"/>
+		<neighbor left="yyy X" right="y X"/>
+		<neighbor left="X" right="Line"/>
+		<neighbor left="y X" right="yyy Line"/>
+		<neighbor left="yyy X" right="y Line"/>
+		<neighbor left="y X" right="xz Line"/>
+		<neighbor left="X" right="z Turn"/>
+		<neighbor left="y X" right="yyy Turn"/>
+		<neighbor left="yyy X" right="y Turn"/>
+		<neighbor left="y X" right="x Turn"/>
+		<neighbor left="xxx X" right="Stairs"/>
+		<neighbor left="yyy X" right="z Stairs"/>
+		<neighbor left="y X" right="y Stairs"/>
+		
+		<neighbor left="Line" right="Line"/>
+		<neighbor left="z Line" right="z Line"/>
+		<neighbor left="yyy Line" right="y Line"/>
+		<neighbor left="yyy Line" right="xy Line"/>
+		<neighbor left="y Line" right="yyy Line"/>
+		<neighbor left="y Line" right="xyyy Line"/>
+		<neighbor left="y Line" right="z Line"/>
+		<neighbor left="y Line" right="xz Line"/>
+		
+		<neighbor left="Turn" right="Line"/>
+		<neighbor left="z Line" right="Turn"/>
+		<neighbor left="yyy Line" right="y Turn"/>
+		<neighbor left="y Line" right="yyy Turn"/>
+		<neighbor left="y Line" right="Turn"/>
+		<neighbor left="y Line" right="x Turn"/>
+		<neighbor left="y Turn" right="z Line"/>
+		
+		<neighbor left="xxx Line" right="Stairs"/>
+		<neighbor left="yyy Line" right="z Stairs"/>
+		<neighbor left="xyyy Line" right="z Stairs"/>
+		<neighbor left="y Line" right="y Stairs"/>
+
+		<neighbor left="Turn" right="z Turn"/>
+		<neighbor left="Turn" right="zz Turn"/>
+		<neighbor left="z Turn" right="Turn"/>
+		<neighbor left="zz Turn" right="Turn"/>
+		<neighbor left="yyy Turn" right="y Turn"/>
+		<neighbor left="yyy Turn" right="xy Turn"/>
+		<neighbor left="yyy Turn" right="xxy Turn"/>
+		<neighbor left="y Turn" right="yyy Turn"/>
+		<neighbor left="y Turn" right="xyyy Turn"/>
+		<neighbor left="y Turn" right="xxyyy Turn"/>
+		<neighbor left="y Turn" right="Turn"/>
+		<neighbor left="y Turn" right="xx Turn"/>
+		
+		<neighbor left="xxx Turn" right="Stairs"/>
+		<neighbor left="yyy Turn" right="z Stairs"/>
+		<neighbor left="yyy Turn" right="xxz Stairs"/>
+		<neighbor left="y Turn" right="y Stairs"/>
+		<neighbor left="y Turn" right="xy Stairs"/>
+		<neighbor left="y Turn" right="xxy Stairs"/>
+		
+		<neighbor left="Stairs" right="zz Stairs"/>
+		<neighbor left="Stairs" right="z Stairs"/>
+		<neighbor left="zz Stairs" right="Stairs"/>
+		<neighbor left="y Stairs" right="y Stairs"/>
+		<neighbor left="y Stairs" right="xy Stairs"/>
+		<neighbor left="y Stairs" right="xxy Stairs"/>
+		<neighbor left="Stairs" right="xzz Stairs"/>
+		
+		<neighbor left="Stairs" right="y Stairs"/>
+		<neighbor left="Stairs" right="xy Stairs"/>
+		
+		<neighbor left="z Line" right="y Stairs"/>
+		<neighbor left="z Line" right="yyy Stairs"/>
+		<neighbor left="z Turn" right="y Stairs"/>
+		<neighbor left="z Turn" right="yyy Stairs"/>
+		<neighbor left="zz Turn" right="y Stairs"/>
+		<neighbor left="zz Turn" right="yyy Stairs"/>
+		
+		<!--neighbor left="x Line" right="Stairs"/>
+		<neighbor left="x X" right="Stairs"/>
+		<neighbor left="x Turn" right="Stairs"/-->
+	</neighbors>
+</tileset>

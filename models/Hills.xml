@@ -1,0 +1,9 @@
+<sequence values="BA">
+  <prl in="B" out="A"/>
+  <prl in="A *" out="B *" symmetry="()"/>
+  <one in="AB" out="AA" steps="8000"/>
+  <convolution neighborhood="NoCorners" periodic="True">
+    <rule in="B" out="A" sum="10..18" values="A"/>
+    <rule in="A" out="B" sum="10..18" values="B"/>
+  </convolution>
+</sequence>

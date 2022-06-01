@@ -1,0 +1,11 @@
+<prl values="BGR">
+  <rule in="RG" out="*R"/>
+  <rule in="R*/*G" out="**/*R"/>
+  <rule in="B" out="G" p="0.01"/>
+  <rule in="R" out="B"/>
+  <rule in="G" out="R" p="0.0001"/>
+</prl>
+
+<!--
+https://en.wikipedia.org/wiki/Forest-fire_model
+-->

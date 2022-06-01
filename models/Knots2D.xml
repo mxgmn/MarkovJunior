@@ -1,0 +1,6 @@
+<sequence values="DB">
+  <all in="***/*D*/***" out="***/*B*/***"/>
+  <wfc tileset="Knots2D" values="IE">
+    <rule in="D" out="Empty"/>
+  </wfc>
+</sequence>

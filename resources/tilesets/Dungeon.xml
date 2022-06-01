@@ -1,0 +1,79 @@
+<tileset>
+	<tiles checksum="28">
+    <tile name="Empty"/>
+    <tile name="Out" weight="0.5"/>
+		<tile name="In" weight="0.5"/>
+    <tile name="Wall" weight="2.0"/>
+    <tile name="Stone"/>
+
+    <tile name="Line" legend="BW" weight="1.0"/>
+    <tile name="Turn" legend="BW" weight="0.25"/>
+    <tile name="T" legend="BW" weight="0.5"/>
+    <tile name="Door" legend="BW" weight="0.5"/>
+  </tiles>
+	<neighbors>
+    <neighbor left="Empty" right="Empty"/>
+    <neighbor left="Out" right="Empty"/>
+    <neighbor left="Wall" right="Empty"/>
+    <neighbor left="Door" right="Empty"/>
+    <neighbor left="z Wall" right="Out"/>
+    <neighbor left="z Wall" right="z Wall"/>
+    <neighbor left="In" right="z Wall"/>
+    <neighbor left="Stone" right="Wall"/>
+    <neighbor left="z Wall" right="z Door"/>
+    <neighbor left="zz In" right="In"/>
+    <neighbor left="Stone" right="In"/>
+    <neighbor left="In" right="z Door"/>
+    <neighbor left="Stone" right="Stone"/>
+    <neighbor left="Stone" right="z Line"/>
+    <neighbor left="Stone" right="Turn"/>
+    <neighbor left="Stone" right="z T"/>
+    <neighbor left="Line" right="Line"/>
+    <neighbor left="Turn" right="Line"/>
+    <neighbor left="Line" right="T"/>
+    <neighbor left="Line" right="zzz T"/>
+    <neighbor left="Line" right="Door"/>
+    <neighbor left="Turn" right="zz Turn"/>
+    <neighbor left="Turn" right="T"/>
+    <neighbor left="Turn" right="Door"/>
+    <neighbor left="T" right="zz T"/>
+
+    <neighbor left="z Out" right="Out"/>
+    <neighbor left="Out" right="z Out"/>
+    <neighbor left="Out" right="zz Out"/>
+    <neighbor left="Wall" right="z Out"/>
+    <neighbor left="In" right="Out"/>
+    <neighbor left="z Door" right="Out"/>
+    <neighbor left="Door" right="z Out"/>
+    <neighbor left="Wall" right="zz Wall"/>
+    <neighbor left="zz Wall" right="Wall"/>
+    <neighbor left="zz Wall" right="In"/>
+    <neighbor left="z Line" right="Wall"/>
+    <neighbor left="z Turn" right="Wall"/>
+    <neighbor left="zzz T" right="Wall"/>
+    <neighbor left="Wall" right="zz Door"/>
+    <neighbor left="z In" right="In"/>
+    <neighbor left="z Line" right="In"/>
+    <neighbor left="z Turn" right="In"/>
+    <neighbor left="zz Turn" right="In"/>
+    <neighbor left="zzz T" right="In"/>
+    <neighbor left="z Line" right="z Line"/>
+    <neighbor left="z Line" right="Turn"/>
+    <neighbor left="z Line" right="z T"/>
+    <neighbor left="z Turn" right="Turn"/>
+    <neighbor left="zz Turn" right="Turn"/>
+    <neighbor left="Turn" right="z Turn"/>
+    <neighbor left="zzz T" right="Turn"/>
+    <neighbor left="Turn" right="zz T"/>
+    <neighbor left="Turn" right="zzz T"/>
+    <neighbor left="zzz T" right="z T"/>
+    <neighbor left="T" right="T"/>
+    <neighbor left="T" right="zzz T"/>
+    <neighbor left="z T" right="zzz T"/>
+    <neighbor left="T" right="Door"/>
+    <neighbor left="z T" right="Door"/>
+    <neighbor left="Door" right="zz Door"/>
+    <neighbor left="zz Door" right="Door"/>
+    <neighbor left="z Door" right="z Door"/>
+	</neighbors>
+</tileset>

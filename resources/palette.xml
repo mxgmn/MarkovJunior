@@ -1,0 +1,56 @@
+﻿<colors>
+  <color symbol="B" value="000000" rgb="0 0 0" name="Black"/>
+  <color symbol="I" value="1D2B53" rgb="29 43 83" name="Indigo"/>
+  <color symbol="P" value="7E2553" rgb="126 37 83" name="Purple"/>
+  <color symbol="E" value="008751" rgb="0 135 81" name="Emerald"/>
+  <color symbol="N" value="AB5236" rgb="171 82 54" name="browN"/>
+  <color symbol="D" value="5F574F" rgb="95 87 79" name="Dead"/>
+  <color symbol="A" value="C2C3C7" rgb="194 195 199" name="Alive"/>
+  <color symbol="W" value="FFF1E8" rgb="255 241 232" name="White"/>
+  <color symbol="R" value="FF004D" rgb="255 0 77" name="Red"/>
+  <color symbol="O" value="FFA300" rgb="255 163 0" name="Orange"/>
+  <color symbol="Y" value="FFEC27" rgb="255 236 39" name="Yellow"/>
+  <color symbol="G" value="00E436" rgb="0 228 54" name="Green"/>
+  <color symbol="U" value="29ADFF" rgb="41 173 255" name="blUe"/>
+  <color symbol="S" value="83769C" rgb="131 118 156" name="Slate"/>
+  <color symbol="K" value="FF77A8" rgb="255 119 168" name="pinK"/>
+  <color symbol="F" value="FFCCAA" rgb="255 204 170" name="Fawn"/>
+  
+  <color symbol="b" value="291814" rgb="41 24 20" name="black"/>
+  <color symbol="i" value="111d35" rgb="17 29 53" name="indigo"/>
+  <color symbol="p" value="422136" rgb="66 33 54" name="purple"/>
+  <color symbol="e" value="125359" rgb="18 83 89" name="emerald"/>
+  <color symbol="n" value="742f29" rgb="116 47 41" name="brown"/>
+  <color symbol="d" value="49333b" rgb="73 51 59" name="dead"/>
+  <color symbol="a" value="a28879" rgb="162 136 121" name="alive"/>
+  <color symbol="w" value="f3ef7d" rgb="243 239 125" name="white"/>
+  <color symbol="r" value="be1250" rgb="190 18 80" name="red"/>
+  <color symbol="o" value="ff6c24" rgb="255 108 36" name="orange"/>
+  <color symbol="y" value="a8e72e" rgb="168 231 46" name="yellow"/>
+  <color symbol="g" value="00b543" rgb="0 181 67" name="green"/>
+  <color symbol="u" value="065ab5" rgb="6 90 181" name="blue"/>
+  <color symbol="s" value="754665" rgb="117 70 101" name="slate"/>
+  <color symbol="k" value="ff6e59" rgb="255 110 89" name="pink"/>
+  <color symbol="f" value="ff9d81" rgb="255 157 129" name="fawn"/>
+  
+  <color symbol="C" value="00ffff" rgb="0 255 255" name="Cyan"/>
+  <color symbol="c" value="5fcde4" rgb="95 205 228" name="cyan"/>
+  <color symbol="H" value="e4bb40" rgb="228 187 64" name="Honey"/>
+  <color symbol="h" value="8a6f30" rgb="138 111 48" name="honey"/>
+  <color symbol="J" value="4b692f" rgb="75 105 47" name="Jungle"/>
+  <color symbol="j" value="45107e" rgb="69 16 126" name="jungle"/>
+  <color symbol="L" value="847e87" rgb="132 126 135" name="Light"/>
+  <color symbol="l" value="696a6a" rgb="105 106 106" name="light"/>
+  <color symbol="M" value="ff00ff" rgb="255 0 255" name="Magenta"/>
+  <color symbol="m" value="9c09cc" rgb="156 9 204" name="magenta"/>
+  <color symbol="Q" value="9badb7" rgb="155 173 183" name="aQua"/>
+  <color symbol="q" value="3f3f74" rgb="63 63 116" name="aqua"/>
+  <color symbol="T" value="37946e" rgb="55 148 110" name="Teal"/>
+  <color symbol="t" value="323c39" rgb="50 60 57" name="teal"/>
+  <color symbol="V" value="8f974a" rgb="143 151 74" name="oliVe"/>
+  <color symbol="v" value="524b24" rgb="82 75 36" name="olive"/>
+  <color symbol="X" value="ff0000" rgb="255 0 0" name="X"/>
+  <color symbol="x" value="d95763" rgb="217 87 99" name="x"/>
+  <color symbol="Z" value="ffffff" rgb="255 255 255" name="Z"/>
+  <color symbol="z" value="cbdbfc" rgb="203 219 252" name="z"/>
+</colors>

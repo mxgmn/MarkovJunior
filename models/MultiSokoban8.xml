@@ -1,0 +1,12 @@
+<sequence values="BRWI">
+  <one in="BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB/BBBBBBBB" out="BBBBBBBR/BWWBBBBR/BWBBBBBR/BWBBBBBB/BWBBBBBB/BWBBBBBB/BWWBIIII/BBBBIIII" symmetry="()"/>
+  <all search="True" depthCoefficient="1.0">
+    <rule in="RB" out="BR"/>
+    <rule in="RWB" out="BRW"/>
+
+    <observe value="I" from="B" to="W"/>
+    <observe value="B" to="BR"/>
+    <observe value="W" to="BR"/>
+    <observe value="R" to="BR"/>
+  </all>
+</sequence>

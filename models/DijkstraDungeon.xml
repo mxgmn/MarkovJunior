@@ -1,0 +1,16 @@
+<sequence values="BGWRDU">
+  <union symbol="?" values="BD"/>
+  <one file="DijkstraRoom" legend="?DW*BR" steps="1"/>
+  <all in="W" out="G"/>
+  <markov>
+    <one in="GR" out="GG"/>
+    <path from="R" to="G" on="B" color="G" inertia="True"/>
+    <one file="DijkstraRoom" legend="?DW*BR"/>
+  </markov>
+  <all>
+    <rule in="G" out="W"/>
+    <rule in="D" out="B"/>
+  </all>
+  <all in="RW" out="*R"/>
+  <all in="R" out="B"/>
+</sequence>

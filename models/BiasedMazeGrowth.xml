@@ -1,0 +1,8 @@
+<sequence values="NWAUB" origin="Center">
+  <prl in="N/*" out="U/*" symmetry="()"/>
+  <prl in="*/U" out="*/B" symmetry="()"/>
+  <one temperature="10.0">
+    <rule in="WBB" out="WAW"/>
+    <field for="W" to="N" on="B" recompute="False"/>
+  </one>
+</sequence>

@@ -1,0 +1,35 @@
+<sequence values="BWO" symmetry="(x)">
+  <all in="B/*" out="O/*"/>
+  <all in="O/*/*" out="W/*/*"/>
+  <markov>
+    <all in="BW" out="BB"/>
+    <one in="W/W/W/W/W/W/W/W" out="*/*/*/B/*/*/*/*"/>
+  </markov>
+  <one in="OOOOOOOO/BBBBBBBB" out="***B****/********"/>
+  <markov>
+    <all in="OW" out="*O" symmetry="(xy)"/>
+    <all in="OO/OB" out="*B/**"/>
+    <one in="OOOO/BBBB/OOOO" out="**B*/****/****"/>
+    <one in="WW/BB/OB" out="*O/**/**"/>
+  </markov>
+</sequence>
+
+<!--
+To make BrickWall, add texture and shading.
+
+<sequence values="BWO" symmetry="(x)">
+  <prl in="B/*" out="O/*"/>
+  <prl in="O/*/*" out="W/*/*"/>
+  <markov>
+    <all in="BW" out="BB"/>
+    <one in="W/W/W/W/W/W/W/W" out="*/*/*/B/*/*/*/*"/>
+  </markov>
+  <one in="OOOOOOOO/BBBBBBBB" out="***B****/********"/>
+  <markov>
+    <all in="OW" out="*O" symmetry="(xy)"/>
+    <all in="OO/OB" out="*B/**"/>
+    <one in="OOOO/BBBB/OOOO" out="**B*/****/****"/>
+    <one in="WW/BB/OB" out="*O/**/**"/>
+  </markov>
+</sequence>
+-->

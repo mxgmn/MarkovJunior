@@ -1,0 +1,13 @@
+<sequence values="BRWIA">
+  <one in="BBBBBBBBB/BBBBBBBBB/BBBBBBBBB/BBBBBBBBB/BBBBBBBBB/BBBBBBBBB/BBBBBBBBB/BBBBBBBBB/BBBBBBBBB" out="BBBBBBBBB/BBBBBBBBB/BWWWWWBBR/BWBBBWBBR/BWBBBWBBR/BWBBBAIII/BWWWWAIII/BBBBBIIII/BBBBBIIII" symmetry="()"/>
+  <all search="True" depthCoefficient="0.5">
+    <rule in="RB" out="BR"/>
+    <rule in="RWB" out="BRW"/>
+
+    <observe value="I" from="B" to="W"/>
+    <observe value="A" from="W" to="W"/>
+    <observe value="B" to="BR"/>
+    <observe value="W" to="BR"/>
+    <observe value="R" to="BR"/>
+  </all>
+</sequence>

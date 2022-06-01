@@ -1,0 +1,28 @@
+<sequence values="BADYUGRW" origin="Center">
+  <all>
+    <rule in="ABB" out="**D"/>
+    <rule in="DBB" out="**D"/>
+  </all>
+  <one in="D" out="Y" steps="1" temperature="20.0">
+    <field for="Y" from="A" on="BD"/>
+  </one>
+  <one in="D" out="G" steps="1" temperature="20.0">
+    <field for="G" from="Y" on="BD"/>
+  </one>
+  <!--<one in="A" out="B"/>
+  <one file="setup" legend="BDGY" symmetry="()"/>-->  
+  <prl>
+    <rule in="D" out="B"/>
+    <rule in="A" out="B"/>
+  </prl>
+  <one temperature="2.0">
+    <rule in="YBB" out="UWR"/>
+    <rule in="RBB" out="WWR"/>
+    <rule in="RBG" out="WWG"/>
+    <field for="R" to="G" on="BR"/>
+  </one>
+</sequence>
+
+<!--
+Similar endpoint initialization is used in SeaVilla for the main path.
+-->

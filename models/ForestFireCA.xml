@@ -1,0 +1,6 @@
+<convolution values="BGR" neighborhood="Moore">
+  <rule in="G" out="R" sum="1..8" values="R"/>
+  <rule in="R" out="B"/>
+  <rule in="B" out="G" p="0.01"/>
+  <rule in="G" out="R" p="0.0001"/>
+</convolution>

@@ -1,0 +1,9 @@
+<markov values="BRGWA" origin="Random">
+  <one in="R**/**B" out="W**/**R">
+    <observe value="G" from="B" to="R"/>
+    <observe value="B" to="BW"/>
+    <observe value="R" to="W"/>
+  </one>
+  <prl in="W" out="A"/>
+  <one in="B" out="G"/>
+</markov>

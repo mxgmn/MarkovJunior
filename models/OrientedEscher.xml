@@ -1,0 +1,12 @@
+<sequence values="BRW" origin="Center">
+  <all in="B" out="W"/>
+  <all in="***/*W*/***" out="***/*B*/***"/>
+  <wfc values="BODAWEU" tileset="OrientedEscher" periodic="True">
+    <rule in="W" out="Empty"/>
+    <rule in="R" out="T"/>
+    <all>
+      <rule in="O" out="B"/>
+      <rule in="U" out="E"/>
+    </all>
+  </wfc>
+</sequence>
