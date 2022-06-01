@@ -3,7 +3,7 @@
 using System;
 using System.Xml.Linq;
 
-class ConvChainNode : Node
+public sealed class ConvChainNode : Node
 {
     int N;
     double temperature;

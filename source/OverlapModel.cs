@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class OverlapNode : WFCNode
+public sealed class OverlapNode : WFCNode
 {
     byte[][] patterns;
 

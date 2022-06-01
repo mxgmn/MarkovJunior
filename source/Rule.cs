@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class Rule
+public sealed class Rule
 {
     public int IMX, IMY, IMZ, OMX, OMY, OMZ;
     public int[] input;

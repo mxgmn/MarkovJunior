@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class PathNode : Node
+public sealed class PathNode : Node
 {
     public int start, finish, substrate;
     public byte value;

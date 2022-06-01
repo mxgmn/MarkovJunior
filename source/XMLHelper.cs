@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-static class XMLHelper
+public static class XMLHelper
 {
     public static T Get<T>(this XElement xelem, string attribute)
     {

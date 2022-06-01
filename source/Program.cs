@@ -6,9 +6,9 @@ using System.Xml.Linq;
 using System.Diagnostics;
 using System.Collections.Generic;
 
-static class Program
+public static class Program
 {
-    static void Main()
+    public static void Main()
     {
         Stopwatch sw = Stopwatch.StartNew();
         var folder = System.IO.Directory.CreateDirectory("output");

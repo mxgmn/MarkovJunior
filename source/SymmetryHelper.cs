@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-static class SymmetryHelper
+public static class SymmetryHelper
 {
     public static Dictionary<string, bool[]> squareSubgroups = new()
     {

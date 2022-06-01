@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-static class GUI
+public static class GUI
 {
     const int S = 7, SMALL = 3, ZSHIFT = 2, LIMIT = 10;
     const int HINDENT = 30, HGAP = 2, HARROW = 10, HLINE = 14;

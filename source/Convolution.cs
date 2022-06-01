@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class ConvolutionNode : Node
+public sealed class ConvolutionNode : Node
 {
     ConvolutionRule[] rules;
     int[] kernel;
@@ -129,7 +129,7 @@ class ConvolutionNode : Node
         return change;
     }
 
-    class ConvolutionRule
+    public sealed class ConvolutionRule
     {
         public byte input, output;
         public byte[] values;

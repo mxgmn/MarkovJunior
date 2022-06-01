@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-abstract class RuleNode : Node
+public abstract class RuleNode : Node
 {
     public Rule[] rules;
     public int counter, steps;

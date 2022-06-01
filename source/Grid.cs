@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class Grid
+public sealed class Grid
 {
     public byte[] state;
     public bool[] mask;
