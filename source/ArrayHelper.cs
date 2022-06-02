@@ -14,8 +14,7 @@ static class AH
             for (int y = 0; y < resultx.Length; y++)
             {
                 resultx[y] = new T[MZ];
-                T[] resultxy = resultx[y];
-                for (int z = 0; z < resultxy.Length; z++) resultxy[z] = value;
+                resultx[y].AsSpan().Fill(value);
             }
         }
         return result;
@@ -38,8 +37,7 @@ static class AH
         for (int x = 0; x < result.Length; x++)
         {
             result[x] = new T[MY];
-            T[] resultx = result[x];
-            for (int y = 0; y < resultx.Length; y++) resultx[y] = value;
+            result[x].AsSpan().Fill(value);
         }
         return result;
     }
@@ -54,7 +52,7 @@ static class AH
     public static T[] Array1D<T>(int length, T value)
     {
         T[] result = new T[length];
-        for (int i = 0; i < result.Length; i++) result[i] = value;
+        result.AsSpan().Fill(value);
         return result;
     }
 
@@ -69,8 +67,7 @@ static class AH
     {
         for (int y = 0; y < a.Length; y++)
         {
-            T[] ay = a[y];
-            for (int x = 0; x < ay.Length; x++) ay[x] = value;
+            a[y].AsSpan().Fill(value);
         }
     }
 
@@ -78,8 +75,6 @@ static class AH
 
     public static bool Same(byte[] t1, byte[] t2)
     {
-        if (t1.Length != t2.Length) return false;
-        for (int i = 0; i < t1.Length; i++) if (t1[i] != t2[i]) return false;
-        return true;
+        return t1.AsSpan().SequenceEqual(t2);
     }
 }
