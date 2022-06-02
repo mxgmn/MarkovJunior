@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2022 Maxim Gumin, The MIT License (MIT)
 
 using System;
+using System.Buffers.Binary;
 using System.Collections.Generic;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -13,12 +14,12 @@ static class Graphics
         {
             var image = Image.Load<Argb32>(filename);
             int width = image.Width, height = image.Height;
-            int[] result = new int[width * height];
+            var result = new int[width * height];
             for (var j = 0; j < height; j += 1)
             {
                 for (var i = 0; i < width; i += 1)
                 {
-                    result[j * width + i] = unchecked((int) LeReverseBytes(image[i, j].Argb));
+                    result[j * width + i] = unchecked((int) BinaryPrimitives.ReverseEndianness(image[i, j].Argb));
                 }
             }
 
@@ -30,25 +31,13 @@ static class Graphics
             return (null, -1, -1, -1);
         }
     }
-    
-    static UInt32 ReverseBytes(UInt32 value)
-    {
-        return (value & 0x000000FFU) << 24 | (value & 0x0000FF00U) << 8 |
-               (value & 0x00FF0000U) >> 8 | (value & 0xFF000000U) >> 24;
-    }
-
-    static UInt32 LeReverseBytes(UInt32 value)
-    {
-        return BitConverter.IsLittleEndian ? ReverseBytes(value) : value;
-    }
-
 
     public static void SaveBitmap(int[] data, int width, int height, string filename)
     {
-        Argb32[] formattedData = new Argb32[data.Length];
-        for (int i = 0; i < data.Length; i += 1)
+        var formattedData = new Argb32[data.Length];
+        for (var i = 0; i < data.Length; i += 1)
         {
-            formattedData[i] = new Argb32(LeReverseBytes(unchecked((uint) data[i])));
+            formattedData[i] = new Argb32(BinaryPrimitives.ReverseEndianness(unchecked((uint) data[i])));
         }
 
         var image = Image.WrapMemory(Configuration.Default, new Memory<Argb32>(formattedData), width, height);
