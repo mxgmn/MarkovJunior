@@ -92,7 +92,7 @@ We can put several rulenodes into a **sequence node**, to be run one after the o
 
 In [Apartemazements](models/Apartemazements.xml) we start with a WFC node and then do constructive postprocessing with rulenodes:
 1. Prepare constraints: mark bottom cells with a separate bottom color, mark the remaining border cells (sides and top) with a separate border color. Border cells should map to Empty, bottom cells should map to all tiles except Down.
-2. Run WFC [Paths](resources/tilesets/Path.xml) tileset to generate closed stairy cycles.
+2. Run WFC [Paths](resources/tilesets/Paths.xml) tileset to generate closed stairy cycles.
 3. Randomize light sources.
 4. Drop columns from corners of flat tiles.
 5. Retract double columns, columns that touch ground and columns that touch stairs, except columns growing from corners of the Turn tiles.
@@ -146,7 +146,7 @@ Another thing we can do is to observe *all* odd grid squares becoming white or r
 <a href="models/SokobanLevel1.xml"><img src="images/SokobanLevel1.gif"/></a>
 </p>
 
-We can engage inference for any rewrite rules. For example, inference for [stair-drawing rules](models/StairsPath3D.xml) connects 2 points with a stairy path. Inference for rule `R**/**B=B**/**R` generates paths that a chess knight can take. Inference in the [CrossCountry](models/CrossCountry.xml) model connects 2 points with a path taking terrain costs into account. Inference for the Sokoban ruleset `{RB=BR RWB=BRW}` solves Sokoban puzzles or even [multiagent Sokoban puzzles](images/multisokoban.gif)!
+We can engage inference for any rewrite rules. For example, inference for [stair-drawing rules](models/StairsPath.xml) connects 2 points with a stairy path. Inference for rule `R**/**B=B**/**R` generates paths that a chess knight can take. Inference in the [CrossCountry](models/CrossCountry.xml) model connects 2 points with a path taking terrain costs into account. Inference for the Sokoban ruleset `{RB=BR RWB=BRW}` solves Sokoban puzzles or even [multiagent Sokoban puzzles](images/multisokoban.gif)!
 <p align="center"><img src="images/StairsPath.gif"/></a></p>
 
 Inference in MarkovJunior is done via unidirectional (fast) or bidirectional (slow, but more powerful) constraint propagation. Unidirectional constraint propagation for rewrite rules can be described equivalently in terms of **rule propagation** fields which generalize Dijkstra fields for arbitrary rewrite rules. Dijkstra fields is a popular technique in grid-based procedural generation ([1](https://groups.google.com/forum/#!topic/rec.games.roguelike.development/6yNIuhSerpM), [2](http://www.roguebasin.com/index.php?title=The_Incredible_Power_of_Dijkstra_Maps), [3](http://www.roguebasin.com/index.php?title=Dijkstra_Maps_Visualized)). They in turn generalize [distance fields](https://iquilezles.org/www/articles/distfunctions/distfunctions.htm) used in computer graphics.
