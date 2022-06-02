@@ -12,14 +12,14 @@ static class Graphics
     {
         try
         {
-            var image = Image.Load<Argb32>(filename);
+            var image = Image.Load<Bgra32>(filename);
             int width = image.Width, height = image.Height;
             var result = new int[width * height];
             for (var j = 0; j < height; j += 1)
             {
                 for (var i = 0; i < width; i += 1)
                 {
-                    result[j * width + i] = unchecked((int) BinaryPrimitives.ReverseEndianness(image[i, j].Argb));
+                    result[j * width + i] = unchecked((int) image[i, j].Bgra);
                 }
             }
 
@@ -34,13 +34,16 @@ static class Graphics
 
     public static void SaveBitmap(int[] data, int width, int height, string filename)
     {
-        var formattedData = new Argb32[data.Length];
+        var formattedData = new Bgra32[data.Length];
         for (var i = 0; i < data.Length; i += 1)
         {
-            formattedData[i] = new Argb32(BinaryPrimitives.ReverseEndianness(unchecked((uint) data[i])));
+            formattedData[i] = new Bgra32
+            {
+                Bgra = unchecked((uint) data[i])
+            };
         }
 
-        var image = Image.WrapMemory(Configuration.Default, new Memory<Argb32>(formattedData), width, height);
+        var image = Image.WrapMemory(Configuration.Default, new Memory<Bgra32>(formattedData), width, height);
         image.SaveAsPng(filename);
         image.Dispose();
     }
