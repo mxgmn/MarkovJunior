@@ -103,7 +103,7 @@ In [Apartemazements](models/Apartemazements.xml) we start with a WFC node and th
 	3. Merge unmarked pairs of window sides.
 8. Turn the remaining 1x1 windows into walls.
 
-A more interesting way to combine nodes is to put them into a **Markov node**. Markov nodes substantially expand what we can do, because they allow to return to past nodes. When a Markov node is active, interpreter finds its first child node that matches and applies it. On the next turn, it finds the first matching node in the list again, and so on. The simplest example of the Markov node use is [MazeBacktracker](MazeBacktracker.xml) explained in the top section.
+A more interesting way to combine nodes is to put them into a **Markov node**. Markov nodes substantially expand what we can do, because they allow to return to past nodes. When a Markov node is active, interpreter finds its first child node that matches and applies it. On the next turn, it finds the first matching node in the list again, and so on. The simplest example of the Markov node use is [MazeBacktracker](models/MazeBacktracker.xml) explained in the top section.
 
 <p align="center">
 <a href="models/NystromDungeon.xml"><img src="images/NystromDungeon.gif"/></a>
@@ -113,7 +113,7 @@ A more interesting way to combine nodes is to put them into a **Markov node**. M
 One of my favorite examples that motivated the development of MarkovJunior is [Bob Nystrom's dungeon generation algorithm](https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/). It goes as follows:
 1. Draw a grid `{PBB=**P}`.
 2. Spawn a bunch of rooms `(room.png)`.
-3. Generate a maze on the rest of the grid. We can use any maze generation algorithm, but [MazeBacktracker](MazeBacktracker.xml) is preferred because it produces fewer branching points.
+3. Generate a maze on the rest of the grid. We can use any maze generation algorithm, but [MazeBacktracker](models/MazeBacktracker.xml) is preferred because it produces fewer branching points.
 4. Make the resulting configuration of rooms and corridors connected. This can be elegantly done with a Markov node `({GWW=**G}(GBW=*WG))`.
 5. Make some additional connections `(GBG=*W* #5)`, so the resulting dungeon has cycles. Dungeons without cycles are pretty boring, since the player has to return through already explored zones.
 6. Retract dead ends `{BBB/BWB=BBB/BBB}`.
@@ -205,7 +205,7 @@ Related work:
 2. Lingfeng Yang, [From Execution Traces to Specialized Inference](https://stacks.stanford.edu/file/druid:kq822ym0815/et2si-reduced-opt-augmented.pdf), 2015.
 
 Sources of examples:
-1. [BasicKeys](models/BasicKeys.xml) and [Keys](Keys.xml) are adaptations of graph grammars formulated by Joris Dormans, [Engineering Emergence: Applied Theory for Game Design](https://www.illc.uva.nl/Research/Publications/Dissertations/DS-2012-12.text.pdf), 2012. Which in turn are development of the earlier work by David Adams, [Automatic Generation of Dungeons for Computer Games](https://pdfs.semanticscholar.org/2502/0f8d955aee07b7dd49a3ec23b1f2a8cf1d06.pdf), 2002. I use a variation of these models to generate key-lock-bridge puzzles in [SeaVilla](models/SeaVilla.xml).
+1. [BasicKeys](models/BasicKeys.xml) and [Keys](models/Keys.xml) are adaptations of graph grammars formulated by Joris Dormans, [Engineering Emergence: Applied Theory for Game Design](https://www.illc.uva.nl/Research/Publications/Dissertations/DS-2012-12.text.pdf), 2012. Which in turn are development of the earlier work by David Adams, [Automatic Generation of Dungeons for Computer Games](https://pdfs.semanticscholar.org/2502/0f8d955aee07b7dd49a3ec23b1f2a8cf1d06.pdf), 2002. I use a variation of these models to generate key-lock-bridge puzzles in [SeaVilla](models/SeaVilla.xml).
 1. [CarmaTower](models/CarmaTower.xml) is a proceduralization of a [voxel scene](https://twitter.com/Sir_carma/status/851883489628704768) by Antoine Lendrevie.
 1. The [NystromDungeon](models/NystromDungeon.xml) model is a MarkovJunior port of [Bob Nystrom's dungeon generator](https://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/).
 1. [HamiltonianPath](models/HamiltonianPath.xml) algorithm is adapted from [this](http://aip.scitation.org/doi/pdf/10.1063/1.443937) article. Compare it with an [implementation](http://clisby.net/projects/hamiltonian_path/hamiltonian_path_v1.html) in a conventional language.
