@@ -239,3 +239,6 @@ MarkovJunior development was [funded](https://github.com/users/mxgmn/sponsorship
 2. [Oskar Stålberg](https://twitter.com/OskSta)
 3. [Freehold Games](https://store.steampowered.com/app/333640/Caves_of_Qud/)
 4. [Bob Burrough](https://bobburrough.com/)
+
+
+### Thank you for using this repo! Feel free to contribute.
