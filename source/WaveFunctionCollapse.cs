@@ -99,7 +99,7 @@ abstract class WFCNode : Branch
             wave.CopyFrom(startwave, propagator.Length, shannon);
             firstgo = false;
 
-            newgrid.Clear(-1);
+            newgrid.Clear();
             ip.grid = newgrid;
             return true;
         }

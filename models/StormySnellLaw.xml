@@ -1,4 +1,4 @@
-<sequence values="WUGIABSR" origin="Center">
+<sequence values="WUGIABSR" origin="True">
   <all in="UW" out="*U" symmetry="(x)"/>
   <prl in="U*" out="G*" symmetry="()"/>
   <prl in="*G" out="*A" symmetry="()"/>

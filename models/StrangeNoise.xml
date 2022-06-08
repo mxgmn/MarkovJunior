@@ -1,4 +1,7 @@
-<one values="BW" origin="Random" temperature="2.0" periodic="False">
-  <rule in="B" out="W"/>
-  <field for="W" to="W" on="B" recompute="True"/>
-</one>
+<sequence values="BW">
+  <one in="B" out="W" steps="1"/>
+  <one temperature="2.0" periodic="False">
+    <rule in="B" out="W"/>
+    <field for="W" to="W" on="B" recompute="True"/>
+  </one>
+</sequence>

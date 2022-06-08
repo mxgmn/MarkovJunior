@@ -1,4 +1,4 @@
-<sequence values="BDIORGW" origin="Center">
+<sequence values="BDIORGW" origin="True">
   <all>
     <rule in="I*B" out="**D"/>
     <rule in="D*B" out="**I"/>

@@ -1,4 +1,4 @@
-<sequence values="BRGWA" origin="Center">
+<sequence values="BRGWA" origin="True">
   <union symbol="?" values="WA"/>
   <markov>
     <one in="RBB" out="GGR"/>
@@ -6,8 +6,7 @@
   </markov>
   <one in="R" out="W"/>
   <one in="WBW" out="WAW" steps="1"/>
-  <all in="BBB/B?B" out="***/*B*" d="2"/>
-  <!--<all in="BBB/BBB/BBB BBB/B?B/BBB" out="***/***/*** ***/*B*/***" d="3"/>-->
+  <all in="BBB/B?B" out="***/*B*"/>
   <all in="A" out="W"/>
 </sequence>
 

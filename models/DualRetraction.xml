@@ -1,4 +1,4 @@
-<sequence values="BRUW" origin="Center">
+<sequence values="BRUW" origin="True">
   <one>
     <rule in="BB*BB/BBBBB/BBBBR/BBBBB/BB*BB" out="**R**/*WWW*/*WWWU/*WWW*/**R**"/>
     <rule in="BBBBB/BBBBB/RBBB*/BBBBB/BBBBB" out="*****/*****/UWWWR/*****/*****"/>

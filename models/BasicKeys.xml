@@ -1,4 +1,4 @@
-<sequence values="BDIRGYNOKPFCU" origin="Center">
+<sequence values="BDIRGYNOKPFCU" origin="True">
   <all in="DB*" out="*ID" comment="draw a grid"/>
   <one in="D" out="G" limit="1" comment="put an end"/>
   <one comment="put a start far from the end">

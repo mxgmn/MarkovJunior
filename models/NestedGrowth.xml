@@ -1,4 +1,4 @@
-<all values="BWAD" origin="Center">
+<all values="BWAD" origin="True">
   <rule in="WB" out="WW"/>
   <rule in="WD" out="WW"/>
   <rule in="AW" out="AA"/>

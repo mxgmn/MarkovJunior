@@ -1,4 +1,4 @@
-<one values="BW" origin="Center">
+<one values="BW" origin="True">
   <rule in="WB" out="WW"/>
   <rule in="BWW" out="BBW"/>
 </one>

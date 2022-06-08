@@ -1,4 +1,4 @@
-<sequence values="BtEDGANYOWU" origin="Center">
+<sequence values="BtEDGANYOWU" origin="True">
   <prl in="***/*B*/***" out="***/*E*/***"/>
   <all in="tEE" out="**t"/>
   <one file="Chip" legend="*tEADN" steps="2"/>

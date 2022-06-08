@@ -1,4 +1,4 @@
-<sequence values="NWSB" origin="Center">
+<sequence values="NWSB" origin="True">
   <prl in="N/*" out="S/*" symmetry="()"/>
   <prl in="*/S" out="*/B" symmetry="()"/>
   <one temperature="10.0">

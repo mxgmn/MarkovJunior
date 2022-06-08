@@ -1,6 +1,6 @@
-<sequence values="BRW" origin="Center">
-  <all in="B" out="W"/>
-  <all in="***/*W*/***" out="***/*B*/***"/>
+<sequence values="BRW" origin="True">
+  <prl in="B" out="W"/>
+  <prl in="***/*W*/***" out="***/*B*/***"/>
   <wfc values="BODAWEU" tileset="OrientedEscher" periodic="True">
     <rule in="W" out="Empty"/>
     <rule in="R" out="T"/>

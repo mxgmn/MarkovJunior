@@ -1,4 +1,4 @@
-<sequence values="BGRKYEFUIP" origin="Random">
+<sequence values="BGRKYEFUIP" origin="True">
   <one in="BB" out="KR" steps="12"/>
   <all>
     <rule in="KRB" out="BKR"/>

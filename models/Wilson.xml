@@ -1,4 +1,4 @@
-<sequence values="BWIRKGYU" origin="Center">
+<sequence values="BWIRKGYU" origin="True">
   <all>
     <rule in="WBB" out="**I"/>
     <rule in="IBB" out="**I"/>

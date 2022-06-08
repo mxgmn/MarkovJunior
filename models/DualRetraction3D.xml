@@ -1,4 +1,4 @@
-<sequence values="BRUWG" origin="Center" folder="DualRetraction">
+<sequence values="BRUWG" origin="True" folder="DualRetraction">
   <one>
     <rule file="Room1" legend="B*RUW"/>
     <rule file="Room2" legend="B*RGWU"/>

@@ -1,4 +1,4 @@
-<sequence values="WRBUPY" origin="Center" folder="DungeonGrowth">
+<sequence values="WRBUPY" origin="True" folder="DungeonGrowth">
   <union symbol="?" values="BR"/>
   <!--<prl in="***/*W*/***" out="***/*B*/***"/>-->
   <prl in="*****/*****/**W**/*****/*****" out="*****/*****/**B**/*****/*****"/>

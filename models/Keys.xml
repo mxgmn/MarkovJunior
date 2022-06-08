@@ -1,4 +1,4 @@
-<sequence values="BADGRIFYUP" origin="Center">
+<sequence values="BADGRIFYUP" origin="True">
   <prl in="ABB*" out="*DDA"/>
   <one in="A" out="G" steps="1"/>
   <one steps="1">

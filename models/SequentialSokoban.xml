@@ -1,4 +1,5 @@
-<sequence values="BRWIYAGD" origin="Random">
+<sequence values="BRWIYAGD">
+  <one in="B" out="R" steps="1"/>
   <one in="BBBBBB/BBBBBB/BBBBBB/BBBBBB/BBBBBB/BBBBBB" out="******/******/**II**/**II**/******/******" steps="1"/>
   <one in="BBB/BBB/BBB" out="***/*Y*/***" steps="4"/>
   <markov>

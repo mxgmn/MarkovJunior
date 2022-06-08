@@ -1,4 +1,4 @@
-<sequence values="RDAUBW" origin="Center">
+<sequence values="RDAUBW" origin="True">
   <prl in="*R" out="*U" symmetry="()"/>
   <prl in="U*" out="B*" symmetry="()"/>
   <all in="DB*" out="*AD"/>

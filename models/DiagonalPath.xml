@@ -1,4 +1,5 @@
-<sequence values="BRGW" origin="Random">
+<sequence values="BRGW">
+  <one in="B" out="R" steps="1"/>
   <one in="B" out="G" temperature="4.0" steps="1">
     <field for="G" from="R" on="B"/>
   </one>  

@@ -1,4 +1,4 @@
-<sequence values="BWARDEU" origin="Center">
+<sequence values="BWARDEU" origin="True">
   <union symbol="?" values="BDE"/>
   <one in="WBB" out="WAW"/>
   <markov>

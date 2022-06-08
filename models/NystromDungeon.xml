@@ -1,8 +1,6 @@
-<sequence values="BPWRG" origin="Center">
-  <!--<one in="BBB/BPB/BBB" out="PBP/BBB/PBP" steps="1"/>-->
+<sequence values="BPWRG" origin="True">
   <all in="PBB" out="**P" comment="draw a grid"/>
   <one in="PBPBPBPBP/BBBBBBBBB/PBPBPBPBP/BBBBBBBBB/PBPBPBPBP/BBBBBBBBB/PBPBPBPBP" out="WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW"/>
-  <!--<one in="PBPBPBPBPBPBP" out="WWWWWWWWWWWWW"/>-->
   <markov comment="generate corridors with MazeBacktracker">
     <one in="RBP" out="GGR"/>
     <one in="GGR" out="RWW"/>

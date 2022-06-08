@@ -10,7 +10,7 @@ For root grids, there is one more optional boolean attribute called `origin`, eq
 
 
 ## Symmetry
-With most nodes, you can specify the `symmetry` attribute. Possible symmetry values are listed in [SymmetryHelper.cs](source/SymmetryHelper.cs). By default, the largest symmetry group is used. Example: in [Flowers](models/Flowers.cs) we need flowers growing vertically and not side-to-side, so we specify that rules should only be mirrored along the x axis.
+With most nodes, you can specify the `symmetry` attribute. Possible symmetry values are listed in [SymmetryHelper.cs](source/SymmetryHelper.cs). By default, the largest symmetry group is used. Example: in [Flowers](models/Flowers.xml) we need flowers growing vertically and not side-to-side, so we specify that rules should only be mirrored along the x axis.
 
 
 
@@ -25,7 +25,7 @@ Rule attributes:
 
 Slashes `/` are y-separators, spaces ` ` are z-separators.
 
-If a file is referenced, the `legend` should be specified. Legend lists used values in a scanline order. See example in [DungeonGrowth](models/DungeonGrowth.xml)
+If a file is referenced, the `legend` should be specified. Legend lists used values in a scanline order. See example in [DungeonGrowth](models/DungeonGrowth.xml).
 
 
 
@@ -61,7 +61,7 @@ See examples of `path` node use in [BasicDijkstraFill](models/BasicDijkstraFill.
 
 
 ## Convolution
-See examples of convolution use in [GameOfLife](models/GameOfLife.xml), [Cave](models/Cave.xml), [ConnectedCaves](models/ConnectedCaves.xml), [ConstrainedCaves](models/ConstrainedCaves.xml), [OpenCave](models/OpenCave.xml), [OpenCave3D](models/OpenCave3D.xml), [Counting](models/Counting.xml), [CarmaTower](models/CarmaTower.xml).
+See examples of `convolution` node use in [GameOfLife](models/GameOfLife.xml), [Cave](models/Cave.xml), [ConnectedCaves](models/ConnectedCaves.xml), [ConstrainedCaves](models/ConstrainedCaves.xml), [OpenCave](models/OpenCave.xml), [OpenCave3D](models/OpenCave3D.xml), [Counting](models/Counting.xml), [CarmaTower](models/CarmaTower.xml).
 
 
 

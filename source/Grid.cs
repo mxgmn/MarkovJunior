@@ -80,10 +80,9 @@ class Grid
         return g;
     }
 
-    public void Clear(int origin)
+    public void Clear()
     {
         for (int i = 0; i < state.Length; i++) state[i] = 0;
-        if (origin >= 0) state[origin] = 1;
     }
 
     public int Wave(string values)

@@ -20,7 +20,9 @@ Probabilistic inference in MarkovJunior allows to impose constraints on the futu
 Using these ideas, we construct [many probabilistic generators](models/) of dungeons, architecture, puzzles and fun simulations.
 <p align="center"><a href="images/top-1764.png"/><img src="images/top-882.png"/></a></p>
 
-Higher resolution screenshots and more seeds: [ModernHouse](https://github.com/mxgmn/Blog/blob/master/ModernHouse.md), [SeaVilla](https://github.com/mxgmn/Blog/blob/master/SeaVilla.md), [Apartemazements](https://github.com/mxgmn/Blog/blob/master/Apartemazements.md), [CarmaTower](https://github.com/mxgmn/Blog/blob/master/CarmaTower.md), [Escheresque](https://github.com/mxgmn/Blog/blob/master/Escheresque.md), [PillarsOfEternity](https://github.com/mxgmn/Blog/blob/master/PillarsOfEternity.md), [Surface](https://github.com/mxgmn/Blog/blob/master/RandomSurface.md), [Knots](https://twitter.com/ExUtumno/status/895688856304992256).
+Additional materials:
+1. [Xml syntax overview](syntax.md).
+2. Higher resolution screenshots and more seeds: [ModernHouse](https://github.com/mxgmn/Blog/blob/master/ModernHouse.md), [SeaVilla](https://github.com/mxgmn/Blog/blob/master/SeaVilla.md), [Apartemazements](https://github.com/mxgmn/Blog/blob/master/Apartemazements.md), [CarmaTower](https://github.com/mxgmn/Blog/blob/master/CarmaTower.md), [Escheresque](https://github.com/mxgmn/Blog/blob/master/Escheresque.md), [PillarsOfEternity](https://github.com/mxgmn/Blog/blob/master/PillarsOfEternity.md), [Surface](https://github.com/mxgmn/Blog/blob/master/RandomSurface.md), [Knots](https://twitter.com/ExUtumno/status/895688856304992256).
 
 
 

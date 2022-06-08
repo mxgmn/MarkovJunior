@@ -1,4 +1,4 @@
-<sequence values="BWEPRUG" origin="Center">
+<sequence values="BWEPRUG" origin="True">
   <one in="WBB" out="PER"/>
   <one in="RBB" out="EER" steps="10"/>
   <markov>

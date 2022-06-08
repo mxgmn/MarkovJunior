@@ -1,4 +1,4 @@
-<sequence values="BRDYGWEUN" origin="Center">
+<sequence values="BRDYGWEUN" origin="True">
   <union symbol="?" values="BD"/>
   <union symbol="_" values="BN"/>
   <all>

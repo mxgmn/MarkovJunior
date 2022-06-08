@@ -3,7 +3,6 @@
   <prl in="w *" out="y *"/>
   <prl in="***/*y*/***" out="***/*B*/***"/>
   <wfc values="BaV OoYhSAWwRrlgvPpxbUuCcKkXGEFi" tileset="MarchingHills" overlap="-3">
-    31 values
     <rule in="w" out="Stone"/>
     <rule in="y" out="Empty"/>
 

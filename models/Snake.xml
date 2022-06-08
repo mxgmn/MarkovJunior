@@ -1,6 +1,6 @@
-<sequence values="BDRUGEPCW" origin="Center">
+<sequence values="BDRUGEPCW" origin="True">
   <all in="DBB" out="**D"/>
-  <one in="BDB/BBB/BDB" out="***/PGR/***" steps="1" d="2"/>
+  <one in="BDB/BBB/BDB" out="***/PGR/***" steps="1"/>
   <!--<one in="BDB/BBB/BDB BBB/BBB/BBB BDB/BBB/BDB" out="***/***/*** ***/PGR/*** ***/***/***" steps="1" d="3"/>-->
   <markov>
     <one>
@@ -15,7 +15,7 @@
       <rule in="C" out="P"/>
     </all>
     <path from="R" to="W" on="B" color="D" inertia="True"/>
-    <one in="DBD/BBB/DBD" out="***/*W*/***" d="2"/>
+    <one in="DBD/BBB/DBD" out="***/*W*/***"/>
     <!--<one in="DBD/BBB/DBD BBB/BBB/BBB DBD/BBB/DBD" out="***/***/*** ***/*W*/*** ***/***/***" d="3"/>-->
   </markov>
 </sequence>

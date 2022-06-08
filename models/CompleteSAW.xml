@@ -1,4 +1,4 @@
-<sequence values="BRWD" origin="Center">
+<sequence values="BRWD" origin="True">
   <all>
     <rule in="R*B" out="**D"/>
     <rule in="D*B" out="**D"/>

@@ -1,4 +1,4 @@
-<sequence values="BADYUGRW" origin="Center">
+<sequence values="BADYUGRW" origin="True">
   <all>
     <rule in="ABB" out="**D"/>
     <rule in="DBB" out="**D"/>
@@ -9,8 +9,6 @@
   <one in="D" out="G" steps="1" temperature="20.0">
     <field for="G" from="Y" on="BD"/>
   </one>
-  <!--<one in="A" out="B"/>
-  <one file="setup" legend="BDGY" symmetry="()"/>-->  
   <prl>
     <rule in="D" out="B"/>
     <rule in="A" out="B"/>

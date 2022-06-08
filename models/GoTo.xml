@@ -1,4 +1,4 @@
-<markov values="BRWD" origin="Random">
+<markov values="BRWD" origin="True">
   <one>
     <rule in="RW" out="BR"/>
     <rule in="RD" out="BR"/>

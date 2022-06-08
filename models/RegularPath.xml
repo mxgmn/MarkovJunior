@@ -1,4 +1,4 @@
-<sequence values="BAWRGY" origin="Center">
+<sequence values="BAWRGY" origin="True">
   <all in="A*B" out="**A"/>
   <one in="A" out="R" steps="1"/>
   <one in="A" out="Y" steps="10"/>

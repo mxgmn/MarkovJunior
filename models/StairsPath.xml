@@ -1,4 +1,4 @@
-<sequence values="BDROAGE" origin="Center" symmetry="(xy)">
+<sequence values="BDROAGE" origin="True" symmetry="(xy)">
   <all in="D**B" out="***D" symmetry="(xyz)"/>
   <one in="DBBDBBD" out="B**GEBB" steps="1" comment="finish"/>
   <one in="DBBDBBD" out="RO*****" steps="1" comment="start"/>

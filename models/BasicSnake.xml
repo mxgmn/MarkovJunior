@@ -1,4 +1,4 @@
-<sequence values="BWDPGR" origin="Center">
+<sequence values="BWDPGR" origin="True">
   <all>
     <rule in="WBB" out="**D"/>
     <rule in="DBB" out="**D"/>

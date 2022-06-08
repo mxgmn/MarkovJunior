@@ -1,4 +1,4 @@
-<sequence values="BRACDG" origin="Center">
+<sequence values="BRACDG" origin="True">
   <union symbol="?" values="BR"/>
   <one in="**?**/*BBB*/*BBB?/*BBB*/**R**" out="AARAA/ADDDA/ADDDR/ADDDA/AACAA"/>
   <one in="ACA/BBB" out="ARA/BBB"/>

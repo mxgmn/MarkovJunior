@@ -1,4 +1,4 @@
-<one values="BRWGOU" origin="Center">
+<one values="BRWGOU" origin="True">
   <rule in="RBB" out="WWR"/>
   <rule in="RBW" out="GWO"/>
   <rule in="OWG" out="OBU"/>

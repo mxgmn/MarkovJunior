@@ -1,4 +1,4 @@
-<markov values="BRW" origin="Random">
+<markov values="BRW" origin="True">
   <one in="RW" out="BR"/>
   <one temperature="1.0">
     <rule in="RB" out="BR"/>

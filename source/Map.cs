@@ -95,7 +95,7 @@ class MapNode : Branch
     {
         if (n >= 0) return base.Go();
 
-        newgrid.Clear(-1);
+        newgrid.Clear();
         foreach (Rule rule in rules)
             for (int z = 0; z < grid.MZ; z++) for (int y = 0; y < grid.MY; y++) for (int x = 0; x < grid.MX; x++)
                         if (Matches(rule, x, y, z, grid.state, grid.MX, grid.MY, grid.MZ))

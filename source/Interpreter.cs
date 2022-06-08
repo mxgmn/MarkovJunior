@@ -9,9 +9,8 @@ class Interpreter
     public Branch root, current;
     public Grid grid;
     Grid startgrid;
-    
-    Origin origin;
-    enum Origin { None, Random, Center };
+
+    bool origin;
     public Random random;
 
     public List<(int, int, int)> changes;
@@ -24,17 +23,7 @@ class Interpreter
     public static Interpreter Load(XElement xelem, int MX, int MY, int MZ)
     {
         Interpreter ip = new();
-
-        string originName = xelem.Get<string>("origin", null);
-        if (originName == "Random") ip.origin = Origin.Random;
-        else if (originName == "Center") ip.origin = Origin.Center;
-        else if (originName == null) ip.origin = Origin.None;
-        else
-        {
-            WriteLine($"unknown origin name {originName}");
-            return null;
-        }
-
+        ip.origin = xelem.Get("origin", false);
         ip.grid = Grid.Load(xelem, MX, MY, MZ);
         if (ip.grid == null)
         {
@@ -64,13 +53,9 @@ class Interpreter
     {
         random = new Random(seed);
         grid = startgrid;
-        int originIndex = origin switch
-        {
-            Origin.Random => random.Next(grid.MX * grid.MY * grid.MZ),
-            Origin.Center => grid.MX / 2 + (grid.MY / 2) * grid.MX + (grid.MZ / 2) * grid.MX * grid.MY,
-            _ => -1
-        };
-        grid.Clear(originIndex);
+        grid.Clear();
+        if (origin) grid.state[grid.MX / 2 + (grid.MY / 2) * grid.MX + (grid.MZ / 2) * grid.MX * grid.MY] = 1;
+
         changes.Clear();
         first.Clear();
         first.Add(0);

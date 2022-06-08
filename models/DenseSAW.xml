@@ -1,4 +1,4 @@
-<sequence values="BRW" origin="Center">
+<sequence values="BRW" origin="True">
   <one in="RBB" out="WWR" steps="1"/>
   <one in="RBB" out="WWR" temperature="0.3">
     <field for="R" to="W" on="B" recompute="True"/>

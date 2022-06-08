@@ -1,4 +1,4 @@
-<sequence values="BRW" origin="Center">
+<sequence values="BRW" origin="True">
   <one steps="3000">
     <rule in="RB" out="WR"/>
     <rule in="RW" out="WR"/>

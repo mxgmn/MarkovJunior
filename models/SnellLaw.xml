@@ -1,4 +1,4 @@
-<sequence values="BUGIAWSR" origin="Center">
+<sequence values="BUGIAWSR" origin="True">
   <all in="UB" out="*U" symmetry="(x)"/>
   <prl in="U*" out="G*" symmetry="()"/>
   <prl in="*G" out="*I" symmetry="()"/>
