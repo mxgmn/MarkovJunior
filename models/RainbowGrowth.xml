@@ -1,0 +1,9 @@
+<one values="BROYGUIP" origin="True">
+  <rule in="RB" out="RO"/>
+  <rule in="OB" out="OY"/>
+  <rule in="YB" out="YG"/>
+  <rule in="GB" out="GU"/>
+  <rule in="UB" out="UI"/>
+  <rule in="IB" out="IP"/>
+  <rule in="PB" out="PR"/>
+</one>

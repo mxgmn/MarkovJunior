@@ -107,6 +107,7 @@
   <model name="Push" size="40" steps="8000"/>
   <model name="PutColoredLs" size="30"/>
   <model name="PutLs" size="50"/>
+  <model name="RainbowGrowth" size="59" steps="1600"/>
   <model name="RegularPath" size="79"/>
   <model name="RegularSAW" size="39"/>
   <model name="RegularSAW" size="19" d="3"/>
