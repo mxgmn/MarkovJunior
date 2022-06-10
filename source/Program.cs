@@ -14,7 +14,7 @@ static class Program
         var folder = System.IO.Directory.CreateDirectory("output");
         foreach (var file in folder.GetFiles()) file.Delete();
 
-        Dictionary<char, int> palette = XDocument.Load("resources/palette.xml").Root.Elements("color").ToDictionary(x => x.Get<char>("symbol"), x => Convert.ToInt32(x.Get<string>("value"), 16) + (255 << 24));
+        Dictionary<char, int> palette = XDocument.Load("resources/palette.xml").Root.Elements("color").ToDictionary(x => x.Get<char>("symbol"), x => (255 << 24) + Convert.ToInt32(x.Get<string>("value"), 16));
 
         Random meta = new();
         XDocument xdoc = XDocument.Load("models.xml", LoadOptions.SetLineInfo);
