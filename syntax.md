@@ -21,7 +21,7 @@ Rule attributes:
 * `fin="filename"` - loads input from `filename.png` or `filename.vox`.
 * `fout="filename"` - loads output from `filename.png` or `filename.vox`.
 * `file="filename"` - loads a glued input + output box from file. Example: [Circuit](models/Circuit.xml).
-* `p` - the probability that the rule will be applied. Equals `1.0` by default.
+* `p` - the probability that the rule will be applied. Equals `1.0` by default. Example: in [Apartemazements](models/Apartemazements.xml) only 25% of ceiling locations are converted into light sources.
 
 Slashes `/` are y-separators, spaces ` ` are z-separators.
 
@@ -46,7 +46,21 @@ See examples of union use in [DungeonGrowth](models/DungeonGrowth.xml).
 
 
 ## Inference
-See examples of inferene in [MultiSokoban9](models/MultiSokoban9.xml), [SokobanLevel1](models/SokobanLevel1.xml), [StairsPath](models/StairsPath.xml), [KnightPatrol](models/KnightPatrol.xml), [CrossCountry](models/CrossCountry.xml), [RegularPath](models/RegularPath.xml), [DiagonalPath](models/DiagonalPath.xml), [EuclideanPath](models/EuclideanPath.xml), [BishopParity](models/BishopParity.xml), [SnellLaw](models/SnellLaw.xml), [SequentialSokoban](models/SequentialSokoban.xml), [CompleteSAW](models/CompleteSAW.xml), [CompleteSAWSmart](models/CompleteSAWSmart.xml).
+Inference in MarkovJunior allows to impose constraints on the future state, and generate only those runs that lead to the constrained future. Inference is triggered by putting `observe` elements inside rulenodes (inside `one` or `all` nodes, to be precise). Observe elements have 3 attributes: `value`, `from`, `to`.
+
+For example, `<observe value="W" to="BR"/>` means that squares that are currently white should become black or red after a chain of rule applications.
+
+`<observe value="I" from="B" to="W"/>` means that squares that are currently indigo are turned black immediately, and then should become white after a chain of rule applications.
+
+In [SokobanLevel1](models/SokobanLevel1.xml) we say that the goal `I`-squares should become white - this would mean that the puzzle is solved. We also help the inference engine by explicitly saying that the current black, white and red squares should *not* be white in the end. Since we don't have `I` in the ruleset, we say that current indigo squares should be treated as black by setting `from="B"`.
+
+Rulenodes with inference have a boolean `search` attribute, false by default. If search is set false, the interpreter follows the rule propagation field greedily. If search is set true, the interpreter searches the state graph using the rule propagation field as a heuristic.
+
+If search is set false, the interpreter can be made to follow the goal more strictly or less strictly by varying the floating point `temperature` parameter. If search is set true, the attributes are:
+1. Integer `limit` attribute sets the maximum number of states searched. By default, the number of states is not limited.
+2. Floating point `depthCoefficient` attribute [interpolates](https://github.com/mxgmn/MarkovJunior/blob/4e64162f00203f5b5753af100af0dab8d72ce805/source/Search.cs#L269) between breadth-first search and depth-first search.
+
+See examples of inference use in [MultiSokoban9](models/MultiSokoban9.xml), [SokobanLevel1](models/SokobanLevel1.xml), [StairsPath](models/StairsPath.xml), [KnightPatrol](models/KnightPatrol.xml), [CrossCountry](models/CrossCountry.xml), [RegularPath](models/RegularPath.xml), [DiagonalPath](models/DiagonalPath.xml), [EuclideanPath](models/EuclideanPath.xml), [BishopParity](models/BishopParity.xml), [SnellLaw](models/SnellLaw.xml), [SequentialSokoban](models/SequentialSokoban.xml), [CompleteSAW](models/CompleteSAW.xml), [CompleteSAWSmart](models/CompleteSAWSmart.xml).
 
 
 
@@ -74,3 +88,10 @@ See examples of overlap WFC in [WaveFlowers](models/WaveFlowers.xml), [WaveBrick
 
 ## ConvChain
 See examples of `convchain` node use in [ChainMaze](models/ChainMaze.xml), [ChainDungeon](models/ChainDungeon.xml), [ChainDungeonMaze](models/ChainDungeonMaze.xml).
+
+
+
+## Questions and Answers
+**Q:** How to make a loop? How to make a sequence repeat?
+
+**A:** To make a sequence repeat, put a `sequence` node inside a `markov` node. Examples of this: [HamiltonianPath](models/HamiltonianPath.xml), [SelectLargeCaves](models/SelectLargeCaves.xml), [SelectLongKnots](models/SelectLongKnots.xml), [FireNoise](models/FireNoise.xml), [SmartSAW](models/SmartSAW.xml), [FindLongCycle](models/FindLongCycle.xml). Counters in markov/sequence nodes are not supported right now. Instead, you may want to repeat the sequence until some node is matched.
