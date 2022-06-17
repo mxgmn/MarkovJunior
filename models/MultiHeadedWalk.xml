@@ -1,0 +1,7 @@
+<markov values="BRGW" origin="True">
+  <sequence>
+    <one in="RB" out="*G" steps="3"/>
+    <all in="R" out="W"/>
+    <all in="G" out="R"/>
+  </sequence>
+</markov>

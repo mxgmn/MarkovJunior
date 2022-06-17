@@ -85,6 +85,9 @@
   <model name="MazeMap" size="30"/>
   <model name="MazeTrail" size="59" steps="1000"/>
   <model name="MazeTrail" size="27" d="3" steps="1000"/>
+  <model name="MultiHeadedDungeon" size="55"/>
+  <model name="MultiHeadedWalk" size="99"/>
+  <model name="MultiHeadedWalkDungeon" size="59"/>
   <model name="NestedGrowth" size="80" steps="100"/>
   <model name="NoDeadEnds" size="39"/>
   <model name="NoDeadEnds" size="19" d="3"/>

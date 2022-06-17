@@ -1,0 +1,18 @@
+<sequence values="BRWGO" origin="True">
+  <markov>
+    <sequence>
+      <one in="R***B" out="*WWWG" steps="3"/>
+      <all in="R" out="O"/>
+      <all in="G" out="R"/>
+    </sequence>
+  </markov>
+  <all in="BBB/BOB" out="***/*R*"/>
+  <all in="RBBBR" out="OWWWO"/>
+  <all in="R" out="O"/>
+  <all in="BBBBB/BOWWW/BBBBB" out="*****/*BBBB/*****"/>
+  <all in="OWWWO/W***W/W***W/W***W/OBBBO" out="*****/*****/*****/*****/*WWW*"/>
+  <all in="*******/*OWWWO*/*W***W*/*W*B*W*/*W***W*/*OWWWO*/*******" out="WWWWWWW/W*****W/W*WWW*W/W*WGW*W/W*WWW*W/W*****W/WWWWWWW"/>
+  <all in="O" out="W"/>
+  <prl in="GWWWG/WWWWW/WWWWW/WWWWW/GWWWG" out="BBBBB/BBBBB/BBBBB/BBBBB/BBBBB"/>
+  <all in="G" out="W"/>
+</sequence>

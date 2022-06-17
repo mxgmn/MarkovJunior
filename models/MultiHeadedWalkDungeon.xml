@@ -1,0 +1,14 @@
+<sequence values="BRGW" origin="True">
+  <markov>
+    <sequence>
+      <one in="RBB" out="*WG" steps="3"/>
+      <all in="R" out="W"/>
+      <all in="G" out="R"/>
+    </sequence>
+  </markov>
+  <all in="BBB/BWB" out="***/*R*"/>
+  <all in="RBR" out="WWW"/>
+  <all in="R" out="W"/>
+  <all in="BBB/BWB" out="***/*B*"/>
+  <all in="WWW/WBW" out="***/*W*"/>
+</sequence>

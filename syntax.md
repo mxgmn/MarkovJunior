@@ -48,9 +48,7 @@ See examples of union use in [DungeonGrowth](models/DungeonGrowth.xml).
 ## Inference
 Inference in MarkovJunior allows to impose constraints on the future state, and generate only those runs that lead to the constrained future. Inference is triggered by putting `observe` elements inside rulenodes (inside `one` or `all` nodes, to be precise). Observe elements have 3 attributes: `value`, `from`, `to`.
 
-For example, `<observe value="W" to="BR"/>` means that squares that are currently white should become black or red after a chain of rule applications.
-
-`<observe value="I" from="B" to="W"/>` means that squares that are currently indigo are turned black immediately, and then should become white after a chain of rule applications.
+For example, `<observe value="W" to="BR"/>` means that squares that are currently white should become black or red after a chain of rule applications. `<observe value="I" from="B" to="W"/>` means that squares that are currently indigo are turned black immediately, and then should become white after a chain of rule applications.
 
 In [SokobanLevel1](models/SokobanLevel1.xml) we say that the goal `I`-squares should become white - this would mean that the puzzle is solved. We also help the inference engine by explicitly saying that the current black, white and red squares should *not* be white in the end. Since we don't have `I` in the ruleset, we say that current indigo squares should be treated as black by setting `from="B"`.
 
@@ -92,6 +90,5 @@ See examples of `convchain` node use in [ChainMaze](models/ChainMaze.xml), [Chai
 
 
 ## Questions and Answers
-**Q:** How to make a loop? How to make a sequence repeat?
-
+**Q:** How to make a loop? How to make a sequence repeat?<br/>
 **A:** To make a sequence repeat, put a `sequence` node inside a `markov` node. Examples of this: [HamiltonianPath](models/HamiltonianPath.xml), [SelectLargeCaves](models/SelectLargeCaves.xml), [SelectLongKnots](models/SelectLongKnots.xml), [FireNoise](models/FireNoise.xml), [SmartSAW](models/SmartSAW.xml), [FindLongCycle](models/FindLongCycle.xml). Counters in markov/sequence nodes are not supported right now. Instead, you may want to repeat the sequence until some node is matched.

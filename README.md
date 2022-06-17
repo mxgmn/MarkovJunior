@@ -220,6 +220,7 @@ Sources of examples:
 1. [SmoothTrail](models/SmoothTrail.xml) is adapted from [128_mhz's tweet](https://twitter.com/128_mhz/status/953847394403205120).
 1. [SokobanLevel1](models/SokobanLevel1.xml) seems to be the first level from Hiroyuki Imabayashi's Sokoban puzzle. [SokobanLevel2](models/SokobanLevel2.xml) is the [level 452](https://www.sokobanonline.com/play/web-archive/razorflame/ionic-catalysts-xi/58022_ionic-catalysts-xi-452) from Ionic Catalysts XI set.
 1. [RainbowGrowth](models/RainbowGrowth.xml) was [proposed](https://github.com/mxgmn/MarkovJunior/discussions/25) by [mure](https://github.com/mure).
+1. [MultiHeadedWalk](models/MultiHeadedWalk.xml), [MultiHeadedDungeon](models/MultiHeadedDungeon.xml) and [MultiHeadedWalkDungeon](models/MultiHeadedWalkDungeon.xml) are [based](https://github.com/mxgmn/MarkovJunior/discussions/38) on the idea by [Ilya Kudritsky](https://github.com/Inferdy).
 
 Voxel scenes were rendered in [MagicaVoxel](https://ephtracy.github.io/) by [ephtracy](https://github.com/ephtracy). Special thanks to [Brian Bucklew](https://github.com/unormal) for demonstrating the power of Dijkstra fields to me in roguelike level generation and [Kevin Chapelier](https://github.com/kchapelier) for a number of good suggestions. The font used in GUI is [Tamzen](https://github.com/sunaku/tamzen-font).
 
