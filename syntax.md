@@ -58,7 +58,7 @@ If search is set false, the interpreter can be made to follow the goal more stri
 1. Integer `limit` attribute sets the maximum number of states searched. By default, the number of states is not limited.
 2. Floating point `depthCoefficient` attribute [interpolates](https://github.com/mxgmn/MarkovJunior/blob/4e64162f00203f5b5753af100af0dab8d72ce805/source/Search.cs#L269) between breadth-first search and depth-first search.
 
-See examples of inference use in [MultiSokoban9](models/MultiSokoban9.xml), [SokobanLevel1](models/SokobanLevel1.xml), [StairsPath](models/StairsPath.xml), [KnightPatrol](models/KnightPatrol.xml), [CrossCountry](models/CrossCountry.xml), [RegularPath](models/RegularPath.xml), [DiagonalPath](models/DiagonalPath.xml), [EuclideanPath](models/EuclideanPath.xml), [BishopParity](models/BishopParity.xml), [SnellLaw](models/SnellLaw.xml), [SequentialSokoban](models/SequentialSokoban.xml), [CompleteSAW](models/CompleteSAW.xml), [CompleteSAWSmart](models/CompleteSAWSmart.xml).
+See examples of inference use in [MultiSokoban9](models/MultiSokoban9.xml), [SokobanLevel1](models/SokobanLevel1.xml), [StairsPath](models/StairsPath.xml), [KnightPatrol](models/KnightPatrol.xml), [CrossCountry](models/CrossCountry.xml), [RegularPath](models/RegularPath.xml), [DiagonalPath](models/DiagonalPath.xml), [EuclideanPath](models/EuclideanPath.xml), [BishopParity](models/BishopParity.xml), [SnellLaw](models/SnellLaw.xml), [SequentialSokoban](models/SequentialSokoban.xml), [CompleteSAW](models/CompleteSAW.xml), [CompleteSAWSmart](models/CompleteSAWSmart.xml), [Island](models/Island.xml).
 
 
 
@@ -91,4 +91,4 @@ See examples of `convchain` node use in [ChainMaze](models/ChainMaze.xml), [Chai
 
 ## Questions and Answers
 **Q:** How to make a loop? How to make a sequence repeat?<br/>
-**A:** To make a sequence repeat, put a `sequence` node inside a `markov` node. Examples of this: [HamiltonianPath](models/HamiltonianPath.xml), [SelectLargeCaves](models/SelectLargeCaves.xml), [SelectLongKnots](models/SelectLongKnots.xml), [FireNoise](models/FireNoise.xml), [SmartSAW](models/SmartSAW.xml), [FindLongCycle](models/FindLongCycle.xml). Counters in markov/sequence nodes are not supported right now. Instead, you may want to repeat the sequence until some node is matched.
+**A:** To make a sequence repeat, put a `sequence` node inside a `markov` node or inside another `sequence` node. Examples of this: [MultiHeadedWalk](models/MultiHeadedWalk.xml), [HamiltonianPath](models/HamiltonianPath.xml), [SelectLargeCaves](models/SelectLargeCaves.xml), [SelectLongKnots](models/SelectLongKnots.xml), [FireNoise](models/FireNoise.xml), [SmartSAW](models/SmartSAW.xml), [FindLongCycle](models/FindLongCycle.xml). Counters in markov/sequence nodes are not supported right now. Instead, you may want to repeat the sequence until some node is matched.

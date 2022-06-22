@@ -38,7 +38,7 @@ class MapNode : Branch
         (NY, DY) = readScale(scales[1]);
         (NZ, DZ) = readScale(scales[2]);
 
-        newgrid = Grid.Load(xelem, NX * grid.MX / DX, NY * grid.MY / DY, NZ * grid.MZ / DZ);
+        newgrid = Grid.Load(xelem, grid.MX * NX / DX, grid.MY * NY / DY, grid.MZ * NZ / DZ);
         if (newgrid == null) return false;
 
         if (!base.Load(xelem, parentSymmetry, newgrid)) return false;

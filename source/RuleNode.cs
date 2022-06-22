@@ -66,7 +66,16 @@ abstract class RuleNode : Node
         if (xfields.Any())
         {
             fields = new Field[grid.C];
-            foreach (XElement xfield in xfields) fields[grid.values[xfield.Get<char>("for")]] = new Field(xfield, grid);
+            foreach (XElement xfield in xfields)
+            {
+                char c = xfield.Get<char>("for");
+                if (grid.values.TryGetValue(c, out byte value)) fields[value] = new Field(xfield, grid);
+                else
+                {
+                    Interpreter.WriteLine($"unknown field value {c} at line {xfield.LineNumber()}");
+                    return false;
+                }
+            }
             potentials = AH.Array2D(grid.C, grid.state.Length, 0);
         }
 

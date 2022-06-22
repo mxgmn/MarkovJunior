@@ -1,0 +1,155 @@
+<sequence values="UWBRGEYINSOTus" origin="True">
+  <prl in="***/*U*/***" out="***/*Y*/***"/>
+
+  <one in="WY" out="WW" steps="1" comment="draw an island skeleton"/>
+  <one in="YWY/YYY" out="YWY/YWY" steps="400" comment="steps define the lenght of the backbone"/>
+  <one in="YWY/YWY/YYY" out="YWY/YRY/YYY" />
+  <one in="YYY/WWW" out="YWY/WWW" steps="20" comment="adjust steps to change number of branches. More branches = rounder, smoother island with less inner water"/>
+  <one in="YWY/YYY" out="YWY/YWY" steps="2300" comment="adjust steps for the length of branches. More lenght = bigger island"/>
+  <all in="R" out="W" />
+
+  <prl in="Y" out="U" p="0.00003" steps="1" comment="adjust p to reduce lakes"/>
+
+  <one comment="Voronoi">
+    <rule in="WY" out="WW"/>
+    <rule in="UY" out="UU"/>
+  </one>
+  <convolution neighborhood="Moore" comment="smoothing">
+    <rule in="U" out="W" sum="5..8" values="W"/>
+    <rule in="W" out="U" sum="5..8" values="U"/>
+  </convolution>
+
+  <all in="U/*" out="I/*" symmetry="(x)" comment="paint ocean to find out coasts. Sea will be U, lakes I, deep ocean B"/>
+  <all in="UI" out="UU"/>
+  <all in="WU" out="WR"/>
+  <prl in="RU" out="RR" steps="30" p="0.5" comment="steps = size of the shallow water around the coast"/>
+  <prl in="U" out="B"/>
+  <prl in="R" out="U"/>
+
+  <all in="UW" out="UG" comment="spawn a few river sources (paint coast green on some thickness to force sources to be inland)"/>
+  <all in="GW" out="GG" steps="80" comment="increase steps to push sources back from the sea"/>
+  <prl in="WW" out="WI" p="0.000015" steps="1" comment="play with p to change the number of sources"/>
+  <all in="G" out="W"/>
+
+  <sequence>
+    <one in="IW" out="IR" steps="1">
+      <field for="R" from="U" on="W"/>
+    </one>
+    <one>
+      <rule in="RU" out="NU"/>
+      <rule in="RO" out="NO"/>
+      <rule in="NNNRW/WWWWW" out="NNWWW/WWNNR" comment="break long, straight lines" />
+      <rule in="RW" out="NR" />
+
+      <observe value="W" to="WN"/>
+      <observe value="R" to="N"/>
+    </one>
+
+    <all in="N" out="O" comment="color done (O) so that we can merge rivers"/>
+    <all in="OI" out="OO" />
+  </sequence>
+
+  <prl steps="2" p="0.8" comment="widen the connection with the sea">
+    <rule in="UO/UW" out="UO/UO" />
+    <rule in="UO/WW" out="UO/OO" />
+  </prl>
+  <convolution neighborhood="Moore" periodic="True" comment="smooth">
+    <rule in="W" out="O" sum="6..8" values="O"/>
+  </convolution>
+
+  <prl in="WU" out="YU" steps="1" p="0.005" comment="generate beaches starting points"/>
+  <all steps="30" comment="march them along the coast">
+    <rule in="UU/YW" out="UU/YY" />
+    <rule in="UW/YW" out="UY/YY" />
+  </all>
+  <prl in="WY" out="YY" steps="3" p="0.4" comment="widen them with a bit of randomness"/>
+  <convolution neighborhood="Moore" periodic="True" comment="smooth them">
+    <rule in="Y" out="W" sum="5..8" values="W"/>
+    <rule in="W" out="Y" sum="5..8" values="Y"/>
+  </convolution>
+
+  <all in="O" out="u" comment="lakes and rivers back to lake blue"/>
+  <all in="UY" out="TY" />
+  <all in="UW" out="TW" />
+  <all in="uW" out="TW" />
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="U" out="T" sum="5..8" values="T"/>
+    <rule in="u" out="T" sum="5..8" values="T"/>
+  </convolution>
+
+  <prl in="UTW" out="UTG" p="0.1" steps="1" comment="seed forests and plains"/>
+  <prl in="YW" out="YG" p="1" steps="1" />
+  <prl in="WTW" out="WTE" p="0.05" steps="1" />
+  <prl in="W" out="G" p="0.00001" steps="1" />
+
+  <one comment="grow them, forest 3x stronger">
+    <rule in="WE" out="EE" />
+    <rule in="WE" out="EE" />
+    <rule in="WE" out="EE" />
+    <rule in="WG" out="GG" />
+  </one>
+
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="G" out="E" sum="5..8" values="E"/>
+    <rule in="E" out="G" sum="6..8" values="O"/>
+  </convolution>
+  <all in="W" out="G" comment="if any white, it's grass (islands). TODO: Eliminate islands next to lakes or islands too small"/>
+  <all in="B" out="I" comment="change deep ocean color"/>
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="U" out="I" sum="5..8" values="I"/>
+    <rule in="I" out="U" sum="5..8" values="U"/>
+  </convolution>
+
+  <all in="GE" out="GR" comment="let's grow mountains"/>
+  <all in="TE" out="TR" />
+  <prl in="E" out="S" p="0.0001" steps="1" />
+  <one>
+    <rule in="RE" out="RR" />
+    <rule in="SE" out="SS" />
+    <rule in="SE" out="SS" />
+  </one>
+  <all in="R" out="E" />
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="E" out="S" sum="5..8" values="S"/>
+    <rule in="S" out="E" sum="5..8" values="E"/>
+  </convolution>
+
+  <all in="ES" out="ER" />
+  <prl in="S" out="s" p="0.0002" steps="1" />
+  <one>
+    <rule in="RS" out="RR" />
+    <rule in="RS" out="RR" />
+    <rule in="RS" out="RR" />
+    <rule in="sS" out="ss" />
+    <rule in="sS" out="ss" />
+    <rule in="sS" out="ss" />
+    <rule in="sS" out="ss" />
+  </one>
+  <all in="R" out="S" />
+  <convolution neighborhood="Moore" periodic="True">
+    <rule in="S" out="s" sum="5..8" values="s"/>
+    <rule in="s" out="S" sum="5..8" values="S"/>
+  </convolution>
+
+  <sequence comment="final step, trace back rivers to mountains">
+    <one in="EEE/ETE" out="EEE/ERE" steps="1" />
+    <one>
+      <rule in="RS" out="NS" />
+      <rule in="RO" out="NO" />
+      <rule in="NNNRE/EEEEE" out="NNEEE/EENNR" comment="break long, straight lines" />
+      <rule in="RE" out="NR" />
+
+      <observe value="E" to="EN"/>
+      <observe value="R" to="N"/>
+    </one>
+
+    <one in="NS" out="RN" steps="5" />
+    <all in="R" out="T" />
+    <all in="N" out="T" />
+  </sequence>
+  <prl in="u" out="U"/>
+</sequence>
+
+<!--
+Made by Guillaume Fiette https://github.com/woldendans/MJ-simple-island
+-->

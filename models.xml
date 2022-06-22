@@ -7,6 +7,16 @@
   <model name="ModernHouse" length="9" width="9" height="4" iso="True"/>
   <model name="SeaVilla" length="10" width="10" height="4" amount="4"/>
   <model name="SeaVilla" length="10" width="10" height="4" iso="True"/>
+  <model name="Island" size="800" steps="-1" pixelsize="1">
+    <color symbol="I" value="abcbe8" comment="sea"/>
+    <color symbol="U" value="cee6f9" comment="coast and lakes"/>
+    <color symbol="T" value="2b8aa9" comment="rivers"/>
+    <color symbol="Y" value="f1ebc2" comment="sand"/>
+    <color symbol="G" value="a8d1a5" comment="grass"/>
+    <color symbol="E" value="93c08d" comment="forest"/>
+    <color symbol="S" value="d0d8ac" comment="slopes"/>
+    <color symbol="s" value="e9e0b2" comment="hills"/>
+  </model>
   
   <model name="Backtracker" size="89"/>
   <model name="BacktrackerCycle" size="59"/>
