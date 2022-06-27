@@ -5,6 +5,11 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// An 'all' node applies its rewrite rules to all possible non-overlapping
+/// matches on each execution step. If there are any overlapping matches, then
+/// a maximal non-overlapping set is chosen at random.
+/// </summary>
 class AllNode : RuleNode
 {
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
@@ -15,14 +20,27 @@ class AllNode : RuleNode
         return true;
     }
 
+    /// <summary>
+    /// Applies the rule <c>r</c> at position (x, y, z) in the grid, if it does
+    /// not overlap with another rewrite which was made on the same step.
+    /// </summary>
+    /// <param name="r">The index of the rule in the <see cref="RuleNode.rules">rules</see> array.</param>
+    /// <param name="x">The x coordinate to apply the rule at.</param>
+    /// <param name="y">The y coordinate to apply the rule at.</param>
+    /// <param name="z">The z coordinate to apply the rule at.</param>
+    /// <param name="newstate">A mask of which cells have been changed so far.</param>
+    /// <param name="MX"><inheritdoc cref="Grid.MX" path="/summary"/></param>
+    /// <param name="MY"><inheritdoc cref="Grid.MY" path="/summary"/></param>
     void Fit(int r, int x, int y, int z, bool[] newstate, int MX, int MY)
     {
         Rule rule = rules[r];
+        // check if the match overlaps with a previous one
         for (int dz = 0; dz < rule.OMZ; dz++) for (int dy = 0; dy < rule.OMY; dy++) for (int dx = 0; dx < rule.OMX; dx++)
                 {
                     byte value = rule.output[dx + dy * rule.OMX + dz * rule.OMX * rule.OMY];
                     if (value != 0xff && newstate[x + dx + (y + dy) * MX + (z + dz) * MX * MY]) return;
                 }
+        // apply the rewrite
         last[r] = true;
         for (int dz = 0; dz < rule.OMZ; dz++) for (int dy = 0; dy < rule.OMY; dy++) for (int dx = 0; dx < rule.OMX; dx++)
                 {
@@ -86,6 +104,7 @@ class AllNode : RuleNode
         }
         else
         {
+            // matches may overlap, so apply in a random order
             int[] shuffle = new int[matchCount];
             shuffle.Shuffle(ip.random);
             for (int k = 0; k < shuffle.Length; k++)
@@ -96,6 +115,7 @@ class AllNode : RuleNode
             }
         }
 
+        // reset the grid.mask buffer
         for (int n = ip.first[lastMatchedTurn]; n < ip.changes.Count; n++)
         {
             var (x, y, z) = ip.changes[n];

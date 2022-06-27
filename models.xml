@@ -95,6 +95,7 @@
   <model name="MazeMap" size="30"/>
   <model name="MazeTrail" size="59" steps="1000"/>
   <model name="MazeTrail" size="27" d="3" steps="1000"/>
+  <model name="MazesAndLakes" size="256" pixelsize="3"/>
   <model name="MultiHeadedDungeon" size="55"/>
   <model name="MultiHeadedWalk" size="99"/>
   <model name="MultiHeadedWalkDungeon" size="59"/>
@@ -158,7 +159,7 @@
   <model name="WaveDungeon" size="50"/>
   <model name="WaveFlowers" size="60"/>
   <model name="WolfBasedApproach" size="70" steps="300"/>
-  
+
   gifs
   <!--<model name="Wilson" size="59" steps="1000" gui="150" gif="True"/>-->
   <!--<model name="BasicSnake" size="23" steps="100" gif="True"/>-->

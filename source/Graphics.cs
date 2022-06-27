@@ -5,8 +5,17 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Collections.Generic;
 
+/// <summary>
+/// Helper functions for loading, rendering and saving images.
+/// </summary>
 static class Graphics
 {
+    /// <summary>
+    /// Loads a bitmap from a file, as a flat array of packed 32-bit ints. Call
+    /// <see cref="Graphics.RGB(int)">Graphics.RGB</see> to unpack the
+    /// (r, g, b) values.
+    /// </summary>
+    /// <returns>A tuple of (bitmap, width, height, 1), or <c>(null, -1, -1, -1)</c> if the loading fails.</returns>
     public static (int[], int, int, int) LoadBitmap(string filename)
     {
         try
@@ -23,6 +32,11 @@ static class Graphics
         catch (Exception) { return (null, -1, -1, -1); }
     }
 
+    /// <summary>
+    /// Saves a bitmap as a file. The bitmap data must be packed as 32-bit
+    /// ints; call <see cref="Graphics.Int(byte, byte, byte)">Graphics.Int</see>
+    /// to pack the (r, g, b) values.
+    /// </summary>
     public static void SaveBitmap(int[] data, int width, int height, string filename)
     {
         Bitmap result = new(width, height);
@@ -32,8 +46,17 @@ static class Graphics
         result.Save(filename);
     }
 
+    /// <summary>
+    /// Renders a grid state to an image. The rendering will be orthogonal for
+    /// a 2D grid, or isometric for a 3D grid.
+    /// </summary>
+    /// <returns>A tuple of (bitmap, width, height).</returns>
     public static (int[], int, int) Render(byte[] state, int MX, int MY, int MZ, int[] colors, int pixelsize, int MARGIN) => MZ == 1 ? BitmapRender(state, MX, MY, colors, pixelsize, MARGIN) : IsometricRender(state, MX, MY, MZ, colors, pixelsize, MARGIN);
 
+    /// <summary>
+    /// Renders a 2D grid state to an image.
+    /// </summary>
+    /// <returns><inheritdoc cref="Graphics.Render(byte[], int, int, int, int[], int, int)" path="/returns"/></returns>
     public static (int[], int, int) BitmapRender(byte[] state, int MX, int MY, int[] colors, int pixelsize, int MARGIN)
     {
         int WIDTH = MARGIN + MX * pixelsize, HEIGHT = MY * pixelsize;
@@ -60,7 +83,13 @@ static class Graphics
         return (bitmap, TOTALWIDTH, TOTALHEIGHT);
     }
 
+    /// <summary>Cache for sprites, keyed by block size.</summary>
     static readonly Dictionary<int, Sprite> sprites = new();
+    
+    /// <summary>
+    /// Renders a 3D grid state to an image, using an isometric projection.
+    /// </summary>
+    /// <returns><inheritdoc cref="Graphics.Render(byte[], int, int, int, int[], int, int)" path="/returns"/></returns>
     public static (int[], int, int) IsometricRender(byte[] state, int MX, int MY, int MZ, int[] colors, int blocksize, int MARGIN)
     {
         var voxels = new List<Voxel>[MX + MY + MZ - 2];
@@ -70,7 +99,9 @@ static class Graphics
             voxels[i] = new List<Voxel>();
             visibleVoxels[i] = new List<Voxel>();
         }
-        bool[] visible = new bool[MX * MY * MZ]; //нужен для быстрой работы с transparent
+        // нужен для быстрой работы с transparent
+        // needed for fast work with transparent
+        bool[] visible = new bool[MX * MY * MZ];
 
         for (int z = 0; z < MZ; z++) for (int y = 0; y < MY; y++) for (int x = 0; x < MX; x++)
                 {
@@ -153,7 +184,10 @@ static class Graphics
         return (screen, MARGIN + WIDTH, HEIGHT);
     }
 
+    /// <summary>Packs the given (r, g, b) values into a 32-bit int.</summary>
     static int Int(byte r, byte g, byte b) => (0xff << 24) + (r << 16) + (g << 8) + b;
+    
+    /// <summary>Unpacks the (r, g, b) values from a given 32-bit int.</summary>
     static (byte, byte, byte) RGB(int i)
     {
         byte r = (byte)((i & 0xff0000) >> 16);
@@ -163,13 +197,39 @@ static class Graphics
     }
 }
 
+/// <summary>
+/// Creates grayscale sprites of a cube and its eight possibly-visible edges.
+/// The sprites are flat arrays of grayscale values in the range 0..256, with
+/// transparent pixels represented by -1.
+/// </summary>
 class Sprite
 {
+    /// <summary>The sprite for the cube, as a flat array of greyscale values.</summary>
     public int[] cube;
+    
+    /// <summary>The sprites for the possibly-visible edges of the cube, each as a flat array of greyscale values.</summary>
     public int[][] edges;
-    public int width, height;
+    
+    /// <summary>The width of each sprite.</summary>
+    public int width;
+    
+    /// <summary>The height of each sprite.</summary>
+    public int height;
 
-    const int c1 = 215, c2 = 143, c3 = 71, black = 0, transparent = -1;
+    /// <summary>The lightness of the top face of the cube, also used for highlighted edges.</summary>
+    const int c1 = 215;
+    
+    /// <summary>The lightness of the left face of the cube.</summary>
+    const int c2 = 143;
+    
+    /// <summary>The lightness of the right face of the cube.</summary>
+    const int c3 = 71;
+    
+    /// <summary>The lightness of a shaded cube edge.</summary>
+    const int black = 0;
+    
+    /// <summary>Sentinel value representing a transparent pixel.</summary>
+    const int transparent = -1;
 
     public Sprite(int size)
     {
@@ -192,6 +252,19 @@ class Sprite
         };
 
         cube = texture(f);
+        
+        // edges are numbered as follows:
+        //      35
+        //    33  55
+        //  33      55
+        // 3          5
+        // 2          4
+        // 2    10    4
+        // 2    10    4
+        // 2    10    4
+        // 77   10   66
+        //   77 10 66
+        //     7766
         edges = new int[8][];
         edges[0] = texture((x, y) => x == 1 && y <= 0 ? c1 : transparent);
         edges[1] = texture((x, y) => x == 0 && y <= 0 ? c1 : transparent);
@@ -204,10 +277,24 @@ class Sprite
     }
 }
 
+/// <summary>
+/// Helper data structure for <see cref="Graphics.IsometricRender(byte[], int, int, int, int[], int, int)">rendering 3D grids</see>.
+/// </summary>
 struct Voxel
 {
+    /// <summary>The voxel's color, as a packed 32-bit int.</summary>
     public int color;
-    public int x, y, z;
+    
+    /// <summary>The x coordinate of this voxel in the grid.</summary>
+    public int x;
+    
+    /// <summary>The y coordinate of this voxel in the grid.</summary>
+    public int y;
+    
+    /// <summary>The y coordinate of this voxel in the grid.</summary>
+    public int z;
+    
+    /// <summary>Array of flags indicating which edges of this voxel should be drawn.</summary>
     public bool[] edges;
 
     public Voxel(int color, int x, int y, int z)

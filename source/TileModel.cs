@@ -5,12 +5,25 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// A 'wfc' node which uses a tile-based Wave Function Collapse model.
+/// </summary>
 class TileNode : WFCNode
 {
+    /// <summary>The distinct tiles, as flat arrays of colors.</summary>
     List<byte[]> tiledata;
 
-    int S, SZ;
-    int overlap, overlapz;
+    /// <summary>The width and height of each tile.</summary>
+    int S;
+    
+    /// <summary>The depth of each tile. 2D tiles have a depth of 1.</summary>
+    int SZ;
+    
+    /// <summary>The amount that adjacent tiles overlap in the x and y directions.</summary>
+    int overlap;
+    
+    /// <summary>The amount that adjacent tiles overlap in the z direction.</summary>
+    int overlapz;
 
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
     {

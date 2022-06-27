@@ -4,6 +4,10 @@ using System;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// A 'one' node applies one of its rewrite rules to one random match on each
+/// execution step.
+/// </summary>
 class OneNode : RuleNode
 {
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
@@ -24,6 +28,10 @@ class OneNode : RuleNode
         }
     }
 
+    /// <summary>
+    /// Applies the given rule at position (x, y, z) in the grid. The position
+    /// must be such that the whole output pattern is in-bounds.
+    /// </summary>
     void Apply(Rule rule, int x, int y, int z)
     {
         int MX = grid.MX, MY = grid.MY;
@@ -72,6 +80,11 @@ class OneNode : RuleNode
         }
     }
 
+    /// <summary>
+    /// Returns a tuple (r, x, y, z) of a random match of a rule <c>r</c> at
+    /// position (x, y, z) in the grid. If there are no matches of any rules,
+    /// then <c>(-1, -1, -1, -1)</c> is returned.
+    /// </summary>
     (int r, int x, int y, int z) RandomMatch(Random random)
     {
         if (potentials != null)
@@ -93,6 +106,7 @@ class OneNode : RuleNode
                 int i = x + y * grid.MX + z * grid.MX * grid.MY;
                 if (!grid.Matches(rules[r], x, y, z))
                 {
+                    // the match is stale; remove it
                     matchMask[r][i] = false;
                     matches[k] = matches[matchCount - 1];
                     matchCount--;
@@ -121,6 +135,7 @@ class OneNode : RuleNode
         }
         else
         {
+            // matches list may contain stale matches, so iterate until a current one is found
             while (matchCount > 0)
             {
                 int matchIndex = random.Next(matchCount);
@@ -132,6 +147,7 @@ class OneNode : RuleNode
                 matches[matchIndex] = matches[matchCount - 1];
                 matchCount--;
 
+                // check that the match is not stale
                 if (grid.Matches(rules[r], x, y, z)) return (r, x, y, z);
             }
             return (-1, -1, -1, -1);

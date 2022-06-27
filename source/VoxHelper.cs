@@ -5,8 +5,16 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 
+/// <summary>
+/// Helper functions for loading and saving <c>.vox</c> files for 3D grids.
+/// </summary>
 static class VoxHelper
 {
+    /// <summary>
+    /// Loads a 3D grid state from a <c>.vox</c> file.
+    /// </summary>
+    /// <param name="filename"></param>
+    /// <returns>A tuple of (state, MX, MY, MZ), or <c>(null, -1, -1, -1)</c> if the loading fails.</returns>
     public static (int[], int, int, int) LoadVox(string filename)
     {
         try
@@ -70,6 +78,10 @@ static class VoxHelper
     }
 
     static void WriteString(this BinaryWriter stream, string s) { foreach (char c in s) stream.Write(c); }
+    
+    /// <summary>
+    /// Saves a 3D grid state as a <c>.vox</c> file.
+    /// </summary>
     public static void SaveVox(byte[] state, byte MX, byte MY, byte MZ, int[] palette, string filename)
     {
         List<(byte, byte, byte, byte)> voxels = new();

@@ -5,8 +5,12 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// A 'wfc' node which uses an overlapping Wave Function Collapse model.
+/// </summary>
 class OverlapNode : WFCNode
 {
+    /// <summary>The distinct patterns in this model, as flat N * N arrays of colors.</summary>
     byte[][] patterns;
 
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
@@ -58,6 +62,7 @@ class OverlapNode : WFCNode
         byte[] rotate(byte[] p) => pattern((x, y) => p[N - 1 - y + x * N]);
         byte[] reflect(byte[] p) => pattern((x, y) => p[N - 1 - x + y * N]);
 
+        // inverse of Helper.Index(this byte[], C)
         byte[] patternFromIndex(long ind)
         {
             long residue = ind, power = W;
@@ -76,7 +81,9 @@ class OverlapNode : WFCNode
             return result;
         };
 
+        // dictionary of weights for each distinct pattern
         Dictionary<long, int> weights = new();
+        // maps each pattern index to its key in the weights dictionary
         List<long> ordering = new();
 
         int ymax = periodicInput ? grid.MY : grid.MY - N + 1;
@@ -84,7 +91,7 @@ class OverlapNode : WFCNode
         for (int y = 0; y < ymax; y++) for (int x = 0; x < xmax; x++)
             {
                 byte[][] ps = new byte[8][];
-
+                
                 ps[0] = patternFromSample(x, y);
                 ps[1] = reflect(ps[0]);
                 ps[2] = rotate(ps[0]);
