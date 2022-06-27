@@ -238,6 +238,12 @@ Generated results are put into the `output` folder. Edit `models.xml` to change 
 
 
 
+## Notable ports, forks and spinoffs
+* Aseaday is [porting](https://github.com/aseaday/MarkovJunior.js) MarkovJunior to JavaScript.
+* Yuu is making a [TypeScript version of MarkovJunior](https://github.com/Yuu6883/MarkovJuniorWeb) that [runs on the web](https://yuu6883.github.io/MarkovJuniorWeb/).
+
+
+
 ## Funding
 MarkovJunior development was [funded](https://github.com/users/mxgmn/sponsorship) by
 1. **[Embark Studios](https://www.embark-studios.com/)**

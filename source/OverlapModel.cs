@@ -32,7 +32,7 @@ class OverlapNode : WFCNode
         if (newgrid == null) return false;
         periodic = true;
 
-        /*string*/ name = xelem.Get<string>("sample");
+        name = xelem.Get<string>("sample");
         (int[] bitmap, int SMX, int SMY, _) = Graphics.LoadBitmap($"resources/samples/{name}.png");
         if (bitmap == null)
         {
@@ -46,17 +46,6 @@ class OverlapNode : WFCNode
             return false;
         }
         long W = Helper.Power(C, N * N);
-
-        byte[] pattern(Func<int, int, byte> f)
-        {
-            byte[] result = new byte[N * N];
-            for (int y = 0; y < N; y++) for (int x = 0; x < N; x++) result[x + y * N] = f(x, y);
-            return result;
-        };
-        
-        byte[] patternFromSample(int x, int y) => pattern((dx, dy) => sample[(x + dx) % SMX + ((y + dy) % SMY) * SMX]);
-        byte[] rotate(byte[] p) => pattern((x, y) => p[N - 1 - y + x * N]);
-        byte[] reflect(byte[] p) => pattern((x, y) => p[N - 1 - x + y * N]);
 
         byte[] patternFromIndex(long ind)
         {
@@ -83,27 +72,19 @@ class OverlapNode : WFCNode
         int xmax = periodicInput ? grid.MX : grid.MX - N + 1;
         for (int y = 0; y < ymax; y++) for (int x = 0; x < xmax; x++)
             {
-                byte[][] ps = new byte[8][];
+                byte[] pattern = Helper.Pattern((dx, dy) => sample[(x + dx) % SMX + ((y + dy) % SMY) * SMX], N);
+                var symmetries = SymmetryHelper.SquareSymmetries(pattern, q => Helper.Rotated(q, N), q => Helper.Reflected(q, N), (q1, q2) => false, symmetry);
 
-                ps[0] = patternFromSample(x, y);
-                ps[1] = reflect(ps[0]);
-                ps[2] = rotate(ps[0]);
-                ps[3] = reflect(ps[2]);
-                ps[4] = rotate(ps[2]);
-                ps[5] = reflect(ps[4]);
-                ps[6] = rotate(ps[4]);
-                ps[7] = reflect(ps[6]);
-
-                for (int k = 0; k < 8; k++) if (symmetry[k])
+                foreach (byte[] p in symmetries)
+                {
+                    long ind = p.Index(C);
+                    if (weights.ContainsKey(ind)) weights[ind]++;
+                    else
                     {
-                        long ind = ps[k].Index(C);
-                        if (weights.ContainsKey(ind)) weights[ind]++;
-                        else
-                        {
-                            weights.Add(ind, 1);
-                            ordering.Add(ind);
-                        }
+                        weights.Add(ind, 1);
+                        ordering.Add(ind);
                     }
+                }
             }
 
         P = weights.Count;

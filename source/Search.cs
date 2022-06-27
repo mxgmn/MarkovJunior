@@ -238,8 +238,7 @@ static class Search
 
     static void Apply(this Rule rule, int x, int y, byte[] state, int MX)
     {
-        for (int dy = 0; dy < rule.IMY; dy++) for (int dx = 0; dx < rule.IMX; dx++)
-                state[x + dx + (y + dy) * MX] = rule.output[dx + dy * rule.IMX];
+        for (int dy = 0; dy < rule.OMY; dy++) for (int dx = 0; dx < rule.OMX; dx++) state[x + dx + (y + dy) * MX] = rule.output[dx + dy * rule.OMX];
     }
     static byte[] Apply(this byte[] state, List<(Rule, int)> solution, int MX)
     {

@@ -147,10 +147,29 @@ static class GUI
 
             if (node is Branch branch)
             {
+                int LINECOLOR = branch == current && branch.n < 0 ? ACTIVE : INACTIVE;
                 if (branch is WFCNode wfcnode)
                 {
-                    write($"wfc {wfcnode.name}", x, y, branch == current && branch.n < 0 ? ACTIVE : INACTIVE);
+                    write($"wfc {wfcnode.name}", x, y, LINECOLOR);
                     y += fonts[0].FY + VSKIP;
+                }
+                else if (branch is MapNode mapnode)
+                {
+                    for (int r = 0; r < mapnode.rules.Length; r++)
+                    {
+                        Rule rule = mapnode.rules[r];
+                        if (!rule.original) continue;
+                        int s = rule.IMX * rule.IMY > MAXWIDTH ? SMALL : S;
+
+                        x += drawArray(rule.binput, x, y, rule.IMX, rule.IMY, rule.IMZ, characters, s) + HGAP;
+                        drawHLine(x, y + S / 2, HARROW, LINECOLOR, true);
+                        x += HARROW + HGAP;
+                        x += drawArray(rule.output, x, y, rule.OMX, rule.OMY, rule.OMZ, mapnode.newgrid.characters, s) + HGAP;
+
+                        y += Math.Max(rule.IMY, rule.OMY) * s + (Math.Max(rule.IMZ, rule.OMZ) - 1) * ZSHIFT + SMALLVSKIP;
+                        x = level * HINDENT;
+                    }
+                    y += VSKIP;
                 }
 
                 bool markov = branch is MarkovNode;
@@ -285,6 +304,7 @@ static class GUI
 
         void drawLine(Branch branch)
         {
+            if (branch.nodes.Length == 0) return;
             int childLevel = lh[branch.nodes[0]].level;
             drawBracket(branch, childLevel - 1, branch.nodes.Length - 1, false);
             foreach (Node child in branch.nodes) if (child is Branch childBranch) drawLine(childBranch);

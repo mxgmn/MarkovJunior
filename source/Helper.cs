@@ -84,6 +84,15 @@ static class Helper
         }
         return argmax;
     }
+
+    public static T[] Pattern<T>(Func<int, int, T> f, int N)
+    {
+        T[] result = new T[N * N];
+        for (int y = 0; y < N; y++) for (int x = 0; x < N; x++) result[x + y * N] = f(x, y);
+        return result;
+    }
+    public static T[] Rotated<T>(T[] p, int N) => Pattern((x, y) => p[N - 1 - y + x * N], N);
+    public static T[] Reflected<T>(T[] p, int N) => Pattern((x, y) => p[N - 1 - x + y * N], N);
 }
 
 static class RandomHelper

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 class MapNode : Branch
 {
-    Grid newgrid;
-    Rule[] rules;
+    public Grid newgrid;
+    public Rule[] rules;
     int NX, NY, NZ, DX, DY, DZ;
 
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
@@ -48,6 +48,7 @@ class MapNode : Branch
         foreach (XElement xrule in xelem.Elements("rule"))
         {
             Rule rule = Rule.Load(xrule, grid, newgrid);
+            rule.original = true;
             if (rule == null) return false;
             foreach (Rule r in rule.Symmetries(symmetry, grid.MZ == 1)) ruleList.Add(r);
         }
