@@ -49,12 +49,18 @@ class ConvolutionNode : Node
 
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
     {
-        string neighborhood = xelem.Get<string>("neighborhood");
-        kernel = grid.MZ == 1 ? kernels2d[neighborhood] : kernels3d[neighborhood];
+        XElement[] xrules = xelem.Elements("rule").ToArray();
+        rules = new ConvolutionRule[xrules.Length];
+        for (int k = 0; k < rules.Length; k++)
+        {
+            rules[k] = new();
+            if (!rules[k].Load(xrules[k], grid)) return false;
+        }
 
-        rules = xelem.Elements("rule").Select(x => new ConvolutionRule(x, grid)).ToArray();
         steps = xelem.Get("steps", -1);
         periodic = xelem.Get("periodic", false);
+        string neighborhood = xelem.Get<string>("neighborhood");
+        kernel = grid.MZ == 1 ? kernels2d[neighborhood] : kernels3d[neighborhood];
 
         sumfield = AH.Array2D(grid.state.Length, grid.C, 0);
         return true;
@@ -191,12 +197,10 @@ class ConvolutionNode : Node
         /// <summary>The probability that this rule will be applied.</summary>
         public double p;
 
-        public ConvolutionRule(XElement xelem, Grid grid)
+        public bool Load(XElement xelem, Grid grid)
         {
             input = grid.values[xelem.Get<char>("in")];
             output = grid.values[xelem.Get<char>("out")];
-            string valueString = xelem.Get<string>("values", null);
-            if (valueString != null) values = valueString.Select(c => grid.values[c]).ToArray();
             p = xelem.Get("p", 1.0);
             
             // parses a string representing either a single number or a range
@@ -216,14 +220,29 @@ class ConvolutionNode : Node
                 else return new int[1] { int.Parse(s) };
             };
 
-            string sumsText = xelem.Get<string>("sum", null);
-            if (sumsText != null)
+            string valueString = xelem.Get<string>("values", null);
+            string sumsString = xelem.Get<string>("sum", null);
+            if (valueString != null && sumsString == null)
             {
+                Interpreter.WriteLine($"missing \"sum\" attribute at line {xelem.LineNumber()}");
+                return false;
+            }
+            if (valueString == null && sumsString != null)
+            {
+                Interpreter.WriteLine($"missing \"values\" attribute at line {xelem.LineNumber()}");
+                return false;
+            }
+            
+            if (valueString != null)
+            {
+                values = valueString.Select(c => grid.values[c]).ToArray();
+
                 // 27 is the maximum sum for a 3x3x3 kernel
                 sums = new bool[28];
-                string[] intervals = sumsText.Split(',');
+                string[] intervals = sumsString.Split(',');
                 foreach (string s in intervals) foreach (int i in interval(s)) sums[i] = true;
             }
+            return true;
         }
     }
 }

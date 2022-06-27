@@ -59,8 +59,6 @@ class ConvChainNode : Node
     /// <inheritdoc cref="RuleNode.steps"/>
     int steps;
 
-    //public string name;
-    
     /// <summary>The sample image, as a flat array.</summary>
     public bool[] sample;
     
@@ -87,7 +85,7 @@ class ConvChainNode : Node
             Interpreter.WriteLine($"couldn't load ConvChain sample {filename}");
             return false;
         }
-        /*bool[]*/ sample = new bool[bitmap.Length];
+        sample = new bool[bitmap.Length];
         for (int i = 0; i < sample.Length; i++)
         {
             // -1 is 0xffffffff, i.e. white with alpha = 1
@@ -103,22 +101,12 @@ class ConvChainNode : Node
 
         substrate = new bool[grid.state.Length];
 
-        static bool[] pattern(int N, Func<int, int, bool> f)
-        {
-            bool[] result = new bool[N * N];
-            for (int y = 0; y < N; y++) for (int x = 0; x < N; x++) result[x + y * N] = f(x, y);
-            return result;
-        };
-        static bool[] rotate(int N, bool[] p) => pattern(N, (x, y) => p[N - 1 - y + x * N]);
-        static bool[] reflect(int N, bool[] p) => pattern(N, (x, y) => p[N - 1 - x + y * N]);
-
-        // compute the weights for each N-by-N pattern
         weights = new double[1 << (N * N)];
         for (int y = 0; y < SMY; y++) for (int x = 0; x < SMX; x++)
             {
-                bool[] p = pattern(N, (dx, dy) => sample[(x + dx) % SMX + (y + dy) % SMY * SMX]);
+                bool[] pattern = Helper.Pattern((dx, dy) => sample[(x + dx) % SMX + (y + dy) % SMY * SMX], N);
                 // `(q1, q2) => false` means we don't deduplicate symmetries, so that weights aren't biased towards asymmetric patterns
-                var symmetries = SymmetryHelper.SquareSymmetries(p, q => rotate(N, q), q => reflect(N, q), (q1, q2) => false);
+                var symmetries = SymmetryHelper.SquareSymmetries(pattern, q => Helper.Rotated(q, N), q => Helper.Reflected(q, N), (q1, q2) => false, symmetry);
                 foreach (bool[] q in symmetries) weights[q.Index()] += 1;
             }
         

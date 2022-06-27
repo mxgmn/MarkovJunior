@@ -22,10 +22,10 @@ using System.Collections.Generic;
 class MapNode : Branch
 {
     /// <summary>The output grid, which may have a different size to the input grid.</summary>
-    Grid newgrid;
+    public Grid newgrid;
     
     /// <summary>The rewrite rules belonging to this node.</summary>
-    Rule[] rules;
+    public Rule[] rules;
     
     /// <summary>The numerator of the x axis scale factor.</summary>
     int NX;
@@ -86,6 +86,7 @@ class MapNode : Branch
         foreach (XElement xrule in xelem.Elements("rule"))
         {
             Rule rule = Rule.Load(xrule, grid, newgrid);
+            rule.original = true;
             if (rule == null) return false;
             rule.original = true;
             foreach (Rule r in rule.Symmetries(symmetry, grid.MZ == 1)) ruleList.Add(r);
