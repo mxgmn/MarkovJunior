@@ -55,9 +55,10 @@ class Interpreter
     public int counter;
     
     /// <summary>
-    /// If true, the interpreter will emit an animated GIF showing the grid's
-    /// state at each step of executing the MarkovJunior program. Otherwise,
-    /// only the final grid state is emitted.
+    /// If true, the interpreter will emit the grid's state at each step of
+    /// executing the MarkovJunior program; the resulting images may be made
+    /// into an animated GIF using a separate tool. Otherwise, only the final
+    /// grid state is emitted.
     /// </summary>
     public bool gif;
 

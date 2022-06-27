@@ -128,13 +128,24 @@ static class Helper
         return argmax;
     }
 
+    /// <summary>
+    /// Creates a square pattern from <c>f(x, y)</c>, as a flat array.
+    /// </summary>
     public static T[] Pattern<T>(Func<int, int, T> f, int N)
     {
         T[] result = new T[N * N];
         for (int y = 0; y < N; y++) for (int x = 0; x < N; x++) result[x + y * N] = f(x, y);
         return result;
     }
+    
+    /// <summary>
+    /// Rotates a square pattern by 90 degrees, returning a new flat array.
+    /// </summary>
     public static T[] Rotated<T>(T[] p, int N) => Pattern((x, y) => p[N - 1 - y + x * N], N);
+    
+    /// <summary>
+    /// Reflects a square pattern vertically, returning a new flat array.
+    /// </summary>
     public static T[] Reflected<T>(T[] p, int N) => Pattern((x, y) => p[N - 1 - x + y * N], N);
 }
 
