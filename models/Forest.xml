@@ -1,0 +1,15 @@
+<sequence values="BIEW">
+  <one in="BB*/BBB/*B*" out="***/*I*/***"/>
+  <convolution in="B" out="I" sum="3..4" values="I" neighborhood="VonNeumann"/>
+  <convolution in="I" out="W" sum="4" values="B" neighborhood="VonNeumann"/>
+  <one in="I" out="E" steps="2"/>
+  <markov>
+    <all in="EI" out="*E"/>
+    <one in="EBI/EBI" out="**E/**E"/>
+  </markov>
+  <all in="E*W" out="**E"/>
+  <prl>
+    <rule in="I" out="B"/>
+    <rule in="W" out="B"/>
+  </prl>
+</sequence>

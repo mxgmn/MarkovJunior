@@ -4,6 +4,7 @@
 
 bin/
 obj/
+doc/
 
 *.user
 

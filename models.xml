@@ -66,6 +66,7 @@
   <model name="FindLongCycle" size="27" pixelsize="10"/>
   <model name="FireNoise" size="300"/>
   <model name="Flowers" size="60"/>
+  <model name="Forest" size="240"/>
   <model name="ForestFire" size="600" steps="80" pixelsize="1"/>
   <model name="ForestFireCA" size="600" steps="80" pixelsize="1"/>
   <model name="GameOfLife" size="120" steps="100"/>
@@ -87,6 +88,7 @@
   <model name="Knots3D" size="8" d="3"/>
   <model name="Laplace" size="60" steps="1000"/>
   <model name="LoopGrowth" size="37"/>
+  <model name="LostCity" size="256" pixelsize="3"/>
   <model name="MarchingSquares" size="20"/>
   <model name="MazeBacktracker" size="359" steps="20000"/>
   <model name="MazeBacktracker" size="967" pixelsize="1" steps="200000"/>
@@ -150,6 +152,7 @@
   <model name="SubmergedKnots" size="12" d="3"/>
   <model name="Surface" size="10" d="3"/>
   <model name="Tetris" size="30" steps="1500"/>
+  <model name="Texture" size="240"/>
   <model name="TileDungeon" size="12" amount="4"/>
   <model name="Trail" size="59" steps="3000"/>
   <model name="Voronoi" size="240"/>

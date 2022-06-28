@@ -1,0 +1,42 @@
+<sequence values="EWRDIBG">
+  <one in="E" out="I" steps="4" comment="make a few lakes by random growth"/>
+  <one in="IE" out="*I" steps="24000"/>
+  <convolution neighborhood="Moore">
+    <rule in="I" out="E" sum="5..8" values="E"/>
+    <rule in="E" out="I" sum="5..8" values="I"/>
+  </convolution>
+
+  <one in="E" out="R" steps="20" comment="make some land by a self-avoiding random walk with backtracking"/>
+  <markov>
+    <all in="REE" out="WWR"/>
+    <all in="RWW" out="DDR"/>
+  </markov>
+  <all in="R" out="D"/>
+
+  <one in="EEWEE" out="**E**" comment="erode narrow sections of land"/>
+  <prl in="D" out="E"/>
+  <all>
+    <rule in="IW" out="*D"/>
+    <rule in="I*/*W" out="**/*D"/>
+    <rule in="DW" out="*D"/>
+  </all>
+  <prl in="D" out="E"/>
+  <prl steps="2">
+    <rule in="WE" out="*D"/>
+    <rule in="DE" out="*D" p="0.5"/>
+  </prl>
+  <convolution neighborhood="Moore">
+    <rule in="D" out="E" sum="5..8" values="E"/>
+    <rule in="E" out="D" sum="5..8" values="DI"/>
+  </convolution>
+  <prl in="D" out="B"/>
+
+  <one in="EE*/EEE/*E*" out="***/*G*/***"/>
+  <convolution in="E" out="G" sum="3..4" values="G" neighborhood="VonNeumann"/>
+  <prl in="E" out="B"/>
+  <prl in="G" out="E"/>
+</sequence>
+
+<!--
+Based on the model by Andrew Kay https://github.com/kaya3/pattern-match-2d
+-->

@@ -222,6 +222,7 @@ Sources of examples:
 1. [RainbowGrowth](models/RainbowGrowth.xml) was [proposed](https://github.com/mxgmn/MarkovJunior/discussions/25) by [mure](https://github.com/mure).
 1. [MultiHeadedWalk](models/MultiHeadedWalk.xml), [MultiHeadedDungeon](models/MultiHeadedDungeon.xml) and [MultiHeadedWalkDungeon](models/MultiHeadedWalkDungeon.xml) are [based](https://github.com/mxgmn/MarkovJunior/discussions/38) on the idea by [Ilya Kudritsky](https://github.com/Inferdy).
 1. [Island](models/Island.xml) model is by [Guillaume Fiette](https://github.com/woldendans/MJ-simple-island).
+1. [LostCity](models/LostCity.xml), [Forest](models/Forest.xml) and [Texture](models/Texture.xml) models are based on the model by [Andrew Kay](https://github.com/kaya3/pattern-match-2d).
 
 Voxel scenes were rendered in [MagicaVoxel](https://ephtracy.github.io/) by [ephtracy](https://github.com/ephtracy). Special thanks to [Brian Bucklew](https://github.com/unormal) for demonstrating the power of Dijkstra fields to me in roguelike level generation and [Kevin Chapelier](https://github.com/kchapelier) for a number of good suggestions. The font used in GUI is [Tamzen](https://github.com/sunaku/tamzen-font).
 

@@ -27,6 +27,7 @@ class ConvolutionNode : Node
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
     {
         XElement[] xrules = xelem.Elements("rule").ToArray();
+        if (xrules.Length == 0) xrules = new[] { xelem };
         rules = new ConvolutionRule[xrules.Length];
         for (int k = 0; k < rules.Length; k++)
         {
