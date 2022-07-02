@@ -1,7 +1,7 @@
 <sequence values="BIURW">
   <one in="BB*/BBB/*B*" out="***/*I*/***"/>
-  <convolution in="B" out="I" sum="3..4" values="I" neighborhood="VonNeumann"/>
-  <convolution in="I" out="W" sum="4" values="B" neighborhood="VonNeumann"/>
+  <all in="*I*/IBI" out="***/*I*"/>
+  <all in="*B*/BIB/*B*" out="***/*W*/***"/>
   <markov>
     <all>
       <rule in="UI" out="*U"/>

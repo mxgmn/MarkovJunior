@@ -242,6 +242,7 @@ Generated results are put into the `output` folder. Edit `models.xml` to change 
 ## Notable ports, forks and spinoffs
 * Aseaday is [porting](https://github.com/aseaday/MarkovJunior.js) MarkovJunior to JavaScript.
 * Yuu is making a [TypeScript version of MarkovJunior](https://github.com/Yuu6883/MarkovJuniorWeb) that [runs on the web](https://yuu6883.github.io/MarkovJuniorWeb/).
+* Andrew Kay added [XML documentation](https://github.com/kaya3/MarkovJunior-docs) to C# source code.
 
 
 
