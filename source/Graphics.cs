@@ -1,9 +1,10 @@
 ﻿// Copyright (C) 2022 Maxim Gumin, The MIT License (MIT)
 
 using System;
-using System.Drawing;
-using System.Drawing.Imaging;
+using System.Buffers.Binary;
 using System.Collections.Generic;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 static class Graphics
 {
@@ -11,25 +12,40 @@ static class Graphics
     {
         try
         {
-            Bitmap bitmap = new(filename);
-            int width = bitmap.Width, height = bitmap.Height;
-            var bits = bitmap.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-            int[] result = new int[bitmap.Width * bitmap.Height];
-            System.Runtime.InteropServices.Marshal.Copy(bits.Scan0, result, 0, result.Length);
-            bitmap.UnlockBits(bits);
-            bitmap.Dispose();
+            var image = Image.Load<Bgra32>(filename);
+            int width = image.Width, height = image.Height;
+            var result = new int[width * height];
+            for (var j = 0; j < height; j += 1)
+            {
+                for (var i = 0; i < width; i += 1)
+                {
+                    result[j * width + i] = unchecked((int) image[i, j].Bgra);
+                }
+            }
+
+            image.Dispose();
             return (result, width, height, 1);
         }
-        catch (Exception) { return (null, -1, -1, -1); }
+        catch (Exception)
+        {
+            return (null, -1, -1, -1);
+        }
     }
 
     public static void SaveBitmap(int[] data, int width, int height, string filename)
     {
-        Bitmap result = new(width, height);
-        var bits = result.LockBits(new Rectangle(0, 0, result.Width, result.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-        System.Runtime.InteropServices.Marshal.Copy(data, 0, bits.Scan0, data.Length);
-        result.UnlockBits(bits);
-        result.Save(filename);
+        var formattedData = new Bgra32[data.Length];
+        for (var i = 0; i < data.Length; i += 1)
+        {
+            formattedData[i] = new Bgra32
+            {
+                Bgra = unchecked((uint) data[i])
+            };
+        }
+
+        var image = Image.WrapMemory(Configuration.Default, new Memory<Bgra32>(formattedData), width, height);
+        image.SaveAsPng(filename);
+        image.Dispose();
     }
 
     public static (int[], int, int) Render(byte[] state, int MX, int MY, int MZ, int[] colors, int pixelsize, int MARGIN) => MZ == 1 ? BitmapRender(state, MX, MY, colors, pixelsize, MARGIN) : IsometricRender(state, MX, MY, MZ, colors, pixelsize, MARGIN);
