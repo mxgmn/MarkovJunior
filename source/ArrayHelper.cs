@@ -20,17 +20,6 @@ static class AH
         return result;
     }
 
-    public static T[][] Array2D<T>(int MX, int MY, Func<int, int, T> f)
-    {
-        T[][] result = new T[MX][];
-        for (int x = 0; x < result.Length; x++)
-        {
-            result[x] = new T[MY];
-            T[] resultx = result[x];
-            for (int y = 0; y < resultx.Length; y++) resultx[y] = f(x, y);
-        }
-        return result;
-    }
     public static T[][] Array2D<T>(int MX, int MY, T value)
     {
         T[][] result = new T[MX][];
@@ -48,7 +37,6 @@ static class AH
         for (int i = 0; i < result.Length; i++) result[i] = f(i);
         return result;
     }
-
     public static T[] Array1D<T>(int length, T value)
     {
         T[] result = new T[length];
@@ -63,18 +51,7 @@ static class AH
         return result;
     }
 
-    public static void Set2D<T>(this T[][] a, T value)
-    {
-        for (int y = 0; y < a.Length; y++)
-        {
-            a[y].AsSpan().Fill(value);
-        }
-    }
-
-    public static void CopyFrom2D<T>(this T[][] a, T[][] b) { for (int j = 0; j < a.Length; j++) Array.Copy(b[j], a[j], b[j].Length); }
-
-    public static bool Same(byte[] t1, byte[] t2)
-    {
-        return t1.AsSpan().SequenceEqual(t2);
-    }
+    public static void Set2D<T>(this T[][] a, T value) { for (int y = 0; y < a.Length; y++) a[y].AsSpan().Fill(value); }
+    
+    public static bool Same(byte[] t1, byte[] t2) => t1.AsSpan().SequenceEqual(t2);
 }

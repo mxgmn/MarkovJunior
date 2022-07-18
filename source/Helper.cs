@@ -51,11 +51,6 @@ static class Helper
         return result;
     }
 
-    public static byte FirstNonZeroPosition(int w)
-    {
-        for (byte p = 0; p < 32; p++, w >>= 1) if ((w & 1) == 1) return p;
-        return 0xff;
-    }
     public static byte[] NonZeroPositions(int w)
     {
         int amount = 0, wcopy = w;

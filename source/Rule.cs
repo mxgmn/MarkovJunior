@@ -56,7 +56,7 @@ class Rule
         for (int i = 0; i < input.Length; i++)
         {
             int w = input[i];
-            binput[i] = w == wildcard ? (byte)0xff : Helper.FirstNonZeroPosition(w);
+            binput[i] = w == wildcard ? (byte)0xff : (byte)System.Numerics.BitOperations.TrailingZeroCount(w);
         }
     }
 

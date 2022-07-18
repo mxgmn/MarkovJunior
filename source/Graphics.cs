@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -11,23 +12,27 @@ static class Graphics
     {
         try
         {
-            var image = Image.Load<Bgra32>(filename);
+            using var image = Image.Load<Bgra32>(filename);
             int width = image.Width, height = image.Height;
-            var result = new int[width * height];
-            for (int j = 0; j < height; j++) for (int i = 0; i < width; i++) result[j * width + i] = unchecked((int) image[i, j].Bgra);
-            image.Dispose();
+            int[] result = new int[width * height];
+            image.CopyPixelDataTo(MemoryMarshal.Cast<int, Bgra32>(result));
             return (result, width, height, 1);
         }
         catch (Exception) { return (null, -1, -1, -1); }
     }
 
-    public static void SaveBitmap(int[] data, int width, int height, string filename)
+    unsafe public static void SaveBitmap(int[] data, int width, int height, string filename)
     {
-        var formattedData = new Bgra32[data.Length];
-        for (int i = 0; i < data.Length; i++) formattedData[i] = new Bgra32 { Bgra = unchecked((uint) data[i]) };
-        var image = Image.WrapMemory(Configuration.Default, new Memory<Bgra32>(formattedData), width, height);
-        image.SaveAsPng(filename);
-        image.Dispose();
+        if (width <= 0 || height <= 0 || data.Length != width * height)
+        {
+            Console.WriteLine($"ERROR: wrong image width * height = {width} * {height}");
+            return;
+        }
+        fixed (int* pData = data)
+        {
+            using var image = Image.WrapMemory<Bgra32>(pData, width, height);
+            image.SaveAsPng(filename);
+        }
     }
 
     public static (int[], int, int) Render(byte[] state, int MX, int MY, int MZ, int[] colors, int pixelsize, int MARGIN) => MZ == 1 ? BitmapRender(state, MX, MY, colors, pixelsize, MARGIN) : IsometricRender(state, MX, MY, MZ, colors, pixelsize, MARGIN);

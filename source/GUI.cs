@@ -280,12 +280,6 @@ static class GUI
                         y += fonts[0].FY + VSKIP;
                     }
                 }
-                else if (node is MapNode)
-                {
-                    Console.WriteLine("ERROR! Map is Branch");
-                    write("map", x, y, NODECOLOR);
-                    y += fonts[0].FY + VSKIP;
-                }
                 else if (node is ConvolutionNode convnode)
                 {
                     string s = "convolution";
