@@ -3,7 +3,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-class Observation
+public sealed class Observation
 {
     readonly byte from;
     readonly int to;

@@ -2,7 +2,7 @@
 
 using System;
 
-static class AH
+public static class AH
 {
     public static T[][][] Array3D<T>(int MX, int MY, int MZ, T value)
     {

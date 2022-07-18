@@ -4,7 +4,7 @@ using System;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class OneNode : RuleNode
+public sealed class OneNode : RuleNode
 {
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
     {

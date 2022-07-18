@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Collections.Generic;
 
-static class VoxHelper
+public static class VoxHelper
 {
     public static (int[], int, int, int) LoadVox(string filename)
     {

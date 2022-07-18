@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-static class Search
+public static class Search
 {
     public static byte[][] Run(byte[] present, int[] future, Rule[] rules, int MX, int MY, int MZ, int C, bool all, int limit, double depthCoefficient, int seed)
     {
@@ -249,7 +249,7 @@ static class Search
     }
 }
 
-class Board
+public sealed class Board
 {
     public byte[] state;
     public int parentIndex, depth, backwardEstimate, forwardEstimate;
@@ -277,7 +277,7 @@ class Board
     }
 }
 
-class StateComparer : IEqualityComparer<byte[]>
+public sealed class StateComparer : IEqualityComparer<byte[]>
 {
     public bool Equals(byte[] a, byte[] b)
     {

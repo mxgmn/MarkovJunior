@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class TileNode : WFCNode
+public sealed class TileNode : WFCNode
 {
     List<byte[]> tiledata;
 

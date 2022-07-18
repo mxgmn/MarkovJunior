@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-static class Graphics
+public static class Graphics
 {
     public static (int[], int, int, int) LoadBitmap(string filename)
     {
@@ -166,7 +166,7 @@ static class Graphics
     }
 }
 
-class Sprite
+public sealed class Sprite
 {
     public int[] cube;
     public int[][] edges;
@@ -207,7 +207,7 @@ class Sprite
     }
 }
 
-struct Voxel
+public struct Voxel
 {
     public int color;
     public int x, y, z;

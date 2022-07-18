@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Xml.Linq;
 
-abstract class Node
+public abstract class Node
 {
     abstract protected bool Load(XElement xelem, bool[] symmetry, Grid grid);
     abstract public void Reset();
@@ -48,7 +48,7 @@ abstract class Node
     protected static string[] nodenames = new string[] { "one", "all", "prl", "markov", "sequence", "path", "map", "convolution", "convchain", "wfc" };
 }
 
-abstract class Branch : Node
+public abstract class Branch : Node
 {
     public Branch parent;
     public Node[] nodes;
@@ -96,8 +96,8 @@ abstract class Branch : Node
     }
 }
 
-class SequenceNode : Branch { }
-class MarkovNode : Branch
+public sealed class SequenceNode : Branch { }
+public sealed class MarkovNode : Branch
 {
     public MarkovNode() { }
     public MarkovNode(Node child, Interpreter ip) { nodes = new Node[] { child }; this.ip = ip; grid = ip.grid; }

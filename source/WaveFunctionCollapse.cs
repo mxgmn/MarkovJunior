@@ -4,7 +4,7 @@ using System;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-abstract class WFCNode : Branch
+public abstract class WFCNode : Branch
 {
     protected Wave wave;
     protected int[][][] propagator;
@@ -258,7 +258,7 @@ abstract class WFCNode : Branch
     protected static int[] DZ = { 0, 0, 0, 0, 1, -1 };
 }
 
-class Wave
+public sealed class Wave
 {
     public bool[][] data;
     public int[][][] compatible;

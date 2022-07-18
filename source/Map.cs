@@ -3,7 +3,7 @@
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class MapNode : Branch
+public sealed class MapNode : Branch
 {
     public Grid newgrid;
     public Rule[] rules;

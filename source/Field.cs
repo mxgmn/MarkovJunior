@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-class Field
+public sealed class Field
 {
     public bool recompute, inversed, essential;
     public int zero, substrate;

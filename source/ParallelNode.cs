@@ -2,7 +2,7 @@
 
 using System.Xml.Linq;
 
-class ParallelNode : RuleNode
+public sealed class ParallelNode : RuleNode
 {
     byte[] newstate;
 

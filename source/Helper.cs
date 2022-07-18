@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-static class Helper
+public static class Helper
 {
     public static (byte[], int) Ords(this int[] data, List<int> uniques = null)
     {
@@ -90,7 +90,7 @@ static class Helper
     public static T[] Reflected<T>(T[] p, int N) => Pattern((x, y) => p[N - 1 - x + y * N], N);
 }
 
-static class RandomHelper
+public static class RandomHelper
 {
     public static T Random<T>(this List<T> list, Random random) => list[random.Next(list.Count)];
     
