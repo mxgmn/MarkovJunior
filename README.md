@@ -23,6 +23,7 @@ Using these ideas, we construct [many probabilistic generators](models/) of dung
 Additional materials:
 1. [Xml syntax overview](syntax.md).
 2. Higher resolution screenshots and more seeds: [ModernHouse](https://github.com/mxgmn/Blog/blob/master/ModernHouse.md), [SeaVilla](https://github.com/mxgmn/Blog/blob/master/SeaVilla.md), [Apartemazements](https://github.com/mxgmn/Blog/blob/master/Apartemazements.md), [CarmaTower](https://github.com/mxgmn/Blog/blob/master/CarmaTower.md), [Escheresque](https://github.com/mxgmn/Blog/blob/master/Escheresque.md), [PillarsOfEternity](https://github.com/mxgmn/Blog/blob/master/PillarsOfEternity.md), [Surface](https://github.com/mxgmn/Blog/blob/master/RandomSurface.md), [Knots](https://twitter.com/ExUtumno/status/895688856304992256).
+3. Unofficial [technical notes](https://gist.github.com/dogles/a926ab890552cc7e45400a930398449d) by Dan Ogles and [code documentation](https://github.com/kaya3/MarkovJunior-docs) by Andrew Kay.
 
 
 
@@ -240,9 +241,10 @@ Generated results are put into the `output` folder. Edit `models.xml` to change 
 
 
 ## Notable ports, forks and spinoffs
+* Yuu made a [TypeScript version of MarkovJunior](https://github.com/Yuu6883/MarkovJuniorWeb) that [runs on the web](https://yuu6883.github.io/MarkovJuniorWeb/), extended the language and added the ability to bind nodes to keypresses.
 * Aseaday is [porting](https://github.com/aseaday/MarkovJunior.js) MarkovJunior to JavaScript.
-* Yuu is making a [TypeScript version of MarkovJunior](https://github.com/Yuu6883/MarkovJuniorWeb) that [runs on the web](https://yuu6883.github.io/MarkovJuniorWeb/).
 * Andrew Kay added [XML documentation](https://github.com/kaya3/MarkovJunior-docs) to C# source code.
+* [Dan Ogles](https://github.com/dogles) wrote MarkovJunior [technical notes](https://gist.github.com/dogles/a926ab890552cc7e45400a930398449d) with the focus on fields and inference.
 
 
 

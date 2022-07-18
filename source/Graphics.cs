@@ -1,7 +1,6 @@
 ﻿// Copyright (C) 2022 Maxim Gumin, The MIT License (MIT)
 
 using System;
-using System.Buffers.Binary;
 using System.Collections.Generic;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -15,34 +14,17 @@ static class Graphics
             var image = Image.Load<Bgra32>(filename);
             int width = image.Width, height = image.Height;
             var result = new int[width * height];
-            for (var j = 0; j < height; j += 1)
-            {
-                for (var i = 0; i < width; i += 1)
-                {
-                    result[j * width + i] = unchecked((int) image[i, j].Bgra);
-                }
-            }
-
+            for (int j = 0; j < height; j++) for (int i = 0; i < width; i++) result[j * width + i] = unchecked((int) image[i, j].Bgra);
             image.Dispose();
             return (result, width, height, 1);
         }
-        catch (Exception)
-        {
-            return (null, -1, -1, -1);
-        }
+        catch (Exception) { return (null, -1, -1, -1); }
     }
 
     public static void SaveBitmap(int[] data, int width, int height, string filename)
     {
         var formattedData = new Bgra32[data.Length];
-        for (var i = 0; i < data.Length; i += 1)
-        {
-            formattedData[i] = new Bgra32
-            {
-                Bgra = unchecked((uint) data[i])
-            };
-        }
-
+        for (int i = 0; i < data.Length; i++) formattedData[i] = new Bgra32 { Bgra = unchecked((uint) data[i]) };
         var image = Image.WrapMemory(Configuration.Default, new Memory<Bgra32>(formattedData), width, height);
         image.SaveAsPng(filename);
         image.Dispose();
