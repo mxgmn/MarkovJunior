@@ -5,8 +5,12 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// A 'wfc' node which uses an overlapping Wave Function Collapse model.
+/// </summary>
 class OverlapNode : WFCNode
 {
+    /// <summary>The distinct patterns in this model, as flat N * N arrays of colors.</summary>
     byte[][] patterns;
 
     override protected bool Load(XElement xelem, bool[] parentSymmetry, Grid grid)
@@ -47,6 +51,7 @@ class OverlapNode : WFCNode
         }
         long W = Helper.Power(C, N * N);
 
+        // inverse of Helper.Index(this byte[], C)
         byte[] patternFromIndex(long ind)
         {
             long residue = ind, power = W;
@@ -65,7 +70,9 @@ class OverlapNode : WFCNode
             return result;
         };
 
+        // dictionary of weights for each distinct pattern
         Dictionary<long, int> weights = new();
+        // maps each pattern index to its key in the weights dictionary
         List<long> ordering = new();
 
         int ymax = periodicInput ? grid.MY : grid.MY - N + 1;
@@ -73,6 +80,7 @@ class OverlapNode : WFCNode
         for (int y = 0; y < ymax; y++) for (int x = 0; x < xmax; x++)
             {
                 byte[] pattern = Helper.Pattern((dx, dy) => sample[(x + dx) % SMX + ((y + dy) % SMY) * SMX], N);
+                // `(q1, q2) => false` means we don't deduplicate symmetries, so that weights aren't biased towards asymmetric patterns
                 var symmetries = SymmetryHelper.SquareSymmetries(pattern, q => Helper.Rotated(q, N), q => Helper.Reflected(q, N), (q1, q2) => false, symmetry);
 
                 foreach (byte[] p in symmetries)

@@ -4,8 +4,12 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// Helper functions for generating symmetries of patterns.
+/// </summary>
 static class SymmetryHelper
 {
+    /// <summary>Lookup table for subgroups of 2D symmetries.</summary>
     public static Dictionary<string, bool[]> squareSubgroups = new()
     {
         ["()"] = new bool[8] { true, false, false, false, false, false, false, false },
@@ -16,6 +20,14 @@ static class SymmetryHelper
         ["(xy)"] = new bool[8] { true, true, true, true, true, true, true, true }
     };
 
+    /// <summary>
+    /// Returns an enumerable of symmetries of a 2D <c>thing</c>.
+    /// </summary>
+    /// <param name="thing">The original thing to generate symmetries of.</param>
+    /// <param name="rotation">A function which applies a 90-degree rotation.</param>
+    /// <param name="reflection">A function which applies a reflection.</param>
+    /// <param name="same">A predicate which will be used to deduplicate symmetries; use <c>(q1, q2) => false</c> to prevent deduplication.</param>
+    /// <param name="subgroup"><inheritdoc cref="SymmetryHelper.GetSymmetry(bool, string, bool[])" path="/returns"/> If <c>null</c>, the full symmetry group is used.</param>
     public static IEnumerable<T> SquareSymmetries<T>(T thing, Func<T, T> rotation, Func<T, T> reflection, Func<T, T, bool> same, bool[] subgroup = null)
     {
         T[] things = new T[8];
@@ -34,6 +46,7 @@ static class SymmetryHelper
         return result;
     }
 
+    /// <summary>Lookup table for subgroups of 3D symmetries.</summary>
     public static Dictionary<string, bool[]> cubeSubgroups = new()
     {
         ["()"] = AH.Array1D(48, l => l == 0),
@@ -45,6 +58,15 @@ static class SymmetryHelper
         //["(xy)(z)"] = AH.Array1D(48, l => l < 8 || l == 17 || ...),
     };
 
+    /// <summary>
+    /// Returns an enumerable of symmetries of a 3D <c>thing</c>.
+    /// </summary>
+    /// <param name="thing"><inheritdoc cref="SymmetryHelper.SquareSymmetries{T}(T, Func{T, T}, Func{T, T}, Func{T, T, bool}, bool[])" path="/param[@name='thing']"/></param>
+    /// <param name="a">A function which applies a 90-degree rotation about the z axis.</param>
+    /// <param name="b">A function which applies a 90-degree rotation about the y axis.</param>
+    /// <param name="r"><inheritdoc cref="SymmetryHelper.SquareSymmetries{T}(T, Func{T, T}, Func{T, T}, Func{T, T, bool}, bool[])" path="/param[@name='reflection']"/></param>
+    /// <param name="same"><inheritdoc cref="SymmetryHelper.SquareSymmetries{T}(T, Func{T, T}, Func{T, T}, Func{T, T, bool}, bool[])" path="/param[@name='same']"/></param>
+    /// <param name="subgroup"><inheritdoc cref="SymmetryHelper.SquareSymmetries{T}(T, Func{T, T}, Func{T, T}, Func{T, T, bool}, bool[])" path="/param[@name='subgroup']"/></param>
     public static IEnumerable<T> CubeSymmetries<T>(T thing, Func<T, T> a, Func<T, T> b, Func<T, T> r, Func<T, T, bool> same, bool[] subgroup = null)
     {
         T[] s = new T[48];
@@ -102,7 +124,14 @@ static class SymmetryHelper
         for (int i = 0; i < 48; i++) if ((subgroup == null || subgroup[i]) && !result.Where(t => same(t, s[i])).Any()) result.Add(s[i]);
         return result;
     }
-
+    
+    /// <summary>
+    /// Finds the subgroup of symmetries associated with the lookup key <c>s</c>.
+    /// </summary>
+    /// <param name="d2">If <c>true</c>, a 2D symmetry group is found; otherwise, a 3D symmetry group is found.</param>
+    /// <param name="s">The lookup key for the symmetry subgroup.</param>
+    /// <param name="dflt">The default subgroup, which is returned if <c>s</c> is <c>null</c>.</param>
+    /// <returns>An array of flags defining a subgroup of symmetries.</returns>
     public static bool[] GetSymmetry(bool d2, string s, bool[] dflt)
     {
         if (s == null) return dflt;

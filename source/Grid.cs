@@ -7,19 +7,60 @@ using System.Collections.Generic;
 
 class Grid
 {
+    /// <summary>The grid's state, as a flat array.</summary>
     public byte[] state;
-    public bool[] mask;
-    public int MX, MY, MZ;
 
+    /// <summary>
+    /// Used by <see cref="AllNode">AllNode</see> as a temporary buffer to keep
+    /// track of which cells have been changed.
+    /// </summary>
+    public bool[] mask;
+
+    /// <summary>The width of the grid.</summary>
+    public int MX;
+
+    /// <summary>The height of the grid.</summary>
+    public int MY;
+
+    /// <summary>The depth of the grid. If 2D grid has a depth of 1.</summary>
+    public int MZ;
+
+    /// <summary>The number of distinct colors allowed in the grid.</summary>
     public byte C;
+    
+    /// <summary>The alphabet used for colors.</summary>
     public char[] characters;
+    
+    /// <summary>Maps each alphabet symbol to its color, i.e. its index in <see cref="Grid.characters">characters</see>.</summary>
     public Dictionary<char, byte> values;
+
+    /// <summary>
+    /// Maps each character representing an alphabet symbol, union or wildcard
+    /// to a bitmask of which color(s) that character represents.
+    /// </summary>
     public Dictionary<char, int> waves;
+
+    /// <summary>If not <c>null</c>, rules with file resources will be loaded from this folder.</summary>
+    /// <seealso cref="Rule.Load(XElement, Grid, Grid)"/>
     public string folder;
 
+    /// <summary>A bitmask of which colors should be rendered transparently.</summary>
+    /// <remarks>Not currently used.</remarks>
     int transparent;
+
+    /// <summary>A buffer for a temporary copy of the <c>state</c> array.</summary>
+    /// <remarks>Not currently used.</remarks>
     byte[] statebuffer;
 
+    /// <summary>
+    /// Creates a new grid, whose parameters are loaded from an XML element.
+    /// The loading may fail if the XML data is invalid, in which case
+    /// <c>null</c> is returned.
+    /// </summary>
+    /// <param name="xelem">The XML element.</param>
+    /// <param name="MX"><inheritdoc cref="Grid.MX" path="/summary"/></param>
+    /// <param name="MY"><inheritdoc cref="Grid.MY" path="/summary"/></param>
+    /// <param name="MZ"><inheritdoc cref="Grid.MZ" path="/summary"/></param>
     public static Grid Load(XElement xelem, int MX, int MY, int MZ)
     {
         Grid g = new();
@@ -80,11 +121,18 @@ class Grid
         return g;
     }
 
+    /// <summary>
+    /// Resets the grid's state to all zeroes (i.e. the first color in the
+    /// grid's alphabet).
+    /// </summary>
     public void Clear()
     {
         for (int i = 0; i < state.Length; i++) state[i] = 0;
     }
 
+    /// <summary>
+    /// Parses a string of alphabet symbols as a bitmask of colors.
+    /// </summary>
     public int Wave(string values)
     {
         int sum = 0;
@@ -120,6 +168,11 @@ class Grid
         return statebuffer;
     }*/
 
+    /// <summary>
+    /// Determines whether the rule's input pattern matches in this grid at the
+    /// given position. The position must be such that the whole input pattern
+    /// is in-bounds.
+    /// </summary>
     public bool Matches(Rule rule, int x, int y, int z)
     {
         int dz = 0, dy = 0, dx = 0;

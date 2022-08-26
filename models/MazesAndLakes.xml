@@ -1,0 +1,28 @@
+<markov values="BWREI">
+    <!-- make a few lakes by random growth -->
+    <one in="B" out="I" steps="4"/>
+    <one in="IB" out="*I" steps="16380"/>
+    
+    <!-- make some land by a self-avoiding random walk with backtracking -->
+    <one in="B" out="R" steps="32"/>
+    <one in="RBB" out="WWR"/>
+    <one in="RWW" out="EER"/>
+    <one in="R" out="E"/>
+    
+    <!-- erode narrow sections of land -->
+    <one in="BBWBB" out="**B**"/>
+    
+    <!-- replace the solid lakes with isolated pixels -->
+    <one in="II" out="BB" steps="8192"/>
+    
+    <!-- fill unused space with a water texture -->
+    <one in="BB*/BBB/*B*" out="***/*I*/***"/>
+    <one in="*I*/IBI/*I*" out="***/*I*/***"/>
+    
+    <!-- delete water pixels at random, for an animated effect -->
+    <!-- <one in="I" out="B"/> -->
+</markov>
+
+<!--
+Made by Andrew Kay https://github.com/kaya3/pattern-match-2d
+-->

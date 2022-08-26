@@ -5,6 +5,10 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
+/// <summary>
+/// Draws a visual representation of the state of the interpreter, alongside
+/// the state of the grid.
+/// </summary>
 static class GUI
 {
     static readonly int S, SMALL, MAXWIDTH, ZSHIFT, HINDENT, HGAP, HARROW, HLINE, VSKIP, SMALLVSKIP, FONTSHIFT, AFTERFONT;
@@ -14,8 +18,12 @@ static class GUI
     const string FONT = "Tamzen8x16r", TITLEFONT = "Tamzen8x16b";
     static readonly (bool[], int FX, int FY)[] fonts;
 
+    /// <summary>The order of characters in a raster font.</summary>
     static readonly char[] legend = "ABCDEFGHIJKLMNOPQRSTUVWXYZ 12345abcdefghijklmnopqrstuvwxyz\u03bb67890{}[]()<>$*-+=/#_%^@\\&|~?'\"`!,.;:".ToCharArray();
+    
+    /// <summary>Index lookup map for <see cref="GUI.legend">legend</see>.</summary>
     static readonly Dictionary<char, byte> map;
+    
     static GUI()
     {
         map = new Dictionary<char, byte>();
@@ -52,6 +60,9 @@ static class GUI
         ACTIVE = (255 << 24) + Convert.ToInt32(settings.Get("active", "ffffff"), 16);
     }
 
+    /// <summary>
+    /// <inheritdoc cref="GUI" path="/summary"/>
+    /// </summary>
     public static void Draw(string name, Branch root, Branch current, int[] bitmap, int WIDTH, int HEIGHT, Dictionary<char, int> palette)
     {
         void drawRectangle(int x, int y, int width, int height, int color)
@@ -315,10 +326,15 @@ static class GUI
             }
         }
     }
-
+    
+    /// <summary>
+    /// Determines if the rule at the given index in the given RuleNode was
+    /// active on the last execution step.
+    /// </summary>
     static bool IsActive(RuleNode node, int index)
     {
         if (node.last[index]) return true;
+        // check if any symmetry of the rule was active
         for (int r = index + 1; r < node.rules.Length; r++)
         {
             Rule rule = node.rules[r];

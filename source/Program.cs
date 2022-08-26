@@ -6,8 +6,14 @@ using System.Xml.Linq;
 using System.Diagnostics;
 using System.Collections.Generic;
 
+/// <summary>
+/// The entry point for the MarkovJunior command-line program.
+/// </summary>
 static class Program
 {
+    /// <summary>
+    /// <inheritdoc cref="Program" path="/summary"/>
+    /// </summary>
     static void Main()
     {
         Stopwatch sw = Stopwatch.StartNew();
