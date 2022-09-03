@@ -245,6 +245,7 @@ Generated results are put into the `output` folder. Edit `models.xml` to change 
 * Aseaday is [porting](https://github.com/aseaday/MarkovJunior.js) MarkovJunior to JavaScript.
 * Andrew Kay added [XML documentation](https://github.com/kaya3/MarkovJunior-docs) to C# source code.
 * [Dan Ogles](https://github.com/dogles) wrote MarkovJunior [technical notes](https://gist.github.com/dogles/a926ab890552cc7e45400a930398449d) with the focus on fields and inference.
+* Andrew Kay designed [MJr](https://github.com/kaya3/MJr), a compiled language based on pattern rewriting.
 
 
 
