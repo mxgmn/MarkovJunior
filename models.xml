@@ -154,6 +154,7 @@
   <model name="Tetris" size="30" steps="1500"/>
   <model name="Texture" size="240"/>
   <model name="TileDungeon" size="12" amount="4"/>
+  <model name="TilePath" size="20"/>
   <model name="Trail" size="59" steps="3000"/>
   <model name="Voronoi" size="240"/>
   <model name="Voronoi" size="60" d="3"/>

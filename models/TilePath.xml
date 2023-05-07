@@ -1,0 +1,14 @@
+<sequence values="BAR">
+  <all in="***/*B*/***" out="***/*A*/***" comment="color all inner cells gray"/>
+  <one in="BBB/BAA/BAA" out="***/***/**R" symmetry="()" comment="color 2 cells near opposite corners red"/>
+  <one in="AAB/AAB/BBB" out="R**/***/***" symmetry="()"/>
+  <wfc tileset="Knots2D" values="EUIR">
+    <rule in="B" out="Empty"/>
+    <rule in="A" out="Empty|Line|Turn"/>
+    <rule in="R" out="End"/>
+
+    <one in="EEE/EUE" out="***/*I*" comment="color river endpoints indigo"/>
+    <all in="IU" out="*I" comment="color the whole path indigo"/>
+    <one in="EEE/EIE" out="***/*R*" comment="color endpoints red"/>
+  </wfc>
+</sequence>

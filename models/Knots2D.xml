@@ -2,5 +2,6 @@
   <all in="***/*D*/***" out="***/*B*/***"/>
   <wfc tileset="Knots2D" values="IE">
     <rule in="D" out="Empty"/>
+    <rule in="B" out="Empty|Line|Turn|Cross"/>
   </wfc>
 </sequence>
