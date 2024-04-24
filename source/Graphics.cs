@@ -40,27 +40,21 @@ static class Graphics
     public static (int[], int, int) BitmapRender(byte[] state, int MX, int MY, int[] colors, int pixelsize, int MARGIN)
     {
         int WIDTH = MARGIN + MX * pixelsize, HEIGHT = MY * pixelsize;
-        int TOTALWIDTH = WIDTH, TOTALHEIGHT = HEIGHT;
-        //int TOTALWIDTH = 189 + MARGIN, TOTALHEIGHT = 189;
-        int[] bitmap = new int[TOTALWIDTH * TOTALHEIGHT];
-        for (int i = 0; i < bitmap.Length; i++) bitmap[i] = GUI.BACKGROUND;
-        //for (int i = 0; i < bitmap.Length; i++) bitmap[i] = 255 << 24;
-
-        int DX = (TOTALWIDTH - WIDTH) / 2;
-        int DY = (TOTALHEIGHT - HEIGHT) / 2;
+        int[] bitmap = new int[WIDTH * HEIGHT];
+        Array.Fill(bitmap, GUI.BACKGROUND);
 
         for (int y = 0; y < MY; y++) for (int x = 0; x < MX; x++)
             {
                 int c = colors[state[x + y * MX]];
                 for (int dy = 0; dy < pixelsize; dy++) for (int dx = 0; dx < pixelsize; dx++)
                     {
-                        int SX = DX + x * pixelsize + dx;
-                        int SY = DY + y * pixelsize + dy;
-                        if (SX < 0 || SX >= TOTALWIDTH - MARGIN || SY < 0 || SY >= TOTALHEIGHT) continue;
-                        bitmap[MARGIN + SX + SY * TOTALWIDTH] = c;
+                        int SX = x * pixelsize + dx;
+                        int SY = y * pixelsize + dy;
+                        if (SX < 0 || SX >= WIDTH - MARGIN || SY < 0 || SY >= HEIGHT) continue;
+                        bitmap[MARGIN + SX + SY * WIDTH] = c;
                     }
             }
-        return (bitmap, TOTALWIDTH, TOTALHEIGHT);
+        return (bitmap, WIDTH, HEIGHT);
     }
 
     static readonly Dictionary<int, Sprite> sprites = new();
