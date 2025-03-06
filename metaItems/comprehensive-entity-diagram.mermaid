@@ -1,0 +1,288 @@
+classDiagram
+    %% Core node hierarchy
+    Node <|-- Branch
+    Node <|-- RuleNode
+    Node <|-- PathNode
+    Node <|-- ConvChainNode
+    Node <|-- ConvolutionNode
+    
+    Branch <|-- SequenceNode
+    Branch <|-- MarkovNode
+    Branch <|-- MapNode
+    Branch <|-- WFCNode
+    
+    RuleNode <|-- OneNode
+    RuleNode <|-- AllNode
+    RuleNode <|-- ParallelNode
+    
+    WFCNode <|-- OverlapNode
+    WFCNode <|-- TileNode
+    
+    %% Key relationships
+    Interpreter --> Branch
+    Interpreter --> Grid
+    Interpreter --> RandomHelper: uses
+    Node --> Grid
+    Node --> Interpreter
+    
+    RuleNode --> Rule
+    RuleNode --> Field
+    RuleNode --> Observation: uses
+    Rule --> SymmetryHelper: uses
+    
+    WFCNode --> Wave
+    
+    %% Graphics/GUI relationships
+    GUI --> Node: renders
+    GUI --> Grid: renders
+    Graphics --> Sprite: uses
+    Graphics --> Voxel: uses
+    
+    Program --> Interpreter: runs
+    Program --> GUI: uses
+    Program --> Graphics: uses
+    
+    %% Utility relationships
+    SymmetryHelper --> AH: uses
+    VoxHelper --> Graphics: uses
+    Search --> Board: uses
+    Search --> StateComparer: uses
+    Search --> AH: uses
+    Helper --> RandomHelper: extends
+    
+    %% Other key relationships
+    ConvChainNode --> Helper: uses
+    ConvolutionNode --> AH: uses
+    AllNode --> Field: uses
+    OneNode --> Field: uses
+    OverlapNode --> Graphics: uses
+    TileNode --> VoxHelper: uses
+    MapNode --> Rule: uses
+    
+    %% Classes with XML dependencies
+    Node ..> XMLHelper: uses
+    Grid ..> XMLHelper: uses
+    Interpreter ..> XMLHelper: uses
+    Program ..> XMLHelper: uses
+    ConvChainNode ..> XMLHelper: uses
+    ConvolutionNode ..> XMLHelper: uses
+    
+    %% Class definitions
+    class Node {
+        +Grid grid
+        +abstract bool Load(XElement, bool[], Grid)
+        +abstract void Reset()
+        +abstract bool Go()
+        +static Node Factory(XElement, bool[], Interpreter, Grid)
+    }
+    
+    class Branch {
+        +Node[] nodes
+        +int n
+        +Branch parent
+        +bool Go()
+        +void Reset()
+    }
+    
+    class RuleNode {
+        +Rule[] rules
+        +Field[] fields
+        +Observation[] observations
+        +int counter
+        +int steps
+        +bool Go()
+    }
+    
+    class WFCNode {
+        +Wave wave
+        +string name
+        +int[][][] propagator
+        +double[] weights
+        +Dictionary~byte,bool[]~ map
+        +bool Go()
+    }
+    
+    class Interpreter {
+        +Branch root
+        +Branch current
+        +Grid grid
+        +Random random
+        +List~int,int,int~ changes
+        +IEnumerable Run(int, int, bool)
+    }
+    
+    class Grid {
+        +byte[] state
+        +bool[] mask
+        +int MX, MY, MZ
+        +byte C
+        +char[] characters
+        +Dictionary~char,byte~ values
+        +bool Matches(Rule, int, int, int)
+    }
+    
+    class Rule {
+        +int[] input
+        +byte[] output
+        +byte[] binput
+        +int IMX, IMY, IMZ, OMX, OMY, OMZ
+        +double p
+        +IEnumerable~Rule~ Symmetries(bool[], bool)
+    }
+    
+    class Wave {
+        +bool[][] data
+        +int[][][] compatible
+        +int[] sumsOfOnes
+        +void Init(int[][][], double, double, double, bool)
+    }
+    
+    class Search {
+        +static byte[][] Run(byte[], int[], Rule[], int, int, int, int, bool, int, double, int)
+    }
+    
+    class Field {
+        +bool recompute
+        +bool inversed
+        +int zero, substrate
+        +bool Compute(int[], Grid)
+    }
+    
+    class AH {
+        +static T[][][] Array3D~T~(int, int, int, T)
+        +static T[][] Array2D~T~(int, int, T)
+        +static T[] Array1D~T~(int, Func~int,T~)
+        +static bool Same(byte[], byte[])
+    }
+    
+    class Graphics {
+        +static (int[], int, int, int) LoadBitmap(string)
+        +static void SaveBitmap(int[], int, int, string)
+        +static (int[], int, int) Render(byte[], int, int, int, int[], int, int)
+    }
+    
+    class GUI {
+        +static void Draw(string, Branch, Branch, int[], int, int, Dictionary~char,int~)
+    }
+    
+    class Helper {
+        +static string[][] Split(this string, char, char)
+        +static int Power(int, int)
+        +static int Index(this bool[])
+        +static byte[] NonZeroPositions(int)
+    }
+    
+    class Observation {
+        +static bool ComputeFutureSetPresent(int[], byte[], Observation[])
+        +static void ComputeForwardPotentials(int[][], byte[], int, int, int, Rule[])
+        +static void ComputeBackwardPotentials(int[][], int[], int, int, int, Rule[])
+    }
+    
+    class SymmetryHelper {
+        +static Dictionary~string,bool[]~ squareSubgroups
+        +static Dictionary~string,bool[]~ cubeSubgroups
+        +static IEnumerable~T~ SquareSymmetries~T~(T, Func~T,T~, Func~T,T~, Func~T,T,bool~, bool[])
+        +static bool[] GetSymmetry(bool, string, bool[])
+    }
+    
+    class VoxHelper {
+        +static (int[], int, int, int) LoadVox(string)
+        +static void SaveVox(byte[], byte, byte, byte, int[], string)
+    }
+    
+    class XMLHelper {
+        +static T Get~T~(this XElement, string)
+        +static T Get~T~(this XElement, string, T)
+        +static int LineNumber(this XElement)
+    }
+    
+    class Program {
+        +static void Main()
+    }
+    
+    class PathNode {
+        +int start, finish, substrate
+        +byte value
+        +bool Go()
+    }
+    
+    class ConvChainNode {
+        +int N
+        +double temperature
+        +bool[] sample
+        +bool Go()
+    }
+    
+    class ConvolutionNode {
+        +ConvolutionRule[] rules
+        +int[] kernel
+        +bool Go()
+    }
+    
+    class OneNode {
+        +(int, int, int, int) RandomMatch(Random)
+        +bool Go()
+    }
+    
+    class AllNode {
+        +void Fit(int, int, int, int, bool[], int, int)
+        +bool Go()
+    }
+    
+    class ParallelNode {
+        +byte[] newstate
+        +bool Go()
+    }
+    
+    class OverlapNode {
+        +byte[][] patterns
+        +void UpdateState()
+    }
+    
+    class TileNode {
+        +List~byte[]~ tiledata
+        +void UpdateState()
+    }
+    
+    class MapNode {
+        +Grid newgrid
+        +Rule[] rules
+        +bool Go()
+    }
+    
+    class SequenceNode
+    
+    class MarkovNode {
+        +MarkovNode()
+        +MarkovNode(Node, Interpreter)
+        +bool Go()
+    }
+    
+    class Board {
+        +byte[] state
+        +int parentIndex, depth, backwardEstimate, forwardEstimate
+        +double Rank(Random, double)
+    }
+    
+    class StateComparer {
+        +bool Equals(byte[], byte[])
+        +int GetHashCode(byte[])
+    }
+    
+    class RandomHelper {
+        +static T Random~T~(this List~T~, Random)
+        +static int Random(this double[], double)
+        +static void Shuffle(this int[], Random)
+    }
+    
+    class Sprite {
+        +int[] cube
+        +int[][] edges
+        +int width, height
+    }
+    
+    class Voxel {
+        +int color
+        +int x, y, z
+        +bool[] edges
+    }
