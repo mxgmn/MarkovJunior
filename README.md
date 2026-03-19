@@ -234,6 +234,12 @@ MarkovJunior interpreter is a console application that depends only on the stand
 ```
 dotnet run --configuration Release MarkovJunior.csproj
 ```
+To build the application without running it, run
+```
+dotnet publish --configuration Release MarkovJunior.csproj
+```
+After this, a self-contained app will appear in the `bin/publish` folder. Run `MarkovJunior.exe`, and it will put all the generated artifacts in the `output` folder.
+
 Alternatively, download and run the latest [release](https://github.com/mxgmn/MarkovJunior/releases) for Windows.
 
 Generated results are put into the `output` folder. Edit `models.xml` to change model parameters. Open `.vox` files with [MagicaVoxel](https://ephtracy.github.io/).
