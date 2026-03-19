@@ -56,6 +56,7 @@
   <model name="DiagonalPath" size="80"/>
   <model name="Digger" size="359" steps="50000"/>
   <model name="DijkstraDungeon" size="40" amount="4"/>
+  <model name="Division" size="75"/>
   <model name="DualRetraction" size="59"/>
   <model name="DualRetraction3D" size="27" d="3"/>
   <model name="DungeonGrowth" size="79" amount="4"/>
@@ -130,6 +131,7 @@
   <model name="RegularSAWRestart" size="19" d="3"/>
   <model name="River" size="80" amount="4"/>
   <model name="River" size="20" d="3" amount="1"/>
+  <model name="Rosettes" size="75"/>
   <model name="SAWRestart" size="79" steps="2000"/>
   <model name="SelectLargeCaves" size="60"/>
   <model name="SelectLongKnots" size="10" d="3"/>

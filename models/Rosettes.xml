@@ -1,0 +1,54 @@
+<sequence values="WBUKkAaNnOoYyI" origin="true">
+    <prl in="***/*W*/***" out="***/*U*/***"/>
+    <prl in="W" out="I"/>
+    <prl in="U" out="W"/>
+    <all in="WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW" out="WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWaWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW/WWWWWWWWW" steps="1"/>
+
+    <!-- measure out some survey points as substitute for field max/min capping-->
+    <all temperature="0" steps="10">
+        <rule in="aW" out="aK"/>
+        <rule in="KW" out="AK"/>
+        <field for="K" from="a" on="WA" essential="False" recompute="True"/>
+        <field for="A" from="a" on="KA" essential="False" recompute="True"/>
+    </all>
+
+    <all temperature="0" steps="1">
+        <rule in="A" out="W"/>
+        <rule in="K" out="A"/>
+    </all>
+    <markov>
+        <!-- bootleg voronoi edges using field strengths, would need less handholding if W field could be given a static value -->
+        <all steps="1">
+            <rule in="W" out="K"/>
+            <rule in="W" out="W"/>
+            <field for="W" to="a" on="W" essential="False" recompute="True"/>
+            <field for="K" to="BKUA" on="W" essential="False" recompute="True"/>
+        </all>
+        
+        <!-- bootleg voronoi part two -->
+        <convolution neighborhood="Moore" steps="2">
+            <rule in="K" out="W" sum="1..8" values="a"/>
+            <rule in="K" out="U" sum="1..8" values="W"/>
+        </convolution>
+        
+        <!-- clean up the masking-->
+        <all in="K" out="W" steps="1"/>
+        <all in="K" out="W" steps="1"/>
+        
+        <all temperature="0" steps="1">
+            <rule in="W" out="k"/>
+            <rule in="k" out="W"/>
+            <field for="k" to="a" on="Wk" essential="False" recompute="True"/>
+            <field for="W" to="I" on="k" essential="False" recompute="True"/>
+        </all>
+        
+        <all temperature="0" steps="2">
+            <rule in="W" out="Y"/>
+            <rule in="B" out="Y"/>
+            <rule in="A" out="Y"/>
+            <rule in="k" out="N"/>
+            <rule in="a" out="N"/>
+            <rule in="U" out="n"/>
+        </all>
+    </markov>
+</sequence>

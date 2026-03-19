@@ -1,0 +1,42 @@
+<sequence values="WBUuAaI" origin="true">
+    <prl in="***/*W*/***" out="***/*U*/***"/>
+    <prl in="W" out="I"/>
+    <prl in="U" out="W"/>
+
+    <!-- rounder origin target -->
+    <prl in="WWWWW/WWWWW/WWWWW/WWWWW/BWWWW" out="B***B/B**B*/B*B**/BB***/B****" steps="1"/>
+
+    <!-- clean division, would be a lot more versatile if one of the fields could be given a constant value instead of needing to set up two references-->
+    <all temperature="0" steps="1">
+        <rule in="W" out="U"/>
+        <rule in="W" out="u"/>
+        <field for="U" to="I" on="W" essential="False" recompute="True"/>
+        <field for="u" to="B" on="W" essential="False" recompute="True"/>
+    </all>
+
+    <!-- blur -->
+    <all temperature="2" steps="1">
+        <rule in="U" out="U"/>
+        <rule in="U" out="A"/>
+        <rule in="u" out="a"/>
+        <rule in="u" out="u"/>
+        <field for="U" to="I" on="U" essential="False" recompute="True"/>
+        <field for="A" to="u" on="U" essential="False" recompute="True"/>
+        <field for="a" to="U" on="u" essential="False" recompute="True"/>
+        <field for="u" to="B" on="u" essential="False" recompute="True"/>
+    </all>
+
+    <!-- Recursive contract/dilate. Very handy for edge finding on byzantine shapes. Strays left behind on noisy edges can be cleaned up but can also be useful sometimes.-->
+    <all temperature="0" steps="2">
+        <rule in="A" out="U"/>
+        <rule in="A" out="A"/>
+        <rule in="a" out="a"/>
+        <rule in="a" out="u"/>
+        <field for="U" to="U" on="A" essential="False" recompute="True"/>
+        <field for="A" to="a" on="A" essential="False" recompute="True"/>
+        <field for="a" to="A" on="a" essential="False" recompute="True"/>
+        <field for="u" to="u" on="a" essential="False" recompute="True"/>
+    </all>
+    <!-- There's a bunch of ways to use this, especially when you start adding obstacles and noise fields to give "flow resistance" in different directions.-->
+    <!-- Adding min, max and constant options would hugely expand the potential here, opening up potential for fuzzy calculations in the vein of Gaussian, Laplacian, and Lagrangian methods.-->
+</sequence>
